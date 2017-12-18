@@ -3,30 +3,35 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2017/12/18 12:51:31 by ade-verd         ###   ########.fr        #
+#    Created: 2017/12/18 14:11:18 by ade-verd          #+#    #+#              #
+#    Updated: 2017/12/18 14:38:28 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Binary
-NAME = libftprintf.a
+NAME = printf.test
 
 # Directories
 SRC_PATH = ./
 OBJ_PATH = obj/
-LIB_PATH = libft
-INC_PATH = ./includes \
-		   $(LIB_PATH)/includes
+LIB_PATH = ../libft
+INC_PATH = ../includes \
+		   $(LIB_PATH)/includes\
+		   ./includes
 
 # Includes & libraries
 CPPFLAGS = $(addprefix -I, $(INC_PATH))
-LDFLAGS = -Llibft
+LDFLAGS = -L $(LIB_PATH)
 LDLIBS = -lft
 
 # Sources
-SRC_NAME_FT = \
+SRC_NAME = \
+		   main.c\
+		   ft_read_stdout.c\
+		   ft_compare.c\
+		   test_flag_d.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -74,8 +79,6 @@ LINKING = "--$(LOG_CLEAR)$(LOG_GREEN)✓$(LOG_NOCOLOR)\tlinking " \
 				".................. $(LOG_VIOLET)$<$(LOG_NOCOLOR)"
 ASSEMBLING = "--$(LOG_CLEAR)$(LOG_GREEN)✓$(LOG_NOCOLOR)\tassembling " \
 			 	"............... $(LOG_YELLOW)$(NAME)$(LOG_NOCOLOR)"
-INDEXING = "--$(LOG_CLEAR)$(LOG_GREEN)✓$(LOG_NOCOLOR)\tindexing " \
-			 	"................. $(LOG_YELLOW)$(NAME)$(LOG_NOCOLOR)"
 OBJECTS_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Objects$(LOG_NOCOLOR) deletion " \
 				"............ $(LOG_RED)×$(LOG_NOCOLOR)"
 BIN_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Binary$(LOG_NOCOLOR) deletion " \
@@ -89,8 +92,8 @@ BIN_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Binary$(LOG_NOCOLOR) deletion " \
 all: libft_make $(OBJ_PATH) $(NAME)
 
 $(NAME): $(OBJ)
-	@ar -rc $(NAME) $(OBJ) && echo -e $(ASSEMBLING)
-	@ranlib $(NAME) && echo -e $(INDEXING)
+	@$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $(NAME)
+	@echo -e $(ASSEMBLING)
 
 libft_make:
 	@make -C $(LIB_PATH)
