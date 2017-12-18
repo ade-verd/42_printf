@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:09:43 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/12/18 14:56:15 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/12/18 18:59:46 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,14 @@ int		test_flag_d(int nb)
 	char	*my_print;
 	char	*off_print;
 
-	my_ret = printf("Mine : %d\n", nb + 1);
-	ft_read_stdout(&my_print, my_ret);
+	my_ret = printf("Mine : %d\n", nb);
+	ft_putstr("Salut\n");
+	if ((ft_read_stdout(&my_print, my_ret)) <= 0)
+		return (-1);
 
 	off_ret = printf("Off  : %d\n", nb);
-	ft_read_stdout(&off_print, off_ret);
+	if ((ft_read_stdout(&off_print, off_ret)) <= 0)
+		return (-1);
 
 	printf("my_print  : %s\noff_print : %s\n", my_print, off_print);
 

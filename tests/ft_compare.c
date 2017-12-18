@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 14:25:19 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/12/18 14:41:12 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/12/18 18:59:45 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@ void	ft_compare(int my_ret, int off_ret, char *my_print, char *off_print)
 	char *none;
 	char *red;
 	char *green;
-	char *cyan;
 
 	none = "\033[0m";
 	red = "\033[031m";
 	green = "\033[032m";
-	cyan = "\033[036m";
 
 	if (my_ret != off_ret)
 		printf("ret %sx%s\tmy_ret=%d off_ret=%d\t", red, none, my_ret, off_ret);

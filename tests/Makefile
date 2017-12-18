@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/18 14:11:18 by ade-verd          #+#    #+#              #
-#    Updated: 2017/12/18 14:38:28 by ade-verd         ###   ########.fr        #
+#    Updated: 2017/12/18 17:37:14 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC_NAME = \
 		   main.c\
 		   ft_read_stdout.c\
 		   ft_compare.c\
+		   \
 		   test_flag_d.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
