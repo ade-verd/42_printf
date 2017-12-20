@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 12:25:33 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/12/19 19:40:02 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/12/20 13:25:41 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int		main(void)
 {
-//	test_flag_d(0);
-//	test_flag_d(100);
-	ft_redirect_stdout();
-//	test_flag_d(-100);
+	test_flag_d(0);
+	test_flag_d(100);
+	test_flag_d((1000));
 	return (0);
 }

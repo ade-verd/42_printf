@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/18 14:11:18 by ade-verd          #+#    #+#              #
-#    Updated: 2017/12/18 17:37:14 by ade-verd         ###   ########.fr        #
+#    Updated: 2017/12/20 11:52:48 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,8 @@ SRC_NAME = \
 		   ft_compare.c\
 		   \
 		   test_flag_d.c\
+
+TMP_FILES = out.txt
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -84,6 +86,8 @@ OBJECTS_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Objects$(LOG_NOCOLOR) deletion " \
 				"............ $(LOG_RED)×$(LOG_NOCOLOR)"
 BIN_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Binary$(LOG_NOCOLOR) deletion " \
 				"............. $(LOG_RED)×$(LOG_NOCOLOR)"
+TMP_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Temp. files$(LOG_NOCOLOR) deletion " \
+				"........ $(LOG_RED)×$(LOG_NOCOLOR)"
 
 # **************************************************************************** #
 # RULES                                                                        #
@@ -111,6 +115,8 @@ clean:
 	@echo -e "$(TITLE)clean $(NAME)$(END_TITLE)"
 	@echo -e $(OBJECTS_DEL)
 	@rm -Rf $(OBJ_PATH)
+	@echo -e $(TMP_DEL)
+	@rm -f $(TMP_FILES)
 	@echo -e "$(TITLE)clean libft$(END_TITLE)"
 	@make -C $(LIB_PATH) clean
 
