@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2017/12/20 12:03:41 by ade-verd         ###   ########.fr       */
+/*   Updated: 2017/12/20 15:14:53 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,20 @@
 # include <stdlib.h>
 # include "libft.h"
 
-int		ft_read_stdout(int fd, char **str, int buf_size);
-void	ft_compare(int my_ret, int off_ret, char *my_print, char *off_print);
+typedef struct	s_txt
+{
+	int			fd;
+	int			my_ret;
+	int			off_ret;
+	char		*my_print;
+	char		*off_print;
+	char		trash[100];
+}				t_txt;
 
 int		ft_redirect_stdout(void);
-int		ft_restore_stdout(int fd);
+int		ft_open_read_close(int fd, char **my_print, int my_ret);
+void	ft_compare(int my_ret, int off_ret, char *my_print, char *off_print);
+
 int		test_flag_d(int nb);
 
 
