@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/08 15:51:30 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/08 17:58:23 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,17 @@
 # include "libft.h"
 # define BUFF_MAX_SIZE	10
 
-/*typedef struct	s_conv
+typedef struct	s_conv
 {
+	char		*flags;
+	int			width;
+	int			precision;
+	char		size;
+	char		type;
 	char		*conversion;
 	void		*f(va_list, char*, int*);
 }				t_conv;
-*/
+
 typedef struct	s_buff
 {
 	//char		str[BUFF_MAX_SIZE + 1];

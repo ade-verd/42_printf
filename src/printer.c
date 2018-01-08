@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:06:41 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/08 15:51:44 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/08 17:58:20 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ void	ft_init_buffer(t_buff **buff)
 	(*buff)->str = ft_strnew(BUFF_MAX_SIZE);
 	(*buff)->index = 0;
 	(*buff)->total = 0;
+}
+
+void	ft_free_buff(t_buff **buff)
+{
+	ft_strdel((*buff)->str);
+	ft_memdel((void**)buff);
 }
 
 void	ft_print_buffer(t_buff **buff, int fd)
