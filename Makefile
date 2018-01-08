@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2017/12/20 17:17:36 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/08 14:08:35 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ NAME = libftprintf.a
 CC = gcc
 
 # Directories
-SRC_PATH = ./
-OBJ_PATH = obj/
+SRC_PATH = src
+OBJ_PATH = obj
 LIB_PATH = libft
 INC_PATH = ./includes \
 		   $(LIB_PATH)/includes
@@ -34,7 +34,7 @@ SRC_NAME_FT = \
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
 SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
-OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
+OBJ = $(addprefix $(OBJ_PATH)/, $(OBJ_NAME))
 
 # Flags with OS Compatibiliy
 OS = $(shell uname)

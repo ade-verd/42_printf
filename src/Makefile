@@ -6,12 +6,12 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2017/12/20 17:17:39 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/08 14:49:14 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Binary
-NAME = ProjectName
+NAME = test
 
 # Compiler
 CC = gcc
@@ -19,24 +19,24 @@ CC = gcc
 # Directories
 SRC_PATH = ./
 OBJ_PATH = obj/
-LIB_PATH = libft
-INC_PATH = ./includes \
+LIB_PATH = ./../libft
+INC_PATH = ./../includes\
 		   $(LIB_PATH)/includes
 
 # Includes & libraries
 CPPFLAGS = $(addprefix -I, $(INC_PATH))
-LDFLAGS = -Llibft
+LDFLAGS = -L $(LIB_PATH)
 LDLIBS = -lft
 
 # Sources
 SRC_NAME = \
-		   main.c\
-
+		   main_test.c\
+		   printer.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
-SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
-OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
+SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
+OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 
 # Flags with OS Compatibiliy
 OS = $(shell uname)
@@ -81,6 +81,8 @@ LINKING = "--$(LOG_CLEAR)$(LOG_GREEN)✓$(LOG_NOCOLOR)\tlinking " \
 				".................. $(LOG_VIOLET)$<$(LOG_NOCOLOR)"
 ASSEMBLING = "--$(LOG_CLEAR)$(LOG_GREEN)✓$(LOG_NOCOLOR)\tassembling " \
 			 	"............... $(LOG_YELLOW)$(NAME)$(LOG_NOCOLOR)"
+INDEXING = "--$(LOG_CLEAR)$(LOG_GREEN)✓$(LOG_NOCOLOR)\tindexing " \
+			 	"................. $(LOG_YELLOW)$(NAME)$(LOG_NOCOLOR)"
 OBJECTS_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Objects$(LOG_NOCOLOR) deletion " \
 				"............ $(LOG_RED)×$(LOG_NOCOLOR)"
 BIN_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Binary$(LOG_NOCOLOR) deletion " \
@@ -102,10 +104,11 @@ libft_make:
 
 $(OBJ_PATH):
 	@echo -e "$(TITLE)build $(NAME)$(END_TITLE)"
+	@echo -e "--$(LOG_CLEAR)Flags : $(CFLAGS)"
 	@mkdir -p $(OBJ_PATH)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@$(CC) $(CFLAGS) $(CPPFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(ADDFLAGS) $(CPPFLAGS) -c $< -o $@
 	@echo -e $(LINKING)
 
 clean:
