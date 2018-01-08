@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/18 14:11:18 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/08 14:26:03 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/08 18:01:59 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ TMP_FILES = out.txt
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
-SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
+SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
 OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
 # Flags with OS Compatibiliy
