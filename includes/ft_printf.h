@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/09 12:00:20 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/09 13:40:42 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void			ft_putbuffer(t_buff **buff, char c, int fd);
 void			ft_print_buffer(t_buff **buff, int fd);
 
 /*Get chars to convert*/
-void			ft_get_flags(t_indic **ind, char *str);
+void			ft_get_flags(t_indic **ind, char *str, int **i);
 
 /*Parse*/
 void			ft_parse_str(va_list ap, char *str, int *ret, int fd);
