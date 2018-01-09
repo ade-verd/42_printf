@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/09 14:37:34 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/09 18:57:40 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,3 @@ void	ft_parse_str(va_list ap, char *str, int *ret, int fd)
 	*ret = buff->total;
 	ft_free_buff(&buff);
 }
-
