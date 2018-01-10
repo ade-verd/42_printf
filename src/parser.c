@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/10 16:03:36 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/10 17:39:53 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,30 @@ void	ft_free_indic(t_indic **ind)
 void	ft_get_all_indics(t_indic **ind, va_list ap, char *str, int *i)
 {
 	ft_get_flags(ind, str, i);
-	printf("\tFlags: |%s|\n", (*ind)->flags);
 	ft_get_width(ind, ap, str, i);
-	printf("\tWidth: |%d|\n", (*ind)->width);
 	ft_get_precision(ind, ap, str, i);
-	printf("\tPrecision: |%d|\n", (*ind)->precision);
 	ft_get_size(ind, str, i);
-	printf("\tSize: |%s|\n", (*ind)->size);
 	ft_get_type(ind, str, i);
+/*
+	printf("\tFlags: |%s|\n", (*ind)->flags);
+	printf("\tWidth: |%d|\n", (*ind)->width);
+	printf("\tPrecision: |%d|\n", (*ind)->precision);
+	printf("\tSize: |%s|\n", (*ind)->size);
 	printf("\tType: |%c|\n", (*ind)->type);
+*/
+}
+
+void	ft_convert(t_indic **ind, va_list ap, t_buff **buff)
+{
+	int		i;
+
+	i = 0;
+	while (g_tab[i].letters)
+	{
+		if ((*ind)->type && ft_strchr_pos(g_tab[i].letters, (*ind)->type) != -1)
+			g_tab[i].f(ap, ind, buff);
+		i++;
+	}
 }
 
 void	ft_parse_str(va_list ap, char *str, int *ret, int fd)
@@ -55,7 +70,7 @@ void	ft_parse_str(va_list ap, char *str, int *ret, int fd)
 	t_indic	*ind;
 
 	i = 0;
-	ft_init_buffer(&buff);
+	ft_init_buffer(&buff, fd);
 	while (str[i])
 	{
 		if (str[i] == '%')
@@ -64,10 +79,11 @@ void	ft_parse_str(va_list ap, char *str, int *ret, int fd)
 			ft_init_indic(&ind);
 			ft_get_all_indics(&ind, ap, str, &i);
 			//To do here : find va_arg and convert
+			ft_convert(&ind, ap, &buff);
 			ft_free_indic(&ind);
 		}
 		else
-			ft_putbuffer(&buff, str[i], fd);
+			ft_putbuffer(&buff, str[i]);
 		i++;
 	}
 	*ret = buff->total;
