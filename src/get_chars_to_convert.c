@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:42:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/10 12:17:36 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/10 12:53:11 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,25 @@ void	ft_get_width(t_indic **ind, va_list ap, char *str, int *i)
 		(*ind)->width = ft_atoi(str + *i);
 		while (str[*i] && ft_isdigit(str[*i]) == 1)
 			(*i)++;
+	}
+}
+
+/* voir comment gerer avec *1$ (n$ reordering output), lorsqu'un argument n est imposé  */
+void	ft_get_precision(t_indic **ind, va_list ap, char *str, int *i)
+{
+	if (str[*i] == '.')
+	{
+		(*i)++;
+		if (str[*i] == '*')
+		{
+			(*ind)->precision = va_arg(ap, int);
+			(*i)++;
+		}
+		else
+		{
+			(*ind)->precision = ft_atoi(str + *i);
+			while (str[*i] && ft_isdigit(str[*i]) == 1)
+				(*i)++;
+		}
 	}
 }

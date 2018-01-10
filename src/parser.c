@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/10 12:37:39 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/10 12:50:36 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,14 @@ void	ft_free_indic(t_indic **ind)
 
 void	ft_get_all_indics(t_indic **ind, va_list ap, char *str, int *i)
 {
-//	printf("BEFORE_GET_FLAGS\ti=%d\n", *i);
 	ft_get_flags(ind, str, i);
-	printf("Flags:\t|%s|\n", (*ind)->flags);
-//	printf("BEFORE_GET_WIDTH\ti=%d\n", *i);
 	ft_get_width(ind, ap, str, i);
-	printf("Width:\t|%d|\n", (*ind)->width);
-//	printf("BEFORE_GET_PRECISION\ti=%d\n", *i);
-	//ft_get_precision();
-//	printf("BEFORE_GET_SIZE\ti=%d\n", *i);
+	ft_get_precision(ind, ap, str, i);
 	//ft_get_size();
-//	printf("BEFORE_GET_TYPE\ti=%d\n", *i);
 	//ft_get_type();
-//	printf("AFTER_GET_TYPE\ti=%d\n", *i);
+	printf("Flags:\t\t|%s|\n", (*ind)->flags);
+	printf("Width:\t\t|%d|\n", (*ind)->width);
+	printf("Precision:\t|%d|\n", (*ind)->precision);
 }
 
 void	ft_parse_str(va_list ap, char *str, int *ret, int fd)
