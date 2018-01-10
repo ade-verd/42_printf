@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:06:41 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/10 16:59:32 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/10 19:01:56 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,23 @@ void	ft_print_buffer(t_buff **buff)
 	(*buff)->index = 0;
 }
 
-void	ft_putbuffer(t_buff **buff, char c)
+void	ft_putcbuffer(t_buff **buff, char c)
 {
 	(*buff)->str[(*buff)->index] = c;
 	(*buff)->index = (*buff)->index + 1;
 	(*buff)->str[(*buff)->index] = '\0';
 	if ((*buff)->index == BUFF_MAX_SIZE)
 		ft_print_buffer(buff);
+}
+
+void	ft_putsbuffer(t_buff **buff, char *str)
+{
+	int		i;
+
+	i = 0;
+	while (str[i])
+	{
+		ft_putcbuffer(buff, str[i]);
+		i++;
+	}
 }
