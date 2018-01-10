@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/09 14:00:39 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/10 12:30:07 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ LDLIBS = -lft
 # Sources
 SRC_NAME = \
 		   main_test.c\
+		   ft_printf.c\
 		   get_chars_to_convert.c\
 		   parser.c\
 		   printer.c
