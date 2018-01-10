@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:42:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/10 14:54:17 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/10 16:16:28 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	ft_get_precision(t_indic **ind, va_list ap, char *str, int *i)
 				(*i)++;
 		}
 	}
+	else
+		(*ind)->precision = 0;
 }
 
 void	ft_get_size(t_indic **ind, char *str, int *i)
@@ -84,4 +86,10 @@ void	ft_get_size(t_indic **ind, char *str, int *i)
 		(*ind)->size = NULL;
 	while (j--)
 		(*ind)->size[k++] = str[(*i)++];
+}
+
+void	ft_get_type(t_indic **ind, char *str, int *i)
+{
+	if (str[*i] && ft_strchr_pos("sSpdDioOuUxXcCeEfFgGaA", str[*i]) != -1)
+		(*ind)->type = str[*i];
 }

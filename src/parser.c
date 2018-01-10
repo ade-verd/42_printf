@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/10 15:00:01 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/10 16:03:36 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ void	ft_free_indic(t_indic **ind)
 void	ft_get_all_indics(t_indic **ind, va_list ap, char *str, int *i)
 {
 	ft_get_flags(ind, str, i);
-	printf("Flags: |%s|\t", (*ind)->flags);
+	printf("\tFlags: |%s|\n", (*ind)->flags);
 	ft_get_width(ind, ap, str, i);
-	printf("Width: |%d|\t", (*ind)->width);
+	printf("\tWidth: |%d|\n", (*ind)->width);
 	ft_get_precision(ind, ap, str, i);
-	printf("Precision: |%d|\t", (*ind)->precision);
+	printf("\tPrecision: |%d|\n", (*ind)->precision);
 	ft_get_size(ind, str, i);
-	printf("Size: |%s|\t", (*ind)->size);
-	//ft_get_type();
-	printf("\n");
+	printf("\tSize: |%s|\n", (*ind)->size);
+	ft_get_type(ind, str, i);
+	printf("\tType: |%c|\n", (*ind)->type);
 }
 
 void	ft_parse_str(va_list ap, char *str, int *ret, int fd)

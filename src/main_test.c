@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 14:14:31 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/10 14:59:38 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/10 16:06:57 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,72 +42,45 @@ int		main(void)
 	char	*str;
 
 	str = "%#+-0 123156156.4d";
-	printf("str: |%s|\t", str);
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10);
 
 	str = "%#+-0 *d";
-	printf("str: |%s|\t", str);
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10);
 
 	str = "%#+-0 *.4d";
-	printf("str: |%s|\t", str);
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10);
 
 	str = "%#+-0 *.4hd";
-	printf("str: |%s|\t", str);
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10);
 
-	str = "%#+-0 *.4hhd";
-	printf("str: |%s|\t", str);
+	str = "%#+-0 *.4hhD";
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10);
 
-	str = "%#+-0 *.4ld";
-	printf("str: |%s|\t", str);
+	str = "%#+-0 *.4lu";
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10);
 
-	str = "%#+-0 *.4lld";
-	printf("str: |%s|\t", str);
+	str = "%#+-0 *.4llU";
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10);
 
-	str = "%#+-0 *.4jd";
-	printf("str: |%s|\t", str);
+	str = "%#+-0 *.4jC";
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10);
 
-	str = "%#+-0 *.4zd";
-	printf("str: |%s|\t", str);
+	str = "%#+-0 *.4zp";
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10);
 
-	str = "%#+-0 *.4zzd";
-	printf("str: |%s|\t", str);
+	str = "%#+-0 *.4zP";
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10);
 
-	str = "%#+-0 *.4jjd";
-	printf("str: |%s|\t", str);
-	ft_printf(str, 10);
-
-	str = "%#+-0 *.4llld";
-	printf("str: |%s|\t", str);
-	ft_printf(str, 10);
-
-	str = "%#+-0 *.4lad";
-	printf("str: |%s|\t", str);
-	ft_printf(str, 10);
-
-	str = "%#+-0 *.4hhhd";
-	printf("str: |%s|\t", str);
-	ft_printf(str, 10);
-
-	str = "%#+-0 *.4had";
-	printf("str: |%s|\t", str);
-	ft_printf(str, 10);
-
-	str = "%#+-0 *.4qd";
-	printf("str: |%s|\t", str);
-	ft_printf(str, 10);
-
-	str = "%*.4qd";
-	printf("str: |%s|\t", str);
-	ft_printf(str, 10);
 	return(0);
 }
 
