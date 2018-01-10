@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/10 17:39:53 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/10 18:57:34 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ void	ft_convert(t_indic **ind, va_list ap, t_buff **buff)
 	while (g_tab[i].letters)
 	{
 		if ((*ind)->type && ft_strchr_pos(g_tab[i].letters, (*ind)->type) != -1)
+		{
 			g_tab[i].f(ap, ind, buff);
+			break ;
+		}
 		i++;
 	}
 }

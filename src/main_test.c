@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 14:14:31 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/10 16:06:57 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/10 18:57:35 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,35 +47,35 @@ int		main(void)
 
 	str = "%#+-0 *d";
 	printf("str: |%s|\n", str);
-	ft_printf(str, 10);
+	ft_printf(str, 10, 1531);
 
 	str = "%#+-0 *.4d";
 	printf("str: |%s|\n", str);
-	ft_printf(str, 10);
+	ft_printf(str, 10, 21561);
 
 	str = "%#+-0 *.4hd";
 	printf("str: |%s|\n", str);
-	ft_printf(str, 10);
+	ft_printf(str, 10, 321561);
 
 	str = "%#+-0 *.4hhD";
 	printf("str: |%s|\n", str);
-	ft_printf(str, 10);
+	ft_printf(str, 10, 1321561);
 
 	str = "%#+-0 *.4lu";
 	printf("str: |%s|\n", str);
-	ft_printf(str, 10);
+	ft_printf(str, 10, 321561);
 
 	str = "%#+-0 *.4llU";
 	printf("str: |%s|\n", str);
-	ft_printf(str, 10);
+	ft_printf(str, 10, 21561);
 
 	str = "%#+-0 *.4jC";
 	printf("str: |%s|\n", str);
-	ft_printf(str, 10);
+	ft_printf(str, 10, 1561);
 
 	str = "%#+-0 *.4zp";
 	printf("str: |%s|\n", str);
-	ft_printf(str, 10);
+	ft_printf(str, 10, 561);
 
 	str = "%#+-0 *.4zP";
 	printf("str: |%s|\n", str);
