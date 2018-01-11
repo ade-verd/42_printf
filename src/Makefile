@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/11 13:07:55 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/11 18:08:53 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ LIB_PATH = ./../libft
 INC_PATH = ./../includes\
 		   $(LIB_PATH)/includes
 
+TESTS_PATH = tests/
+
 # Includes & libraries
 CPPFLAGS = $(addprefix -I, $(INC_PATH))
 LDFLAGS = -L $(LIB_PATH)
@@ -30,7 +32,6 @@ LDLIBS = -lft
 
 # Sources
 SRC_NAME = \
-		   main_test.c\
 		   ft_printf.c\
 		   get_chars_to_convert.c\
 		   parser.c\
@@ -40,6 +41,11 @@ SRC_NAME = \
 		   flags_manager.c\
 		   \
 		   int_arg.c\
+		   \
+		   $(TESTS_PATH)test_main.c\
+		   $(TESTS_PATH)test_compare.c\
+		   $(TESTS_PATH)test_indics.c\
+		   $(TESTS_PATH)test_read_stdout.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
@@ -114,6 +120,7 @@ $(OBJ_PATH):
 	@echo -e "$(TITLE)build $(NAME)$(END_TITLE)"
 	@echo -e "--$(LOG_CLEAR)Flags : $(CFLAGS)"
 	@mkdir -p $(OBJ_PATH)
+	@mkdir -p $(OBJ_PATH)$(TESTS_PATH)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@$(CC) $(CFLAGS) $(ADDFLAGS) $(CPPFLAGS) -c $< -o $@

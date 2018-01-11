@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 14:14:31 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/11 13:13:03 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/11 13:16:40 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,39 +40,39 @@ int		main(void)
 	char	*str;
 
 	str = "Le nombre est %#+-0 123.4d !\n";
-//	printf("str: |%s|\n", str);
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10);
 
 	str = "Le nombre est %#+-0 *d !\n";
-//	printf("str: |%s|\n", str);
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 1531);
 
 	str = "Le nombre est %#+-0 *.4d !\n";
-//	printf("str: |%s|\n", str);
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 21561);
 
 	str = "Le nombre est %#+-0 *.4hd !\n";
-//	printf("str: |%s|\n", str);
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 321561);
 
 	str = "Le nombre est %#+-0 *.4hhD !\n";
-//	printf("str: |%s|\n", str);
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 1321561);
 
 	str = "Le nombre est %#+-0 *.4lu !\n";
-//	printf("str: |%s|\n", str);
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 321561);
 
 	str = "Le nombre est %#+-0 *.4llU !\n";
-//	printf("str: |%s|\n", str);
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 21561);
 
 	str = "Le nombre est %#+-0 *.4jC !\n";
-//	printf("str: |%s|\n", str);
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 1561);
 
 	str = "Le nombre est %#+-0 *.4zp !\n";
-//	printf("str: |%s|\n", str);
+	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 561);
 
 	return(0);

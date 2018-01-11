@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flags_manager.c                                    :+:      :+:    :+:   */
+/*   test_main.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/11 12:44:23 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/11 17:50:47 by ade-verd         ###   ########.fr       */
+/*   Created: 2018/01/11 17:51:33 by ade-verd          #+#    #+#             */
+/*   Updated: 2018/01/11 20:29:41 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "tests.h"
 
-void	ft_manage_zero(t_indic **ind, t_buff **buff, char *str)
+int		main(void)
 {
-	int		width;
-	int		len;
-	int		i;
-
-	if (!(*ind)->flags || (ft_strchr_pos((*ind)->flags, '0')))
-		return ;
-	width = (*ind)->width;
-	len = ft_strlen(str);
-	i = 0;
-	while (i < (width - len))
-	{
-		ft_putcbuffer(buff, '0');
-		i++;
-	}
+	ft_call_both("Le nombre est %d", 10);
+	ft_call_both("Les nombres sont %d et %d", 10, 20);
+	return (0);
 }

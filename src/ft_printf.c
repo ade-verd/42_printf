@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 17:42:53 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/10 19:02:38 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/11 20:01:09 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,34 @@ int		ft_printf(const char *str, ...)
 	va_start(ap, str);
 	ft_parse_str(ap, (char*)str, &ret, fd);
 	va_end(ap);
+	return (ret);
+}
+
+int		ft_dprintf(int fd, const char *str, ...)
+{
+	va_list		ap;
+	int			ret;
+
+	va_start(ap, str);
+	ft_parse_str(ap, (char*)str, &ret, fd);
+	va_end(ap);
+	return (ret);
+}
+
+int		ft_vprintf(const char *str, va_list ap)
+{
+	int			ret;
+	int			fd;
+
+	fd = 1;
+	ft_parse_str(ap, (char*)str, &ret, fd);
+	return (ret);
+}
+
+int		ft_vdprintf(int fd, const char *str, va_list ap)
+{
+	int			ret;
+
+	ft_parse_str(ap, (char*)str, &ret, fd);
 	return (ret);
 }

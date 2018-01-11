@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 17:09:01 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/11 13:07:06 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/11 17:45:56 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_int_arg(va_list ap, t_indic **ind, t_buff **buff)
 		if ((*ind)->type && (*ind)->type == g_ft[i].letter)
 		{
 			g_ft[i].f((void*)&to_convert, ind, buff);
-		//	break ;
+			break ;
 		}
 		i++;
 	}
