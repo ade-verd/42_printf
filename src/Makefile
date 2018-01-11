@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/10 17:12:09 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/11 13:07:55 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,11 @@ SRC_NAME = \
 		   get_chars_to_convert.c\
 		   parser.c\
 		   printer.c\
-		   int_arg.c
+		   \
+		   indicators_manager.c\
+		   flags_manager.c\
+		   \
+		   int_arg.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

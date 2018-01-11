@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 14:14:31 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/11 12:38:03 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/11 13:13:03 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		main(void)
 {
 	char	*str;
 
-	str = "Le nombre est %#+-0 123156156.4d !\n";
+	str = "Le nombre est %#+-0 123.4d !\n";
 //	printf("str: |%s|\n", str);
 	ft_printf(str, 10);
 
