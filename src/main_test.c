@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 14:14:31 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/10 18:57:35 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/11 12:38:03 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,56 +34,50 @@ int		main(int ac, char **av)
 }*/
 
 /*GET FLAGS TEST*/
-void	ft_init_indic(t_indic **ind);
-void	ft_free_indic(t_indic **ind);
-
+///*
 int		main(void)
 {
 	char	*str;
 
-	str = "%#+-0 123156156.4d";
-	printf("str: |%s|\n", str);
+	str = "Le nombre est %#+-0 123156156.4d !\n";
+//	printf("str: |%s|\n", str);
 	ft_printf(str, 10);
 
-	str = "%#+-0 *d";
-	printf("str: |%s|\n", str);
+	str = "Le nombre est %#+-0 *d !\n";
+//	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 1531);
 
-	str = "%#+-0 *.4d";
-	printf("str: |%s|\n", str);
+	str = "Le nombre est %#+-0 *.4d !\n";
+//	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 21561);
 
-	str = "%#+-0 *.4hd";
-	printf("str: |%s|\n", str);
+	str = "Le nombre est %#+-0 *.4hd !\n";
+//	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 321561);
 
-	str = "%#+-0 *.4hhD";
-	printf("str: |%s|\n", str);
+	str = "Le nombre est %#+-0 *.4hhD !\n";
+//	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 1321561);
 
-	str = "%#+-0 *.4lu";
-	printf("str: |%s|\n", str);
+	str = "Le nombre est %#+-0 *.4lu !\n";
+//	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 321561);
 
-	str = "%#+-0 *.4llU";
-	printf("str: |%s|\n", str);
+	str = "Le nombre est %#+-0 *.4llU !\n";
+//	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 21561);
 
-	str = "%#+-0 *.4jC";
-	printf("str: |%s|\n", str);
+	str = "Le nombre est %#+-0 *.4jC !\n";
+//	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 1561);
 
-	str = "%#+-0 *.4zp";
-	printf("str: |%s|\n", str);
+	str = "Le nombre est %#+-0 *.4zp !\n";
+//	printf("str: |%s|\n", str);
 	ft_printf(str, 10, 561);
-
-	str = "%#+-0 *.4zP";
-	printf("str: |%s|\n", str);
-	ft_printf(str, 10);
 
 	return(0);
 }
-
+//*/
 /*Some tests*/
 /*
 int		main(void)
@@ -95,6 +89,8 @@ int		main(void)
 	printf("%%*d, 30, 10\t|%*d|\n", 30, 10);
 	printf("%%+*2d\tfonctionne pas\n");
 //	printf("%%2$d\t|%+*2$d|\n", 30, 10);
+	printf("Parameter list without reordering: %s %s %s %s\n","first", "second", "third", "fourth");
+	printf("Parameter list after reordering: %4$s %3$s %2$s %1$s\n", "first", "second", "third", "fourth");
 	return (0);
 }
 */
