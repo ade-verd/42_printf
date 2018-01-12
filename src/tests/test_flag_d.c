@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/12 13:26:14 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/12 18:26:37 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ int		ft_test_flag_d(void)
 	STOPIF0(ft_call_both("Number is %010d", 100));
 	STOPIF0(ft_call_both("Number is %0-10d", 100)); /* 0 Should be ignored*/
 	STOPIF0(ft_call_both("Number is %-010d", 100)); /* 0 Should be ignored*/
-	STOPIF0(ft_call_both("Number is %0.210d", 100)); /* 0 Should be ignored*/
-	STOPIF0(ft_call_both("Number is %0.210i", 100)); /* 0 Should be ignored*/
-	STOPIF0(ft_call_both("Number is %0.210o", 100)); /* 0 Should be ignored*/
-	STOPIF0(ft_call_both("Number is %0.210u", 100)); /* 0 Should be ignored*/
-	STOPIF0(ft_call_both("Number is %0.210x", 100)); /* 0 Should be ignored*/
-	STOPIF0(ft_call_both("Number is %0.210X", 100)); /* 0 Should be ignored*/
+	STOPIF0(ft_call_both("Number is %0.2d", 100)); /* 0 Should be ignored*/
+	STOPIF0(ft_call_both("Number is %0.3i", 100)); /* 0 Should be ignored*/
+	STOPIF0(ft_call_both("Number is %0.4o", 100)); /* 0 Should be ignored*/
+	STOPIF0(ft_call_both("Number is %0.5u", 100)); /* 0 Should be ignored*/
+	STOPIF0(ft_call_both("Number is %0.1x", 100)); /* 0 Should be ignored*/
+	STOPIF0(ft_call_both("Number is %0.0X", 100)); /* 0 Should be ignored*/
 
 	/*Width*/
 	STOPIF0(ft_call_both("Number is %3d", 0));

@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 12:44:23 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/12 17:31:19 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/12 18:25:17 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void	ft_manage_minus(t_indic **ind, t_buff **buff, char *str)
 		if (width > len)
 		{
 			(*buff)->suffix = ft_strnew(width - len);
-			while (i++ < (width - len))
-				(*buff)->suffix[i] = ' ';
+			while (i < (width - len))
+				(*buff)->suffix[i++] = ' ';
 		}
 	}
 }
