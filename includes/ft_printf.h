@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/10 18:57:36 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/12 17:08:56 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@
 
 # include "stdio.h" /* /!\ /!\ A SUPPRIMER /!\ /!\ */
 
-# define BUFF_MAX_SIZE	10
+# define BUFF_MAX_SIZE	1000
 
 /*Buffer*/
 typedef struct		s_buff
 {
 	char			*str;
+	char			*suffix;
 	int				index;
 	int				total;
 	int				fd;
@@ -53,12 +54,17 @@ typedef struct		s_ft
 	void			(*f)(void*, t_indic**, t_buff**);
 }					t_ft;
 
+/*ft_printf and cie*/
 int					ft_printf(const char *str, ...);
+int					ft_dprintf(int fd, const char *str, ...);
+int					ft_vprintf(const char *str, va_list ap);
+int					ft_vdprintf(int fd, const char *str, va_list ap);
 
 /*Buffer and printer*/
 void				ft_init_buffer(t_buff **buff, int fd);
 void				ft_free_buff(t_buff **buff);
-void				ft_putbuffer(t_buff **buff, char c);
+void				ft_putcbuffer(t_buff **buff, char c);
+void				ft_putsbuffer(t_buff **buff, char *str);
 void				ft_print_buffer(t_buff **buff);
 
 /*Get chars to convert*/
@@ -73,17 +79,23 @@ void				ft_get_type(t_indic **ind, char *str, int *i);
 void				ft_parse_str(va_list ap, char *str, int *ret, int fd);
 
 /*Convert*/
+void				ft_indicators_manager(t_indic **ind, t_buff **buff, char *str);
 void				ft_int_arg(va_list ap, t_indic **ind, t_buff**);
-void				ft_int_type_d(int *to_convert, t_indic **ind, t_buff **buff);
+void				ft_int_type_d(void *to_convert, t_indic **ind, t_buff **buff);
+
+/*Flags*/
+void				ft_manage_zero(t_indic **ind, t_buff **buff, char *str);
+void				ft_manage_minus(t_indic **ind, t_buff **buff, char *str);
 
 static const t_conv	g_tab[] = {
-	{ "bdiouxX", ft_int_arg }/*,
+	{ "bdiouxX", ft_int_arg },/*
 	{ "DOU", ft_dou_arg },
 	{ "Cc", ft_c_arg },
 	{ "s", ft_s_arg },
 	{ "S", ft_ws_arg },
 	{ "p", ft_p_arg },
-	{ "%", ft_pct_arg }*/
+	{ "%", ft_pct_arg },*/
+	{ 0, 0}
 	};
 
 #endif

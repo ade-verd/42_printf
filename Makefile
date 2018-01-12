@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/08 18:01:35 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/11 13:17:36 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ NAME = libftprintf.a
 CC = gcc
 
 # Directories
-SRC_PATH = src
-OBJ_PATH = obj
+SRC_PATH = src/
+OBJ_PATH = obj/
 LIB_PATH = libft
 INC_PATH = ./includes \
 		   $(LIB_PATH)/includes
@@ -29,12 +29,21 @@ LDFLAGS = -Llibft
 LDLIBS = -lft
 
 # Sources
-SRC_NAME_FT = \
+SRC_NAME = \
+		   ft_printf.c\
+		   parser.c\
+		   printer.c\
+		   get_chars_to_convert.c\
+		   \
+		   indicators_manager.c\
+		   flags_manager.c\
+		   \
+		   int_arg.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
-SRC = $(addprefix $(SRC_PATH)/,$(SRC_NAME))
-OBJ = $(addprefix $(OBJ_PATH)/, $(OBJ_NAME))
+SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
+OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 
 # Flags with OS Compatibiliy
 OS = $(shell uname)

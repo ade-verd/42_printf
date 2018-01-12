@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:06:41 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/12 17:28:25 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/12 18:11:02 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_init_buffer(t_buff **buff, int fd)
 	*buff = NULL;
 	*buff = (t_buff*)malloc(sizeof(t_buff));
 	(*buff)->str = ft_strnew(BUFF_MAX_SIZE);
+	(*buff)->suffix = NULL;
 	(*buff)->index = 0;
 	(*buff)->total = 0;
 	(*buff)->fd = fd;
@@ -24,19 +25,18 @@ void	ft_init_buffer(t_buff **buff, int fd)
 
 void	ft_free_buff(t_buff **buff)
 {
-	if (*buff)
-	{
+	if (((*buff)->str))
 		ft_strdel(&(*buff)->str);
+	if (((*buff)->suffix))
+		ft_strdel(&(*buff)->suffix);
+	if (*buff)
 		ft_memdel((void**)buff);
-	}
 }
 
 void	ft_print_buffer(t_buff **buff)
 {
 	ft_putstr_fd((*buff)->str, (*buff)->fd);
 	ft_strclr((*buff)->str);
-//	if (((*buff)->suffix))
-//		ft_strdel(&(*buff)->suffix);
 	(*buff)->total = (*buff)->total + (*buff)->index;
 	(*buff)->index = 0;
 }
