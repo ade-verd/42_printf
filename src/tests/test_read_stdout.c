@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 18:00:37 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/11 18:08:57 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/12 11:26:41 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int		ft_read_fd(int fd, char **str, int buf_size)
 	int		ret;
 	int		pos;
 
-	if ((pos = lseek(fd, -(buf_size), SEEK_END)) <= 0)
+	if ((pos = lseek(fd, -(buf_size), SEEK_END)) < 0)
 	{
 		printf("lseek() error\npos = %d\n", pos);
 		return (-1);

@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 17:51:33 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/11 20:29:41 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/12 12:12:26 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		main(void)
 {
-	ft_call_both("Le nombre est %d", 10);
-	ft_call_both("Les nombres sont %d et %d", 10, 20);
+	STOPIF0(ft_test_flag_d());
 	return (0);
 }

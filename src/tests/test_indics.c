@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 18:00:48 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/11 20:29:40 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/12 12:23:56 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int		ft_call_both(char *str, ...)
 	t_txt	*t;
 	va_list	ap;
 	va_list	ap2;
+	int		ret;
 
 	va_start(ap, str);
 	va_copy(ap2, ap);
@@ -29,9 +30,11 @@ int		ft_call_both(char *str, ...)
 		return (-1);
 	t->off_print = ft_strnew(t->my_ret + 1000);
 	t->off_ret = vsprintf(t->off_print, str, ap2);
-	ft_compare(t->my_ret, t->off_ret, t->my_print, t->off_print, str);
+	ret = ft_compare(t->my_ret, t->off_ret, t->my_print, t->off_print, str);
 	ft_memdel((void**)&t->my_print);
 	ft_memdel((void**)&t->off_print);
 	va_end(ap);
-	return (1);
+	if(ret == 0)
+		ft_putstr_fd("*** execution stopped (check above) ***\n", 2);
+	return (ret);
 }

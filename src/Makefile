@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/11 18:08:53 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/12 12:02:41 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ SRC_NAME = \
 		   $(TESTS_PATH)test_main.c\
 		   $(TESTS_PATH)test_compare.c\
 		   $(TESTS_PATH)test_indics.c\
-		   $(TESTS_PATH)test_read_stdout.c
+		   $(TESTS_PATH)test_read_stdout.c\
+		   $(TESTS_PATH)test_flag_d.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
