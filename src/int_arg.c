@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 17:09:01 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/12 18:11:15 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/15 14:48:07 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	ft_int_type_d(void *to_convert, t_indic **ind, t_buff **buff)
 	integer = *(int*)to_convert;
 	str = ft_itoa(integer);
 	ft_indicators_manager(ind, buff, str);
+//	if ((*buff)->prefix)
+//		ft_putsbuffer(buff, (*buff)->prefix);
 	ft_putsbuffer(buff, str);
 	if ((*buff)->suffix)
 		ft_putsbuffer(buff, (*buff)->suffix);

@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/12 18:26:37 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/15 17:33:55 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,41 @@ int		ft_test_flag_d(void)
 	STOPIF0(ft_call_both("Le nombre est %d !!!", 10));
 	STOPIF0(ft_call_both("Les nombres sont %d et %d", 10, 20));
 
-	/*Flags '0'*/
+	/*Flag '+'*/
+	STOPIF0(ft_call_both("Number is %+d", 100));
+	STOPIF0(ft_call_both("Number is %+0d", 100));
+	STOPIF0(ft_call_both("Number is %+1d", 100));
+	STOPIF0(ft_call_both("Number is %+3d", 100));
+	STOPIF0(ft_call_both("Number is %+10d", 100));
+	STOPIF0(ft_call_both("Number is %+50d", 100));
+	STOPIF0(ft_call_both("Number is %50d", 100));
+	//STOPIF0(ft_call_both("Number is %+.50d", 100));
+	STOPIF0(ft_call_both("Number is %++10d", 100));
+	STOPIF0(ft_call_both("Number is %+-10d", 100));
+	STOPIF0(ft_call_both("Number is %+-+10d", 100));
+	STOPIF0(ft_call_both("Number is %+--10d", 100));
+	STOPIF0(ft_call_both("Number is %+++10d", 100));
+//	STOPIF0(ft_call_both("Number is %+10n", 100));
+
+	/*Flag '-'*/
+	STOPIF0(ft_call_both("Number is %-d", 100));
+	STOPIF0(ft_call_both("Number is %-0d", 100));
+	STOPIF0(ft_call_both("Number is %-1d", 100));
+	STOPIF0(ft_call_both("Number is %-3d", 100));
+	STOPIF0(ft_call_both("Number is %-10d", 100));
+	STOPIF0(ft_call_both("Number is %-50d", 100));
+	//STOPIF0(ft_call_both("Number is %-.50d", 100));
+	STOPIF0(ft_call_both("Number is %--10d", 100));
+	STOPIF0(ft_call_both("Number is %-+10d", 100));
+	STOPIF0(ft_call_both("Number is %-+-10d", 100));
+	STOPIF0(ft_call_both("Number is %-++10d", 100));
+	STOPIF0(ft_call_both("Number is %---10d", 100));
+//	STOPIF0(ft_call_both("Number is %-10n", 100));
+
+
+	/*Flag '0'*/
 	STOPIF0(ft_call_both("Number is %010d", 100));
+	STOPIF0(ft_call_both("Number is %0+10d", 100));
 	STOPIF0(ft_call_both("Number is %0-10d", 100)); /* 0 Should be ignored*/
 	STOPIF0(ft_call_both("Number is %-010d", 100)); /* 0 Should be ignored*/
 	STOPIF0(ft_call_both("Number is %0.2d", 100)); /* 0 Should be ignored*/
