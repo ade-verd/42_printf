@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/12 16:27:47 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/15 11:02:03 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRC_PATH = ./
 OBJ_PATH = obj/
 LIB_PATH = ./../libft
 INC_PATH = ./../includes\
-		   $(LIB_PATH)/includes
+		   $(LIB_PATH)/includes\
+		   $(TESTS_PATH)
 
 TESTS_PATH = tests/
 
