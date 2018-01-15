@@ -6,14 +6,19 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 12:44:23 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/15 17:54:55 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/15 18:36:32 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-** ft_manage_plus
+** ft_manage_plus (and nothing)
+** The converted value is to be right ajusted.
+** In case of no flag and width > 0 : str is right ajusted by default according to width and str's length
+** In case of '+' : '+' is displayed (always)
+** In case of '-'&'+' (whatever order) : '+' is displayed str is left ajusted
+** In case of '0'&'+'  : '+' is displayed, then zero, then str
 */
 
 void	ft_manage_plus(t_indic **ind, t_buff **buff, char *str)
