@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/16 16:32:13 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/16 17:27:38 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		ft_test_flag_d(void)
 	STOPIF0(ft_call_both("Number is %+-+10d", -100));
 	STOPIF0(ft_call_both("Number is %+--10d", 100));
 	STOPIF0(ft_call_both("Number is %+++10d", 100));
-//	STOPIF0(ft_call_both("Number is %+10n", 100));
+	//STOPIF0(ft_call_both("Number is %+10n", 100));
 
 	/*Flag '-'*/
 	STOPIF0(ft_call_both("Number is %-d", 100));
@@ -62,17 +62,24 @@ int		ft_test_flag_d(void)
 	STOPIF0(ft_call_both("Number is %-+-10d", 100));
 	STOPIF0(ft_call_both("Number is %-++10d", -100));
 	STOPIF0(ft_call_both("Number is %---10d", 100));
-//	STOPIF0(ft_call_both("Number is %-10n", 100));
-
+	//STOPIF0(ft_call_both("Number is %-10n", 100));
 
 	/*Flag ' ' (whitespace)*/
 	(ft_call_both("Number is % d", 100));
+	(ft_call_both("Number is %+ d", 100));
+	(ft_call_both("Number is %- d", 100));
 	(ft_call_both("Number is % 10d", 100));
 	(ft_call_both("Number is %- 10d", 100));
 	(ft_call_both("Number is %+ 10d", 100));
-	(ft_call_both("Number is %+ 10d", -100));
-	(ft_call_both("Number is %+             10d", -100));
-	(ft_call_both("Number is %0+             10d", -100));
+	(ft_call_both("Number is %+ 10d", 100));
+	(ft_call_both("Number is %0 d", 100));
+	(ft_call_both("Number is %0+ d", 100));
+	(ft_call_both("Number is %0- d", 100));
+	(ft_call_both("Number is %0+ 10d", 100));
+	(ft_call_both("Number is %0- 10d", 100));
+	(ft_call_both("Number is %0 10d", 100));
+	(ft_call_both("Number is %+     d", 100));
+	(ft_call_both("Number is %+      10d", 100));
 
 	/*Flag '0'*/
 	STOPIF0(ft_call_both("Number is %010d", 100));

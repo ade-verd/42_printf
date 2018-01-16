@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 12:44:23 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/16 16:38:33 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/16 17:29:03 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_manage_plus(t_indic **ind, t_buff **buff, char **str)
 			&& ft_atoi(*str) >= 0 && (*buff)->sign_printed == 0)
 	{
 		ft_putcbuffer(buff, '+');
-		(*buff)->sign_printed = 1;
+		(*buff)->sign_printed++;
 	}
 }
 
@@ -87,8 +87,8 @@ void	ft_manage_minus(t_indic **ind, t_buff **buff, char **str)
 
 /*
 ** ft_print_sign_before
-** Print sign before 0
-** Types à compléter
+** Print sign '+' '-' before 0 or str
+** Flag ' ' (whitespace) is managed here
 */
 
 void	ft_print_sign_before(t_indic **ind, t_buff **buff, char **str)
@@ -105,11 +105,17 @@ void	ft_print_sign_before(t_indic **ind, t_buff **buff, char **str)
 			if (ft_atoi(*str) >= 0 && *str[0] == '+')
 				ft_putcbuffer(buff, '+');
 		}
+		if ((*ind)->flags && ft_strchr((*ind)->flags, ' ') && *str[0] != '+'
+				&& !ft_strchr((*ind)->flags, '+') && *str[0] != '-')
+		{
+				ft_putcbuffer(buff, ' ');
+				(*buff)->sign_printed++;
+		}
 	}
 	if (nb_ref < (*buff)->index && ft_strchr_pos("+-", *str[0]) != -1)
 	{
 		(*str)++;
-		(*buff)->sign_printed = 1;
+		(*buff)->sign_printed++;
 	}
 }
 
