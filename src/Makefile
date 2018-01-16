@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/16 11:23:27 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/16 17:57:12 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,7 @@ SRC_NAME = \
 		   printer.c\
 		   \
 		   indicators_manager.c\
-		   flags_manager.c\
+		   flags_manager_part1.c\
 		   \
 		   int_arg.c\
 
