@@ -6,11 +6,37 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 18:01:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/12 11:48:55 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/16 15:30:52 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
+
+/*int		ft_count_percent(char *str)
+{
+	int		i;
+	int		count;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '%' && str[i + 1] != '%')
+			count++;
+		i++;
+	}
+}
+
+void	ft_print_arg(va_list ap, char *str)
+{
+	int		i;
+	int		max_arg;
+
+	max_arg = ft_count_percent(str);
+	while (max_arg--)
+	{
+
+	}
+}*/
 
 int		ft_compare(int my_ret, int off_ret, char *my_print, char *off_print, char *str)
 {
