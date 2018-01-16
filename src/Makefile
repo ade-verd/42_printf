@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/15 11:02:03 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/16 11:23:27 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,12 @@ LDFLAGS = -L $(LIB_PATH)
 LDLIBS = -lft
 
 # Sources
+SRC_TEST = $(TESTS_PATH)test_main.c\
+		   $(TESTS_PATH)test_compare.c\
+		   $(TESTS_PATH)test_call_both.c\
+		   $(TESTS_PATH)test_read.c\
+		   $(TESTS_PATH)test_flag_d.c\
+
 SRC_NAME = \
 		   ft_printf.c\
 		   get_chars_to_convert.c\
@@ -42,16 +48,12 @@ SRC_NAME = \
 		   flags_manager.c\
 		   \
 		   int_arg.c\
-		   \
-		   $(TESTS_PATH)test_main.c\
-		   $(TESTS_PATH)test_compare.c\
-		   $(TESTS_PATH)test_call_both.c\
-		   $(TESTS_PATH)test_read.c\
-		   $(TESTS_PATH)test_flag_d.c\
 
-OBJ_NAME = $(SRC_NAME:.c=.o)
+SRC_ALL = $(SRC_NAME) $(SRC_TEST)
 
-SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
+OBJ_NAME = $(SRC_ALL:.c=.o)
+
+SRC = $(addprefix $(SRC_PATH),$(SRC_ALL))
 OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
 
 # Flags with OS Compatibiliy
@@ -147,7 +149,7 @@ fclean:
 re: fclean all
 
 norme:
-	norminette $(SRC)
+	norminette $(SRC_NAME)
 	norminette $(addprefix $(INC_PATH), *.h)
 
 # **************************************************************************** #

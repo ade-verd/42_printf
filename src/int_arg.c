@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 17:09:01 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/15 18:36:37 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/16 13:54:07 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static const t_ft	g_ft[] = {
 	{'d', ft_int_type_d},
 	{'i', ft_int_type_d},
 	{ 0, 0}
-	};
+};
 
 void	ft_int_type_d(void *to_convert, t_indic **ind, t_buff **buff)
 {
@@ -25,9 +25,7 @@ void	ft_int_type_d(void *to_convert, t_indic **ind, t_buff **buff)
 
 	integer = *(int*)to_convert;
 	str = ft_itoa(integer);
-	ft_indicators_manager(ind, buff, str);
-//	if ((*buff)->prefix)
-//		ft_putsbuffer(buff, (*buff)->prefix);
+	ft_indicators_manager(ind, buff, &str);
 	ft_putsbuffer(buff, str);
 	if ((*buff)->suffix)
 		ft_putsbuffer(buff, (*buff)->suffix);

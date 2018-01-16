@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/12 17:12:02 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/16 11:25:10 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ void	ft_init_indic(t_indic **ind)
 
 void	ft_free_indic(t_indic **ind)
 {
-		if ((*ind)->flags)
-			ft_strdel(&(*ind)->flags);
-		if ((*ind)->width)
-			(*ind)->width = 0;
-		if ((*ind)->precision)
-			(*ind)->precision = 0;
-		if ((*ind)->size)
-			ft_strdel(&(*ind)->size);
-		if ((*ind)->type)
-			(*ind)->type = '\0';
-		if (*ind)
-			ft_memdel((void**)ind);
+	if ((*ind)->flags)
+		ft_strdel(&(*ind)->flags);
+	if ((*ind)->width)
+		(*ind)->width = 0;
+	if ((*ind)->precision)
+		(*ind)->precision = 0;
+	if ((*ind)->size)
+		ft_strdel(&(*ind)->size);
+	if ((*ind)->type)
+		(*ind)->type = '\0';
+	if (*ind)
+		ft_memdel((void**)ind);
 }
 
 void	ft_get_all_indics(t_indic **ind, va_list ap, char *str, int *i)
@@ -41,13 +41,6 @@ void	ft_get_all_indics(t_indic **ind, va_list ap, char *str, int *i)
 	ft_get_precision(ind, ap, str, i);
 	ft_get_size(ind, str, i);
 	ft_get_type(ind, str, i);
-/*
-	printf("\tFlags: |%s|\n", (*ind)->flags);
-	printf("\tWidth: |%d|\n", (*ind)->width);
-	printf("\tPrecision: |%d|\n", (*ind)->precision);
-	printf("\tSize: |%s|\n", (*ind)->size);
-	printf("\tType: |%c|\n", (*ind)->type);
-*/
 }
 
 void	ft_convert(t_indic **ind, va_list ap, t_buff **buff)

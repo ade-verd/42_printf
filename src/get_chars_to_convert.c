@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:42:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/10 16:16:28 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/16 11:29:57 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,17 @@ void	ft_get_flags(t_indic **ind, char *str, int *i)
 		(*ind)->flags[k++] = str[(*i)++];
 }
 
-/* voir comment gerer avec *1$ (n$ reordering output), lorsqu'un argument n est imposé  */
-/* voir comment gerer le ? point d'interrogation */
+/*
+** voir comment gerer avec *1$ (n$ reordering output)
+** voir comment gerer le ? point d'interrogation
+*/
+
 void	ft_get_width(t_indic **ind, va_list ap, char *str, int *i)
 {
 	if (str[*i] == '*')
 	{
 		(*ind)->width = va_arg(ap, int);
-			(*i)++;
+		(*i)++;
 	}
 	else
 	{
@@ -46,7 +49,11 @@ void	ft_get_width(t_indic **ind, va_list ap, char *str, int *i)
 	}
 }
 
-/* voir comment gerer avec *1$ (n$ reordering output), lorsqu'un argument n est imposé  */
+/*
+** voir comment gerer avec *1$ (n$ reordering output)
+** voir comment gerer le ? point d'interrogation
+*/
+
 void	ft_get_precision(t_indic **ind, va_list ap, char *str, int *i)
 {
 	if (str[*i] && str[*i] == '.')
