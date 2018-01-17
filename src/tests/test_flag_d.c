@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/16 18:02:51 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/17 13:33:58 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,37 @@ int		ft_test_flag_d(void)
 	(ft_call_both("Number is %0 10d", 100));
 	(ft_call_both("Number is %+     d", 100));
 	(ft_call_both("Number is %+      10d", 100));
+
+	/*Flag '#' oxX*/
+	printf("\n\n");
+	printf("The number is %o\n", 0);
+	printf("The number is %#o\n", 0);
+	printf("The number is %#o\n", -0);
+	printf("The number is %#o\n", +0);
+	printf("The number is %o\n", 100);
+	printf("The number is %#o\n", 100);
+	printf("The number is %#o\n", -100);
+	printf("The number is %#o\n\n", +100);
+	printf("The number is %x\n", 0);
+	printf("The number is %#x\n", 0);
+	printf("The number is %#x\n", -0);
+	printf("The number is %#x\n", +0);
+	printf("The number is %x\n", 100);
+	printf("The number is %#x\n", 100);
+	printf("The number is %#x\n", -100);
+	printf("The number is %#x\n\n", +100);
+	printf("The number is %X\n", 0);
+	printf("The number is %#X\n", 0);
+	printf("The number is %#X\n", -0);
+	printf("The number is %#X\n", +0);
+	printf("The number is %X\n", 100);
+	printf("The number is %#X\n", 100);
+	printf("The number is %#X\n", -100);
+	printf("The number is %#X\n\n", +100);
+	printf("The number is %g\n", -100.03);
+	printf("The number is %G\n\n", +100.005933648646846);
+	printf("The number is %G\n\n", +100.00);
+	printf("\n\n");
 
 	/*Flag '0'*/
 	STOPIF0(ft_call_both("Number is %010d", 100));

@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/16 17:57:12 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/17 11:58:50 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRC_NAME = \
 		   \
 		   indicators_manager.c\
 		   flags_manager_part1.c\
+		   flags_manager_part2.c\
 		   \
 		   int_arg.c\
 

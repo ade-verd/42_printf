@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 12:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/16 17:55:07 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/17 13:34:02 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_flags_manager(t_indic **ind, t_buff **buff, char **str)
 {
 	ft_print_sign_before(ind, buff, str);
+	ft_manage_hashtag(ind, buff, str);
 	ft_manage_plus(ind, buff, str);
 	ft_manage_minus(ind, buff, str);
 	ft_manage_zero(ind, buff, str);

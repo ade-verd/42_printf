@@ -1,150 +1,73 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flags_manager.c                                    :+:      :+:    :+:   */
+/*   flags_manager_part2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/11 12:44:23 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/16 18:02:50 by ade-verd         ###   ########.fr       */
+/*   Created: 2018/01/17 11:01:17 by ade-verd          #+#    #+#             */
+/*   Updated: 2018/01/17 13:34:04 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-** ft_manage_plus (and nothing)
-** The converted value is to be right ajusted.
-** In case of no flag and width > 0 : str is right ajusted by default according
-** to width and str's length
-** In case of '+' : '+' is displayed (always)
-** In case of '-'&'+' (whatever order) : '+' is displayed str is left ajusted
-** In case of '0'&'+'  : '+' is displayed, then zero, then str
+** ft_hashtag_oxX
+** When type is o, x or X, and the value is not 0, 
+** the converted value is prefixed respectively by 0 (o), "0x" (x) or "0X" (X)
 */
 
-void	ft_manage_plus(t_indic **ind, t_buff **buff, char **str)
+void	ft_hashtag_oxx(t_indic **ind, t_buff **buff, char **str)
 {
-	int		width;
-	int		len;
-	int		i;
-	int		isminus_or_is0;
+	int		integer;
 
-	width = (*ind)->width - (*buff)->sign_printed;
-	len = ft_strlen(*str);
-	i = 0;
-	isminus_or_is0 = 0;
-	if ((*ind)->flags && (ft_strchr_pos((*ind)->flags, '-') != -1
-			|| ft_strchr_pos((*ind)->flags, '0') != -1))
-		isminus_or_is0 = 1;
-	if ((*ind)->flags && ft_strchr_pos((*ind)->flags, '+') != -1
-			&& ft_atoi(*str) > 0 && (*buff)->sign_printed == 0)
-		len++;
-	while (i++ < (width - len) && isminus_or_is0 != 1)
-		ft_putcbuffer(buff, ' ');
-	if ((*ind)->flags && ft_strchr_pos((*ind)->flags, '+') != -1
-			&& ft_atoi(*str) >= 0 && (*buff)->sign_printed == 0)
-	{
-		ft_putcbuffer(buff, '+');
-		(*buff)->sign_printed++;
-	}
-}
-
-/*
-** ft_manage_minus
-** The converted value is to be left adjusted.
-** Except for n conversions, the converted value is padded on the right
-** with blanks.
-** If the 0 and - flags both appear, the 0 flag is ignored.
-*/
-
-void	ft_manage_minus(t_indic **ind, t_buff **buff, char **str)
-{
-	int		width;
-	int		len;
-	int		i;
-
-	if (!(*ind)->flags || !(*ind)->width
-			|| ft_strchr_pos((*ind)->flags, '-') == -1)
-		return ;
-	width = (*ind)->width - (*buff)->sign_printed;
-	len = ft_strlen(*str);
-	i = 0;
-	if ((*ind)->type == 'n')
-	{
-		while (i++ < (width - len))
-			ft_putcbuffer(buff, ' ');
-	}
-	else
-	{
-		if (width > len)
-		{
-			(*buff)->suffix = ft_strnew(width - len);
-			while (i < (width - len))
-				(*buff)->suffix[i++] = ' ';
-		}
-	}
-}
-
-/*
-** ft_print_sign_before
-** Print sign '+' '-' before 0 or str
-** Flag ' ' (whitespace) is managed here
-*/
-
-void	ft_print_sign_before(t_indic **ind, t_buff **buff, char **str)
-{
-	int		nb_ref;
-
-	nb_ref = (*buff)->index;
-	if ((*ind)->type && ft_strchr("diouxX", (*ind)->type))
-	{
-		if ((*ind)->flags && ft_strchr((*ind)->flags, '0'))
-		{
-			if (ft_atoi(*str) <= 0 && *str[0] == '-')
-				ft_putcbuffer(buff, '-');
-			if (ft_atoi(*str) >= 0 && *str[0] == '+')
-				ft_putcbuffer(buff, '+');
-		}
-		if ((*ind)->flags && ft_strchr((*ind)->flags, ' ') && *str[0] != '+'
-				&& !ft_strchr((*ind)->flags, '+') && *str[0] != '-')
-		{
-				ft_putcbuffer(buff, ' ');
-				(*buff)->sign_printed++;
-		}
-	}
-	if (nb_ref < (*buff)->index && ft_strchr_pos("+-", *str[0]) != -1)
-	{
-		(*str)++;
-		(*buff)->sign_printed++;
-	}
-}
-
-/*
-** ft_manage_zero
-** The converted value is padded on the left with zeros.
-** If the 0 and - flags both appear, the 0 flag is ignored.
-** If a precision is given with a numeric conversion (d, i, o, u, x, and X),
-** the 0 flag is ignored. For other conversions, the behavior is undefined.
-*/
-
-void	ft_manage_zero(t_indic **ind, t_buff **buff, char **str)
-{
-	int		width;
-	int		len;
-	int		i;
-
-	if (!(*ind)->flags || !(*ind)->width
-			|| (ft_strchr_pos((*ind)->flags, '0') == -1)
-			|| (ft_strchr_pos((*ind)->flags, '-') != -1))
-		return ;
-	if ((*ind)->precision && ft_strchr("diouxX", (*ind)->type))
-		return ;
-	width = (*ind)->width - (*buff)->sign_printed;
-	len = ft_strlen(*str);
-	i = 0;
-	while (i < (width - len))
-	{
+	integer = ft_atoi(*str);
+	if ((*ind)->flags && ft_strchr((*ind)->flags, 'o') && integer != 0)
 		ft_putcbuffer(buff, '0');
-		i++;
+	else if ((*ind)->flags && ft_strchr((*ind)->flags, 'x') && integer != 0)
+		ft_putsbuffer(buff, "0x");
+	else if ((*ind)->flags && ft_strchr((*ind)->flags, 'X') && integer != 0)
+		ft_putsbuffer(buff, "0X");
+}
+/*
+void	ft_hashtag_eeffaa(t_indic **ind, t_buff **buff, char **str)
+{
+}
+*/
+
+/*
+void	ft_hashtag_gg(t_indic **ind, t_buff **buff, char **str)
+{
+}
+*/
+
+/*
+** ft_manage_hashtag
+*/
+
+static const t_ft	g_ft[] = {
+		{"oxX", NULL, ft_hashtag_oxx},
+	//	{"eEfFaA", NULL, ft_hashtag_eeffaa},
+	//	{"gG", NULL, ft_hashtag_gg},
+	{0, 0, 0}
+};
+
+void	ft_manage_hashtag(t_indic **ind, t_buff **buff, char **str)
+{
+	int		i;
+
+	i = 0;
+	if ((*ind)->flags && ft_strchr((*ind)->flags, '#'))
+	{
+		while (g_ft[i].letter)
+		{
+			if ((*ind)->type && ft_strchr(g_ft[i].letter, (*ind)->type))
+			{
+				g_ft[i].ft(ind, buff, str);
+				break ;
+			}
+			i++;
+		}
 	}
 }
