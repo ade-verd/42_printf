@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/17 14:45:48 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/17 17:03:16 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,12 +113,11 @@ int		ft_test_flag_d(void)
 	printf("\n\n");*/
 
 	printf("\n\n");
-	ft_printf("Number is %.5d", 100);
-	ft_printf("%.5d", 100.00);
-	ft_printf("%.5d", 100.161891911981);
-	ft_printf("%.*d", -5, 100.161891911981);
-	ft_printf("%.d", 100.161891911981);
-	ft_printf("%d", 100.161891911981);
+	(ft_call_both("Number is %.0d", 0));
+	(ft_call_both("Number is %0+10.2d", 100));
+	(ft_call_both("Number is %0+10.2d", -100));
+	(ft_call_both("Number is %0+10.6d", 100));
+	(ft_call_both("Number is %0+10.6d", -100));
 	printf("\n\n");
 
 	/*Flag '0'*/
