@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/17 13:33:58 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/17 14:45:48 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int		ft_test_flag_d(void)
 	(ft_call_both("Number is %+      10d", 100));
 
 	/*Flag '#' oxX*/
-	printf("\n\n");
+/*	printf("\n\n");
 	printf("The number is %o\n", 0);
 	printf("The number is %#o\n", 0);
 	printf("The number is %#o\n", -0);
@@ -110,6 +110,15 @@ int		ft_test_flag_d(void)
 	printf("The number is %g\n", -100.03);
 	printf("The number is %G\n\n", +100.005933648646846);
 	printf("The number is %G\n\n", +100.00);
+	printf("\n\n");*/
+
+	printf("\n\n");
+	ft_printf("Number is %.5d", 100);
+	ft_printf("%.5d", 100.00);
+	ft_printf("%.5d", 100.161891911981);
+	ft_printf("%.*d", -5, 100.161891911981);
+	ft_printf("%.d", 100.161891911981);
+	ft_printf("%d", 100.161891911981);
 	printf("\n\n");
 
 	/*Flag '0'*/

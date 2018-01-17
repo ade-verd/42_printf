@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:42:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/16 11:29:57 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/17 14:47:38 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void	ft_get_precision(t_indic **ind, va_list ap, char *str, int *i)
 		}
 	}
 	else
+		(*ind)->precision = 0;
+	if ((*ind)->precision < 0)
 		(*ind)->precision = 0;
 }
 
