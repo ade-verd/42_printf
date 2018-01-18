@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 17:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/17 12:54:07 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/18 13:55:29 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,23 @@
 void	ft_manage_plus(t_indic **ind, t_buff **buff, char **str)
 {
 	int		width;
-	int		len;
+	int		ln;
 	int		i;
 	int		isminus_or_is0;
 
-	width = (*ind)->width - (*buff)->sign_printed;
-	len = ft_strlen(*str);
+	ln = ft_strlen(*str);
+	width = ((*ind)->precision - ln > 0)
+			? ((*ind)->width - (*buff)->sign_printed - ((*ind)->precision) - ln)
+			: ((*ind)->width - (*buff)->sign_printed);
 	i = 0;
 	isminus_or_is0 = 0;
 	if ((*ind)->flags && (ft_strchr_pos((*ind)->flags, '-') != -1
-			|| ft_strchr_pos((*ind)->flags, '0') != -1))
+			|| (ft_strchr((*ind)->flags, '0') && (*ind)->isprec == 0)))
 		isminus_or_is0 = 1;
 	if ((*ind)->flags && ft_strchr_pos((*ind)->flags, '+') != -1
 			&& ft_atoi(*str) > 0 && (*buff)->sign_printed == 0)
-		len++;
-	while (i++ < (width - len) && isminus_or_is0 != 1)
+		ln++;
+	while (i++ < (width - ln) && isminus_or_is0 != 1)
 		ft_putcbuffer(buff, ' ');
 	if ((*ind)->flags && ft_strchr_pos((*ind)->flags, '+') != -1
 			&& ft_atoi(*str) >= 0 && (*buff)->sign_printed == 0)
@@ -66,7 +68,7 @@ void	ft_manage_minus(t_indic **ind, t_buff **buff, char **str)
 	if (!(*ind)->flags || !(*ind)->width
 			|| ft_strchr_pos((*ind)->flags, '-') == -1)
 		return ;
-	width = (*ind)->width - (*buff)->sign_printed;
+	width = (*ind)->width - (*buff)->sign_printed - (*ind)->precision;
 	len = ft_strlen(*str);
 	i = 0;
 	if ((*ind)->type == 'n')
@@ -108,8 +110,8 @@ void	ft_print_sign_before(t_indic **ind, t_buff **buff, char **str)
 		if ((*ind)->flags && ft_strchr((*ind)->flags, ' ') && *str[0] != '+'
 				&& !ft_strchr((*ind)->flags, '+') && *str[0] != '-')
 		{
-				ft_putcbuffer(buff, ' ');
-				(*buff)->sign_printed++;
+			ft_putcbuffer(buff, ' ');
+			(*buff)->sign_printed++;
 		}
 	}
 	if (nb_ref < (*buff)->index && ft_strchr_pos("+-", *str[0]) != -1)
@@ -137,7 +139,7 @@ void	ft_manage_zero(t_indic **ind, t_buff **buff, char **str)
 			|| (ft_strchr_pos((*ind)->flags, '0') == -1)
 			|| (ft_strchr_pos((*ind)->flags, '-') != -1))
 		return ;
-	if ((*ind)->precision && ft_strchr("diouxX", (*ind)->type))
+	if ((*ind)->isprec == 1 && ft_strchr("diouxX", (*ind)->type))
 		return ;
 	width = (*ind)->width - (*buff)->sign_printed;
 	len = ft_strlen(*str);

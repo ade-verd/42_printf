@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 12:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/17 17:47:13 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/18 13:13:37 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_precision_manager(t_indic **ind, t_buff **buff, char **str)
 
 	i = 0;
 
-	if ((*ind)->precision < 0)
+	if ((*ind)->isprec == 0)
 		return ;
 	while (g_pres[i].letter)
 	{
