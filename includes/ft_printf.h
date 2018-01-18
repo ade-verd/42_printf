@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/12 17:08:56 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/18 12:16:31 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct		s_buff
 {
 	char			*str;
 	char			*suffix;
+	int				sign_printed;
 	int				index;
 	int				total;
 	int				fd;
@@ -36,6 +37,7 @@ typedef struct		s_indic
 {
 	char			*flags;
 	int				width;
+	int				isprec;
 	int				precision;
 	char			*size;
 	char			type;
@@ -50,8 +52,9 @@ typedef struct		s_conv
 
 typedef struct		s_ft
 {
-	char			letter;
+	char			*letter;
 	void			(*f)(void*, t_indic**, t_buff**);
+	void			(*ft)(t_indic**, t_buff**, char **str);
 }					t_ft;
 
 /*ft_printf and cie*/
@@ -68,10 +71,10 @@ void				ft_putsbuffer(t_buff **buff, char *str);
 void				ft_print_buffer(t_buff **buff);
 
 /*Get chars to convert*/
-void				ft_get_all_indics(t_indic **ind, va_list ap, char *str, int *i);
+void				ft_get_all_indics(t_indic **in, va_list a, char *s, int *i);
 void				ft_get_flags(t_indic **ind, char *str, int *i);
 void				ft_get_width(t_indic **ind, va_list ap, char *str, int *i);
-void				ft_get_precision(t_indic **ind, va_list ap, char *str, int *i);
+void				ft_get_precision(t_indic **in, va_list ap, char *s, int *i);
 void				ft_get_size(t_indic **ind, char *str, int *i);
 void				ft_get_type(t_indic **ind, char *str, int *i);
 
@@ -79,13 +82,20 @@ void				ft_get_type(t_indic **ind, char *str, int *i);
 void				ft_parse_str(va_list ap, char *str, int *ret, int fd);
 
 /*Convert*/
-void				ft_indicators_manager(t_indic **ind, t_buff **buff, char *str);
+void				ft_indicators_manager(t_indic **i, t_buff **buff, char **s);
 void				ft_int_arg(va_list ap, t_indic **ind, t_buff**);
-void				ft_int_type_d(void *to_convert, t_indic **ind, t_buff **buff);
+void				ft_int_type_d(void *to_convert, t_indic **i, t_buff **buff);
 
 /*Flags*/
-void				ft_manage_zero(t_indic **ind, t_buff **buff, char *str);
-void				ft_manage_minus(t_indic **ind, t_buff **buff, char *str);
+void				ft_print_sign_before(t_indic **i, t_buff **buff, char **s);
+void				ft_manage_hashtag(t_indic **ind, t_buff **buff, char **str);
+void				ft_manage_zero(t_indic **ind, t_buff **buff, char **str);
+void				ft_manage_plus(t_indic **ind, t_buff **buff, char **str);
+void				ft_manage_minus(t_indic **ind, t_buff **buff, char **str);
+
+/*Precision*/
+void				ft_precision_int(t_indic **ind, t_buff **buff, char **str);
+
 
 static const t_conv	g_tab[] = {
 	{ "bdiouxX", ft_int_arg },/*
@@ -96,6 +106,6 @@ static const t_conv	g_tab[] = {
 	{ "p", ft_p_arg },
 	{ "%", ft_pct_arg },*/
 	{ 0, 0}
-	};
+};
 
 #endif

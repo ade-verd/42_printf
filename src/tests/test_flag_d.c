@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/18 12:37:33 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/18 17:45:05 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,9 +117,24 @@ int		ft_test_flag_d(void)
 	(ft_call_both("Number is %.0d", +0));
 	(ft_call_both("Number is %.0d", -0));
 	(ft_call_both("Number is %0+10.2d", 100));
+	(ft_call_both("Number is %0+10.2d", +100));
 	(ft_call_both("Number is %0+10.2d", -100));
 	(ft_call_both("Number is %0+10.6d", 100));
+	(ft_call_both("Number is %0+10.6d", +100));
 	(ft_call_both("Number is %0+10.6d", -100));
+	(ft_call_both("Number is %+10.6d", 100));
+	(ft_call_both("Number is %+10.6d", +100));
+	(ft_call_both("Number is %+10.6d", -100));
+//	(ft_call_both("Number is %0-10.2d", 100));
+//	(ft_call_both("Number is %0-10.2d", +100));
+//	(ft_call_both("Number is %0-10.2d", -100));
+//	(ft_call_both("Number is %0-10.6d", 100));
+//	(ft_call_both("Number is %0-10.6d", +100));
+//	(ft_call_both("Number is %0-10.6d", -100));
+//	(ft_call_both("Number is %-10.6d", 100));
+//	(ft_call_both("Number is %-10.6d", +100));
+//	(ft_call_both("Number is %-10.6d", -100));
+	printf("\n\n");
 	printf("\n\n");
 
 	/*Flag '0'*/
