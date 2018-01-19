@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/16 11:33:52 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/19 11:47:01 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ typedef struct	s_txt
 	char		trash[100];
 }				t_txt;
 
+typedef struct	s_test
+{
+	char		letter;
+	int			(*f)(void);
+}				t_test;
+
 int				ft_open(char *path, int oflag, int perm);
 int				ft_close(int fd);
 int				ft_read_fd(int fd, char **str, int buf_size);
@@ -40,5 +46,10 @@ int				ft_compare(int my_ret, int off_ret, char *my_print,
 int				ft_call_both(char *str, ...);
 
 int				ft_test_flag_d(void);
+
+static const t_test	g_test[] = {
+	{'d', ft_test_flag_d},
+	{0, 0}
+};
 
 #endif

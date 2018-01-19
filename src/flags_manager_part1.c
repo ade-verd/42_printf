@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 17:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/18 19:47:05 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/19 12:21:46 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,28 +61,28 @@ void	ft_manage_plus(t_indic **ind, t_buff **buff, char **str)
 
 void	ft_manage_minus(t_indic **ind, t_buff **buff, char **str)
 {
-	int		width;
-	int		ln;
+	int		w;
+	int		n;
 	int		i;
 
 	if (!(*ind)->flags || !(*ind)->width || !ft_strchr((*ind)->flags, '-'))
 		return ;
-	ln = ft_strlen(*str);
-	width = ((*ind)->precision - ln > 0)
-			? ((*ind)->width - (*buff)->sign_printed - ((*ind)->precision) - ln)
-			: ((*ind)->width - (*buff)->sign_printed);
+	n = ft_strchr("+-", *str[0]) ? ft_strlen(*str) - 1 : ft_strlen(*str);
+	w = ((*ind)->precision - n <= 0) ? ((*ind)->width - (*buff)->sign_printed)
+			: ((*ind)->width - (*buff)->sign_printed - ((*ind)->precision - n));
+	n = ft_strlen(*str);
 	i = 0;
 	if ((*ind)->type == 'n')
 	{
-		while (i++ < (width - ln))
+		while (i++ < (w - n))
 			ft_putcbuffer(buff, ' ');
 	}
 	else
 	{
-		if (width > ln)
+		if (w > n)
 		{
-			(*buff)->suffix = ft_strnew(width - ln);
-			while (i < (width - ln))
+			(*buff)->suffix = ft_strnew(w - n);
+			while (i < (w - n))
 				(*buff)->suffix[i++] = ' ';
 		}
 	}

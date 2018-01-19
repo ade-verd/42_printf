@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 17:51:33 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/12 14:07:25 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/19 11:47:00 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,45 @@
 
 int		ft_run_all(void)
 {
-	STOPIF0(ft_test_flag_d());
+	int		i;
+
+	i = 0;
+	while (g_test[i].letter)
+	{
+		STOPIF0(g_test[i].f());
+		i++;
+	}
 	return (1);
 }
 
 int		ft_choose_flag(char *str)
 {
 	int		ret;
+	int		i;
 
 	ret = -10;
-	if (ft_strchr(str, 'd'))
-		ret = ft_test_flag_d();
+	i = 0;
+	while (g_test[i].letter)
+	{
+		if (ft_strchr(str, g_test[i].letter))
+			STOPIF0(ret = g_test[i].f());
+		i++;
+	}
 	return (ret);
+}
+
+void	ft_available_types(void)
+{
+	int		i;
+
+	i = 0;
+	printf("Avalaibable types: ");
+	while (g_test[i].letter)
+	{
+		printf("%c", g_test[i].letter);
+		i++;
+	}
+	printf("\n");
 }
 
 int		main(int ac, char **av)
@@ -34,8 +61,12 @@ int		main(int ac, char **av)
 		ft_run_all();
 	else if (ac == 2)
 	{
-		if ((ft_choose_flag(av[1])) == -10)
+		if (strcmp(av[1], "-h") == 0 || strcmp(av[1], "--help") == 0
+				|| (ft_choose_flag(av[1])) == -10)
+		{
 			fprintf(stderr, "Usage: ./test [conversion letter(s)]\n");
+			ft_available_types();
+		}
 	}
 	else
 	{
