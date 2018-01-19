@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/18 12:16:31 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/19 12:53:55 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,9 @@ void				ft_manage_minus(t_indic **ind, t_buff **buff, char **str);
 
 /*Precision*/
 void				ft_precision_int(t_indic **ind, t_buff **buff, char **str);
+
+/*Size*/
+void				ft_size_manager(t_indic **ind, t_buff **buff, char **str);
 
 
 static const t_conv	g_tab[] = {

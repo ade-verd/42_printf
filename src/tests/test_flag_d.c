@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/19 12:21:44 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/19 16:15:48 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,16 @@ int		ft_test_flag_d(void)
 	STOPIF0(ft_call_both("Number is %-10.6d", 100));
 	STOPIF0(ft_call_both("Number is %-10.6d", +100));
 	STOPIF0(ft_call_both("Number is %-10.6d", -100));
+
+	/*Size*/
+	double	integer;
+
+	integer = (ssize_t)-123123156456;
+	printf("\n\n");
+	printf("Modificateur de taille %f\n", integer);
+	printf("Modificateur de taille %zd\n", integer);
+	//printf("Modificateur de taille %d\n", (ssize_t)integer);
+	printf("\n\n");
 
 	printf("*** Flag d : all tests passed ***\n");
 	return (1);

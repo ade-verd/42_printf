@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 12:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/18 13:13:37 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/19 12:53:57 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,5 @@ void	ft_indicators_manager(t_indic **ind, t_buff **buff, char **str)
 {
 	ft_flags_manager(ind, buff, str);
 	ft_precision_manager(ind, buff, str);
+	ft_size_manager(ind, buff, str);
 }
