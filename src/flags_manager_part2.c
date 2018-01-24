@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 11:01:17 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/17 13:34:04 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/24 17:01:09 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ void	ft_hashtag_gg(t_indic **ind, t_buff **buff, char **str)
 */
 
 static const t_ft	g_ft[] = {
-		{"oxX", NULL, ft_hashtag_oxx},
-	//	{"eEfFaA", NULL, ft_hashtag_eeffaa},
-	//	{"gG", NULL, ft_hashtag_gg},
-	{0, 0, 0}
+		{"oxX", NULL, ft_hashtag_oxx, NULL},
+	//	{"eEfFaA", NULL, ft_hashtag_eeffaa, NULL},
+	//	{"gG", NULL, ft_hashtag_gg, NULL},
+	{0, 0, 0, 0}
 };
 
 void	ft_manage_hashtag(t_indic **ind, t_buff **buff, char **str)
@@ -64,7 +64,7 @@ void	ft_manage_hashtag(t_indic **ind, t_buff **buff, char **str)
 		{
 			if ((*ind)->type && ft_strchr(g_ft[i].letter, (*ind)->type))
 			{
-				g_ft[i].ft(ind, buff, str);
+				g_ft[i].f2(ind, buff, str);
 				break ;
 			}
 			i++;

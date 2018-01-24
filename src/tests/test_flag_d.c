@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/19 16:15:48 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/24 12:43:39 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,12 +133,12 @@ int		ft_test_flag_d(void)
 	STOPIF0(ft_call_both("Le nombre est %#+-0 123.4d !", 1000));
 	STOPIF0(ft_call_both("Le nombre est %#+-0 *d !", 10, 0));
 	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4d !", 10, -5));
-//	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4hd !", 10, +10));
-//	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4hhD !", 10, 15));
-//	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4lu !", 10, -20));
-//	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4llU !", 10, +25));
-//	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4jC !", 10, -30));
-//	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4zp !", 10, 35));
+	//STOPIF0(ft_call_both("Le nombre est %#+-0 *.4hd !", 10, +10));
+	//STOPIF0(ft_call_both("Le nombre est %#+-0 *.4hhD !", 10, 15));
+	//STOPIF0(ft_call_both("Le nombre est %#+-0 *.4lu !", 10, -20));
+	//STOPIF0(ft_call_both("Le nombre est %#+-0 *.4llU !", 10, +25));
+	//STOPIF0(ft_call_both("Le nombre est %#+-0 *.4jC !", 10, -30));
+	//STOPIF0(ft_call_both("Le nombre est %#+-0 *.4zp !", 10, 35));
 
 	/*Precision*/
 	STOPIF0(ft_call_both("Number is %.0d", 0));
@@ -164,13 +164,19 @@ int		ft_test_flag_d(void)
 	STOPIF0(ft_call_both("Number is %-10.6d", -100));
 
 	/*Size*/
-	double	integer;
-
-	integer = (ssize_t)-123123156456;
 	printf("\n\n");
-	printf("Modificateur de taille %f\n", integer);
-	printf("Modificateur de taille %zd\n", integer);
-	//printf("Modificateur de taille %d\n", (ssize_t)integer);
+	(ft_call_both("Number is %-10.6ld", -100));
+	(ft_call_both("Number is %-10.6lld", -100));
+	(ft_call_both("Number is %-10.6hhd", -100));
+	(ft_call_both("Number is %-10.6hd", -100));
+	(ft_call_both("Number is %-10.6jd", -100));
+	(ft_call_both("Number is %-10.6zd", -100));
+	(ft_call_both("Number is %-10.6td", -100));
+	(ft_call_both("Number is %-10.6jd", -100));
+	(ft_call_both("Number is %-10.6Ld", -100));
+	(ft_call_both("Number is %-10.6vd", -100));
+	(ft_call_both("Number is %-10.6Vd", -100));
+	(ft_call_both("Number is %-10.6hhv", -100));
 	printf("\n\n");
 
 	printf("*** Flag d : all tests passed ***\n");

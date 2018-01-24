@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/19 12:53:55 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/24 18:32:25 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ typedef struct		s_conv
 typedef struct		s_ft
 {
 	char			*letter;
-	void			(*f)(void*, t_indic**, t_buff**);
-	void			(*ft)(t_indic**, t_buff**, char **str);
+	void			(*f1)(void*, t_indic**, t_buff**);
+	void			(*f2)(t_indic**, t_buff**, char **str);
+	char			*(*f3)(t_indic**, void*);
 }					t_ft;
 
 /*ft_printf and cie*/
@@ -97,7 +98,8 @@ void				ft_manage_minus(t_indic **ind, t_buff **buff, char **str);
 void				ft_precision_int(t_indic **ind, t_buff **buff, char **str);
 
 /*Size*/
-void				ft_size_manager(t_indic **ind, t_buff **buff, char **str);
+char				*ft_get_string(t_indic **ind, void *to_convert);
+char				*ft_get_string_di(t_indic **ind, void *to_convert);
 
 
 static const t_conv	g_tab[] = {

@@ -6,24 +6,17 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 17:09:01 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/17 13:33:59 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/24 18:32:24 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static const t_ft	g_ft[] = {
-	{"di", ft_int_type_d, NULL},
-	{0, 0, 0}
-};
-
 void	ft_int_type_d(void *to_convert, t_indic **ind, t_buff **buff)
 {
-	int		integer;
 	char	*str;
 
-	integer = *(int*)to_convert;
-	str = ft_itoa(integer);
+	str = ft_get_string(ind, to_convert);
 	ft_indicators_manager(ind, buff, &str);
 	ft_putsbuffer(buff, str);
 	if ((*buff)->suffix)
@@ -32,6 +25,10 @@ void	ft_int_type_d(void *to_convert, t_indic **ind, t_buff **buff)
 
 void	ft_int_arg(va_list ap, t_indic **ind, t_buff **buff)
 {
+	const t_ft	g_ft[] = {
+		{"di", ft_int_type_d, NULL, NULL},
+		{0, 0, 0, 0}
+	};
 	int		i;
 	int		to_convert;
 
@@ -41,7 +38,7 @@ void	ft_int_arg(va_list ap, t_indic **ind, t_buff **buff)
 	{
 		if ((*ind)->type && ft_strchr(g_ft[i].letter, (*ind)->type))
 		{
-			g_ft[i].f((void*)&to_convert, ind, buff);
+			g_ft[i].f1((void*)&to_convert, ind, buff);
 			break ;
 		}
 		i++;
