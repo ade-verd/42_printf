@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/25 11:51:38 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/25 12:11:22 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
-# include "stdlib.h"
+# include <stdlib.h>
+# include <inttypes.h> /*intmax_t uintmax_t*/
+# include <stddef.h> /*ptrdiff_t*/
 # include "libft.h"
-# include "inttypes.h"
 
-# include "stdio.h" /* /!\ /!\ A SUPPRIMER /!\ /!\ */
+# include <stdio.h> /* /!\ /!\ A SUPPRIMER /!\ /!\ */
 
 # define BUFF_MAX_SIZE	1000
 

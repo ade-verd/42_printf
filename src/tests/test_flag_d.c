@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/25 13:42:53 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/25 16:23:01 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,41 +167,47 @@ int		ft_test_flag_d(void)
 	(ft_call_both("Number is %-15.6ld", -100));
 	(ft_call_both("Number is %-15.6ld", 100));
 	(ft_call_both("Number is %-15.6ld", +100));
-	(ft_call_both("Number is %-15.6ld", -2147483647));
-	(ft_call_both("Number is %-15.6ld", +2147483647));
-	(ft_call_both("Number is %-15.6ld", 2147483649));
-	(ft_call_both("Number is %-15.6ld", -2147483649));
+	(ft_call_both("Number is %-15.6ld (LONG_MIN+1)", LONG_MIN + 1));
+	(ft_call_both("Number is %-15.6ld (LONG_MAX-1)", LONG_MAX - 1));
+	(ft_call_both("Number is %-15.6ld (LONG_MIN)", LONG_MIN));
+	(ft_call_both("Number is %-15.6ld (LONG_MAX)", LONG_MAX));
+	(ft_call_both("Number is %-15.6ld (LONG_MIN-1)", LONG_MIN - 1));
+	(ft_call_both("Number is %-15.6ld (LONG_MAX+1)", LONG_MAX + 1));
 	(ft_call_both("Number is %-15.6lld", 0));
 	(ft_call_both("Number is %-15.6lld", -100));
-	(ft_call_both("Number is %-15.6lld", -9223372036854775807));
-	(ft_call_both("Number is %-15.6lld", +9223372036854775807));
-	(ft_call_both("Number is %-15.6lld", 9223372036854775809));
+	(ft_call_both("Number is %-15.6lld (LLONG_MIN)", LLONG_MIN));
+	(ft_call_both("Number is %-15.6lld (LLONG_MAX)", LLONG_MAX));
+	(ft_call_both("Number is %-15.6lld (LLONG_MIN-1)", LLONG_MIN - 1));
+	(ft_call_both("Number is %-15.6lld (LLONG_MAX+1)", LLONG_MAX + 1));
 	(ft_call_both("Number is %-15.6hhd", 0));
 	(ft_call_both("Number is %-15.6hhd", -100));
-	(ft_call_both("Number is %-15.6hhd", -128));
-	(ft_call_both("Number is %-15.6hhd", 127));
-	(ft_call_both("Number is %-15.6hhd", -129));
-	(ft_call_both("Number is %-15.6hhd", 129));
+	(ft_call_both("Number is %-15.6hhd (SCHAR_MIN)", SCHAR_MIN));
+	(ft_call_both("Number is %-15.6hhd (SCHAR_MAX)", SCHAR_MAX));
+	(ft_call_both("Number is %-15.6hhd (SCHAR_MIN-1)", SCHAR_MIN - 1));
+	(ft_call_both("Number is %-15.6hhd (SCHAR_MAX+1)", SCHAR_MAX + 1));
 	(ft_call_both("Number is %-15.6hd", 0));
 	(ft_call_both("Number is %-15.6hd", -100));
-	(ft_call_both("Number is %-15.6hd", -32768));
-	(ft_call_both("Number is %-15.6hd", 32767));
-	(ft_call_both("Number is %-15.6hd", -32769));
-	(ft_call_both("Number is %-15.6hd", 32769));
+	(ft_call_both("Number is %-15.6hd (SHRT_MIN)", SHRT_MIN));
+	(ft_call_both("Number is %-15.6hd (SHRT_MAX)", SHRT_MAX));
+	(ft_call_both("Number is %-15.6hd (SHRT_MIN-1)", SHRT_MIN - 1));
+	(ft_call_both("Number is %-15.6hd (SHRT_MAX+1)", SHRT_MAX + 1));
 	(ft_call_both("Number is %-15.6jd", 0));
 	(ft_call_both("Number is %-15.6jd", -100));
-	(ft_call_both("Number is %-15.6jd", -9223372036854775807));
-	(ft_call_both("Number is %-15.6jd", +9223372036854775807));
-	(ft_call_both("Number is %-15.6jd", 9223372036854775809));
+	(ft_call_both("Number is %-15.6jd (INTMAX_MIN)", INTMAX_MIN));
+	(ft_call_both("Number is %-15.6jd (INTMAX_MAX)", INTMAX_MAX));
+	(ft_call_both("Number is %-15.6jd (INTMAX_MIN-1)", INTMAX_MIN - 1));
+	(ft_call_both("Number is %-15.6jd (INTMAX_MAX+1)", INTMAX_MAX + 1));
 	(ft_call_both("Number is %-15.6zd", 0));
 	(ft_call_both("Number is %-15.6zd", -100));
-	(ft_call_both("Number is %-15.6zd", 18446744073709551615));
+	(ft_call_both("Number is %-15.6zd (SIZE_MAX)", SIZE_MAX));
+	(ft_call_both("Number is %-15.6zd (SIZE_MAX+1)", SIZE_MAX + 1));
+	(ft_call_both("Number is %-15.6zd (-1)", -1));
 	(ft_call_both("Number is %-15.6td", 0));
 	(ft_call_both("Number is %-15.6td", -100));
-	(ft_call_both("Number is %-15.6td", -32768));
-	(ft_call_both("Number is %-15.6td", 32767));
-	(ft_call_both("Number is %-15.6td", -32769));
-	(ft_call_both("Number is %-15.6td", 32769));
+	(ft_call_both("Number is %-15.6td (PTRDIFF_MIN)", PTRDIFF_MIN));
+	(ft_call_both("Number is %-15.6td (PTRDIFF_MAX)", PTRDIFF_MAX));
+	(ft_call_both("Number is %-15.6td (PTRDIFF_MIN-1)", PTRDIFF_MIN - 1));
+	(ft_call_both("Number is %-15.6td (PTRDIFF_MAX+1)", PTRDIFF_MAX + 1));
 	(ft_call_both("Number is %-15.6Ld", 0));
 	(ft_call_both("Number is %-15.6Ld", -100));
 	(ft_call_both("Number is %-15.6Ld", 100));

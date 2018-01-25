@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/19 12:59:49 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/25 16:38:15 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -114,9 +114,9 @@ BIN_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Binary$(LOG_NOCOLOR) deletion " \
 # **************************************************************************** #
 .PHONY: all, clean, fclean, re, norme
 
-all: libft_make $(OBJ_PATH) $(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): libft_make $(OBJ_PATH) $(OBJ)
 	@$(CC) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $(NAME)
 	@echo -e $(ASSEMBLING)
 

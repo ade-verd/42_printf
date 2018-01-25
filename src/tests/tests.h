@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/19 11:47:01 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/25 15:36:24 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <limits.h>
+# include <stdint.h>
 # include "libft.h"
 # include "ft_printf.h"
 

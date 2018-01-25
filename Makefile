@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/11 13:17:36 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/25 16:37:18 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,10 @@ SRC_NAME = \
 		   get_chars_to_convert.c\
 		   \
 		   indicators_manager.c\
-		   flags_manager.c\
+		   flags_manager_part1.c\
+		   flags_manager_part2.c\
+		   precision_manager_part1.c\
+		   size_manager.c\
 		   \
 		   int_arg.c\
 
@@ -100,9 +103,9 @@ BIN_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Binary$(LOG_NOCOLOR) deletion " \
 # **************************************************************************** #
 .PHONY: all, clean, fclean, re, norme
 
-all: libft_make $(OBJ_PATH) $(NAME)
+all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): libft_make $(OBJ_PATH) $(OBJ)
 	@ar -rc $(NAME) $(OBJ) && echo -e $(ASSEMBLING)
 	@ranlib $(NAME) && echo -e $(INDEXING)
 
