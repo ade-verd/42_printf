@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/25 12:48:10 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/25 13:42:53 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,15 +163,48 @@ int		ft_test_flag_d(void)
 	STOPIF0(ft_call_both("Number is %-10.6d", -100));
 
 	/*Size*/
-	STOPIF0(ft_call_both("Number is %-10.6ld", -100));
-	STOPIF0(ft_call_both("Number is %-10.6lld", -100));
-	STOPIF0(ft_call_both("Number is %-10.6hhd", -100));
-	STOPIF0(ft_call_both("Number is %-10.6hd", -100));
-	STOPIF0(ft_call_both("Number is %-10.6jd", -100));
-	STOPIF0(ft_call_both("Number is %-10.6zd", -100));
-	STOPIF0(ft_call_both("Number is %-10.6td", -100));
-	STOPIF0(ft_call_both("Number is %-10.6jd", -100));
-	STOPIF0(ft_call_both("Number is %-10.6Ld", -100));
+	(ft_call_both("Number is %-15.6ld", 0));
+	(ft_call_both("Number is %-15.6ld", -100));
+	(ft_call_both("Number is %-15.6ld", 100));
+	(ft_call_both("Number is %-15.6ld", +100));
+	(ft_call_both("Number is %-15.6ld", -2147483647));
+	(ft_call_both("Number is %-15.6ld", +2147483647));
+	(ft_call_both("Number is %-15.6ld", 2147483649));
+	(ft_call_both("Number is %-15.6ld", -2147483649));
+	(ft_call_both("Number is %-15.6lld", 0));
+	(ft_call_both("Number is %-15.6lld", -100));
+	(ft_call_both("Number is %-15.6lld", -9223372036854775807));
+	(ft_call_both("Number is %-15.6lld", +9223372036854775807));
+	(ft_call_both("Number is %-15.6lld", 9223372036854775809));
+	(ft_call_both("Number is %-15.6hhd", 0));
+	(ft_call_both("Number is %-15.6hhd", -100));
+	(ft_call_both("Number is %-15.6hhd", -128));
+	(ft_call_both("Number is %-15.6hhd", 127));
+	(ft_call_both("Number is %-15.6hhd", -129));
+	(ft_call_both("Number is %-15.6hhd", 129));
+	(ft_call_both("Number is %-15.6hd", 0));
+	(ft_call_both("Number is %-15.6hd", -100));
+	(ft_call_both("Number is %-15.6hd", -32768));
+	(ft_call_both("Number is %-15.6hd", 32767));
+	(ft_call_both("Number is %-15.6hd", -32769));
+	(ft_call_both("Number is %-15.6hd", 32769));
+	(ft_call_both("Number is %-15.6jd", 0));
+	(ft_call_both("Number is %-15.6jd", -100));
+	(ft_call_both("Number is %-15.6jd", -9223372036854775807));
+	(ft_call_both("Number is %-15.6jd", +9223372036854775807));
+	(ft_call_both("Number is %-15.6jd", 9223372036854775809));
+	(ft_call_both("Number is %-15.6zd", 0));
+	(ft_call_both("Number is %-15.6zd", -100));
+	(ft_call_both("Number is %-15.6zd", 18446744073709551615));
+	(ft_call_both("Number is %-15.6td", 0));
+	(ft_call_both("Number is %-15.6td", -100));
+	(ft_call_both("Number is %-15.6td", -32768));
+	(ft_call_both("Number is %-15.6td", 32767));
+	(ft_call_both("Number is %-15.6td", -32769));
+	(ft_call_both("Number is %-15.6td", 32769));
+	(ft_call_both("Number is %-15.6Ld", 0));
+	(ft_call_both("Number is %-15.6Ld", -100));
+	(ft_call_both("Number is %-15.6Ld", 100));
 
 	printf("*** Flag d : all tests passed ***\n");
 	return (1);

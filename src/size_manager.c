@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 12:30:54 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/25 12:41:58 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/25 13:20:59 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_get_string_di(t_indic **ind, void *to_convert)
 	if (ft_strcmp((*ind)->size, "j") == 0)
 		return (ft_itoa_base(*(intmax_t*)to_convert, 10));
 	if (ft_strcmp((*ind)->size, "z") == 0)
-		return (ft_itoa_base(*(size_t*)to_convert, 10));
+		return (ft_uitoa_base(*(size_t*)to_convert, 10));
 	if (ft_strcmp((*ind)->size, "t") == 0)
 		return (ft_itoa_base(*(ptrdiff_t*)to_convert, 10));
 	//if (ft_strcmp((*ind)->size, "L") == 0)
