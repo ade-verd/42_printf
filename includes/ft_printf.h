@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/24 18:32:25 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/25 11:51:38 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include "stdlib.h"
 # include "libft.h"
+# include "inttypes.h"
 
 # include "stdio.h" /* /!\ /!\ A SUPPRIMER /!\ /!\ */
 
