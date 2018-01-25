@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/25 12:11:22 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/25 18:41:12 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ typedef struct		s_conv
 typedef struct		s_ft
 {
 	char			*letter;
-	void			(*f1)(void*, t_indic**, t_buff**);
+	void			(*f1)(va_list, t_indic**, t_buff**);
 	void			(*f2)(t_indic**, t_buff**, char **str);
-	char			*(*f3)(t_indic**, void*);
+	char			*(*f3)(t_indic**, va_list);
 }					t_ft;
 
 /*ft_printf and cie*/
@@ -87,7 +87,7 @@ void				ft_parse_str(va_list ap, char *str, int *ret, int fd);
 /*Convert*/
 void				ft_indicators_manager(t_indic **i, t_buff **buff, char **s);
 void				ft_int_arg(va_list ap, t_indic **ind, t_buff**);
-void				ft_int_type_d(void *to_convert, t_indic **i, t_buff **buff);
+void				ft_int_type_d(va_list ap, t_indic **i, t_buff **buff);
 
 /*Flags*/
 void				ft_print_sign_before(t_indic **i, t_buff **buff, char **s);
@@ -100,8 +100,8 @@ void				ft_manage_minus(t_indic **ind, t_buff **buff, char **str);
 void				ft_precision_int(t_indic **ind, t_buff **buff, char **str);
 
 /*Size*/
-char				*ft_get_string(t_indic **ind, void *to_convert);
-char				*ft_get_string_di(t_indic **ind, void *to_convert);
+char				*ft_get_string(t_indic **ind, va_list);
+char				*ft_get_string_di(t_indic **ind, va_list);
 
 
 static const t_conv	g_tab[] = {
