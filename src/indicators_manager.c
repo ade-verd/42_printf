@@ -6,13 +6,13 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 12:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/24 18:15:39 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/25 18:41:51 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_get_string(t_indic **ind, void *to_convert)
+char	*ft_get_string(t_indic **ind, va_list ap)
 {
 	const t_ft	g_length[] = {
 		{"di", 0, 0, ft_get_string_di},
@@ -28,7 +28,7 @@ char	*ft_get_string(t_indic **ind, void *to_convert)
 	while (g_length[i].letter)
 	{
 		if ((*ind)->type && ft_strchr(g_length[i].letter, (*ind)->type))
-			return (g_length[i].f3(ind, to_convert));
+			return (g_length[i].f3(ind, ap));
 		i++;
 	}
 	return (NULL);
