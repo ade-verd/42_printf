@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:42:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/18 13:20:54 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/25 12:41:45 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	ft_get_size(t_indic **ind, char *str, int *i)
 
 	j = 0;
 	k = 0;
-	if (str[*i] && ft_strchr_pos("hljzL", str[*i]) != -1)
+	if (str[*i] && ft_strchr_pos("hljztL", str[*i]) != -1)
 	{
 		j++;
 		if ((str[*i] == 'h' || str[*i] == 'l') && (str[*i] == str[*i + 1]))
