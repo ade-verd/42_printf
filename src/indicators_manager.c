@@ -6,33 +6,11 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 12:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/25 18:41:51 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/26 12:16:04 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-char	*ft_get_string(t_indic **ind, va_list ap)
-{
-	const t_ft	g_length[] = {
-		{"di", 0, 0, ft_get_string_di},
-		//{"uoxX", 0, },
-		//{"fFgGaAeE", 0, },
-		//{"csp", 0, },
-		//{"n", 0, },
-		{0, 0, 0, 0}
-	};
-	int		i;
-
-	i = 0;
-	while (g_length[i].letter)
-	{
-		if ((*ind)->type && ft_strchr(g_length[i].letter, (*ind)->type))
-			return (g_length[i].f3(ind, ap));
-		i++;
-	}
-	return (NULL);
-}
 
 void	ft_flags_manager(t_indic **ind, t_buff **buff, char **str)
 {
