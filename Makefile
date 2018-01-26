@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/25 16:37:18 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/26 15:35:18 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ INC_PATH = ./includes \
 CPPFLAGS = $(addprefix -I, $(INC_PATH))
 LDFLAGS = -Llibft
 LDLIBS = -lft
+LIBFT = $(LIB_PATH)/libft.a
 
 # Sources
 SRC_NAME = \
@@ -45,8 +46,8 @@ SRC_NAME = \
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
-SRC = $(addprefix $(SRC_PATH),$(SRC_NAME))
-OBJ = $(addprefix $(OBJ_PATH),$(OBJ_NAME))
+SRC = $(addprefix $(SRC_PATH), $(SRC_NAME))
+OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
 # Flags with OS Compatibiliy
 OS = $(shell uname)
@@ -106,8 +107,10 @@ BIN_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Binary$(LOG_NOCOLOR) deletion " \
 all: $(NAME)
 
 $(NAME): libft_make $(OBJ_PATH) $(OBJ)
+	@libtool -static -o $@ $(OBJ) $(LIBFT)
 	@ar -rc $(NAME) $(OBJ) && echo -e $(ASSEMBLING)
 	@ranlib $(NAME) && echo -e $(INDEXING)
+#	@ar -t $(NAME) list library's functions
 
 libft_make:
 	@make -C $(LIB_PATH)
