@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/26 14:52:15 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/26 18:23:21 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct		s_indic
 	int				precision;
 	char			*size;
 	char			type;
+	int				type_index;
 }					t_indic;
 
 /*Associated function types and pointers*/
