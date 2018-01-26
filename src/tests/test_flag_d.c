@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/25 18:04:05 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/26 14:56:22 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,65 +163,62 @@ int		ft_test_flag_d(void)
 	STOPIF0(ft_call_both("Number is %-10.6d", -100));
 
 	/*Size*/
-	(ft_call_both("Number is %-15.6Ld", 0));
-	(ft_call_both("Number is %-15.6Ld", -100));
-	(ft_call_both("Number is %-15.6Ld", 100));
+	STOPIF0(ft_call_both("Number is %-15.6Ld", 0));
+	STOPIF0(ft_call_both("Number is %-15.6Ld", -100));
+	STOPIF0(ft_call_both("Number is %-15.6Ld", 100));
 
-	(ft_call_both("Number is %-15.6hhd", 0));
-	(ft_call_both("Number is %-15.6hhd", -100));
-	(ft_call_both("Number is %-15.6hhd (SCHAR_MIN)", SCHAR_MIN));
-	(ft_call_both("Number is %-15.6hhd (SCHAR_MAX)", SCHAR_MAX));
-	(ft_call_both("Number is %-15.6hhd (SCHAR_MIN-1)", SCHAR_MIN - 1));
-	(ft_call_both("Number is %-15.6hhd (SCHAR_MAX+1)", SCHAR_MAX + 1));
+	STOPIF0(ft_call_both("Number is %-15.6hhd", 0));
+	STOPIF0(ft_call_both("Number is %-15.6hhd", -100));
+	STOPIF0(ft_call_both("Number is %-15.6hhd (SCHAR_MIN)", SCHAR_MIN));
+	STOPIF0(ft_call_both("Number is %-15.6hhd (SCHAR_MAX)", SCHAR_MAX));
+	STOPIF0(ft_call_both("Number is %-15.6hhd (SCHAR_MIN-1)", SCHAR_MIN - 1));
+	STOPIF0(ft_call_both("Number is %-15.6hhd (SCHAR_MAX+1)", SCHAR_MAX + 1));
 
-	(ft_call_both("Number is %-15.6hd", 0));
-	(ft_call_both("Number is %-15.6hd", -100));
-	(ft_call_both("Number is %-15.6hd (SHRT_MIN)", SHRT_MIN));
-	(ft_call_both("Number is %-15.6hd (SHRT_MAX)", SHRT_MAX));
-	(ft_call_both("Number is %-15.6hd (SHRT_MIN-1)", SHRT_MIN - 1));
-	(ft_call_both("Number is %-15.6hd (SHRT_MAX+1)", SHRT_MAX + 1));
+	STOPIF0(ft_call_both("Number is %-15.6hd", 0));
+	STOPIF0(ft_call_both("Number is %-15.6hd", -100));
+	STOPIF0(ft_call_both("Number is %-15.6hd (SHRT_MIN)", SHRT_MIN));
+	STOPIF0(ft_call_both("Number is %-15.6hd (SHRT_MAX)", SHRT_MAX));
+	STOPIF0(ft_call_both("Number is %-15.6hd (SHRT_MIN-1)", SHRT_MIN - 1));
+	STOPIF0(ft_call_both("Number is %-15.6hd (SHRT_MAX+1)", SHRT_MAX + 1));
 
-	(ft_call_both("Number is %-15.6td", 0));
-	(ft_call_both("Number is %-15.6td", -100));
-	(ft_call_both("Number is %-15.6td (PTRDIFF_MIN)", PTRDIFF_MIN));
-	(ft_call_both("Number is %-15.6td (PTRDIFF_MAX)", PTRDIFF_MAX));
-	(ft_call_both("Number is %-15.6td (PTRDIFF_MIN-1)", PTRDIFF_MIN - 1));
-	(ft_call_both("Number is %-15.6td (PTRDIFF_MAX+1)", PTRDIFF_MAX + 1));
+	STOPIF0(ft_call_both("Number is %-15.6td", 0));
+	STOPIF0(ft_call_both("Number is %-15.6td", -100));
+	STOPIF0(ft_call_both("Number is %-15.6td (PTRDIFF_MIN)", PTRDIFF_MIN));
+	STOPIF0(ft_call_both("Number is %-15.6td (PTRDIFF_MAX)", PTRDIFF_MAX));
+	STOPIF0(ft_call_both("Number is %-15.6td (PTRDIFF_MIN-1)", PTRDIFF_MIN - 1));
+	STOPIF0(ft_call_both("Number is %-15.6td (PTRDIFF_MAX+1)", PTRDIFF_MAX + 1));
 
-	(ft_call_both("Number is %-15.6ld", 0));
-	(ft_call_both("Number is %-15.6ld", -100));
-	(ft_call_both("Number is %-15.6ld", 100));
-	(ft_call_both("Number is %-15.6ld", +100));
-	(ft_call_both("Number is %-15.6ld (LONG_MIN+1)", LONG_MIN + 1));
-	(ft_call_both("Number is %-15.6ld (LONG_MAX-1)", LONG_MAX - 1));
-	(ft_call_both("Number is %-15.6ld (LONG_MIN)", LONG_MIN));
-	(ft_call_both("Number is %-15.6ld (LONG_MAX)", LONG_MAX));
-	(ft_call_both("Number is %-15.6ld (LONG_MIN-1)", LONG_MIN - 1));
-	(ft_call_both("Number is %-15.6ld (LONG_MAX+1)", LONG_MAX + 1));
-	(ft_call_both("Number is %-15.6lld", 0));
-	(ft_call_both("Number is %-15.6lld", -100));
-	(ft_call_both("Number is %-15.6lld (LLONG_MIN)", LLONG_MIN));
-	(ft_call_both("Number is %-15.6lld (LLONG_MAX)", LLONG_MAX));
-	(ft_call_both("Number is %-15.6lld (LLONG_MIN-1)", LLONG_MIN - 1));
-	(ft_call_both("Number is %-15.6lld (LLONG_MAX+1)", LLONG_MAX + 1));
-	(ft_call_both("Number is %-15.6jd", 0));
-	(ft_call_both("Number is %-15.6jd", -100));
-	(ft_call_both("Number is %-15.6jd (INTMAX_MIN)", INTMAX_MIN));
-	(ft_call_both("Number is %-15.6jd (INTMAX_MAX)", INTMAX_MAX));
-	(ft_call_both("Number is %-15.6jd (INTMAX_MIN-1)", INTMAX_MIN - 1));
-	(ft_call_both("Number is %-15.6jd (INTMAX_MAX+1)", INTMAX_MAX + 1));
-	(ft_call_both("Number is %-15.6zd", 0));
-	(ft_call_both("Number is %-15.6zd", -100));
-	(ft_call_both("Number is %-15.6zd (SIZE_MAX)", SIZE_MAX));
-	(ft_call_both("Number is %-15.6zd (SIZE_MAX+1)", SIZE_MAX + 1));
-	(ft_call_both("Number is %-15.6zd (-1)", -1));
+	STOPIF0(ft_call_both("Number is %-15.6ld", 0));
+	STOPIF0(ft_call_both("Number is %-15.6ld", -100));
+	STOPIF0(ft_call_both("Number is %-15.6ld", 100));
+	STOPIF0(ft_call_both("Number is %-15.6ld", +100));
+	STOPIF0(ft_call_both("Number is %-15.6ld (LONG_MIN+1)", LONG_MIN + 1));
+	STOPIF0(ft_call_both("Number is %-15.6ld (LONG_MAX-1)", LONG_MAX - 1));
+	STOPIF0(ft_call_both("Number is %-15.6ld (LONG_MIN)", LONG_MIN));
+	STOPIF0(ft_call_both("Number is %-15.6ld (LONG_MAX)", LONG_MAX));
+	STOPIF0(ft_call_both("Number is %-15.6ld (LONG_MIN-1)", LONG_MIN - 1));
+	STOPIF0(ft_call_both("Number is %-15.6ld (LONG_MAX+1)", LONG_MAX + 1));
+	STOPIF0(ft_call_both("Number is %-15.6lld", 0));
+	STOPIF0(ft_call_both("Number is %-15.6lld", -100));
+	STOPIF0(ft_call_both("Number is %-15.6lld (LLONG_MIN)", LLONG_MIN));
+	STOPIF0(ft_call_both("Number is %-15.6lld (LLONG_MAX)", LLONG_MAX));
+	STOPIF0(ft_call_both("Number is %-15.6lld (LLONG_MIN-1)", LLONG_MIN - 1));
+	STOPIF0(ft_call_both("Number is %-15.6lld (LLONG_MAX+1)", LLONG_MAX + 1));
+	STOPIF0(ft_call_both("Number is %-15.6jd", 0));
+	STOPIF0(ft_call_both("Number is %-15.6jd", -100));
+	STOPIF0(ft_call_both("Number is %-15.6jd (INTMAX_MIN)", INTMAX_MIN));
+	STOPIF0(ft_call_both("Number is %-15.6jd (INTMAX_MAX)", INTMAX_MAX));
+	STOPIF0(ft_call_both("Number is %-15.6jd (INTMAX_MIN-1)", INTMAX_MIN - 1));
+	STOPIF0(ft_call_both("Number is %-15.6jd (INTMAX_MAX+1)", INTMAX_MAX + 1));
+	STOPIF0(ft_call_both("Number is %-15.6zd", 0));
+	STOPIF0(ft_call_both("Number is %-15.6zd", -100));
+	STOPIF0(ft_call_both("Number is %-15.6zd (SIZE_MAX-1)", SIZE_MAX-1));
+	STOPIF0(ft_call_both("Number is %-15.6zd (SIZE_MAX)", SIZE_MAX));
+	STOPIF0(ft_call_both("Number is %-15.6zd (SIZE_MAX+1)", SIZE_MAX + 1));
+	STOPIF0(ft_call_both("Number is %-15.6zd (-SIZE_MAX)", -SIZE_MAX));
+	STOPIF0(ft_call_both("Number is %-15.6zd (-SIZE_MAX-1)", -SIZE_MAX - 1));
+	STOPIF0(ft_call_both("Number is %-15.6zd (-1)", -1));
 
-	/*	long int	i;
-
-	i = UINT_MAX - 100;
-	while (i++ <= LONG_MAX)
-		STOPIF0(ft_call_both("Number is %ld", i));
-*/
 	printf("*** Flag d : all tests passed ***\n");
 	return (1);
 }
