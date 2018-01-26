@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/26 17:48:18 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/26 18:20:40 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,9 +233,6 @@ int		ft_test_flag_d(void)
 	ft_call_both("%zhd", 4294967296);
 	ft_call_both("%jzd", 9223372036854775807);
 	ft_call_both("%jhd", 9223372036854775807);
-	ft_call_both("%hjhd", 9223372036854775807);
-	ft_call_both("%z", 429496);
-	ft_call_both("%zj", 9223368);
 
 	printf("*** Flag d : all tests passed ***\n");
 	return (1);

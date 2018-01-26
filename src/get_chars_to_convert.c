@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:42:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/26 17:48:20 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/26 18:43:36 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	ft_get_size(t_indic **ind, char *str, int *i)
 
 	j = 0;
 	k = 0;
-	if (str[*i] && ft_strchr_pos("hljztL", str[*i]) != -1)
+	if (str[*i] && ft_strchr("hljztL", str[*i]))
 	{
 		j++;
 		if ((str[*i] == 'h' || str[*i] == 'l') && (str[*i] == str[*i + 1]))
@@ -97,13 +97,21 @@ void	ft_get_size(t_indic **ind, char *str, int *i)
 		(*ind)->size = NULL;
 	while (j--)
 		(*ind)->size[k++] = str[(*i)];
-	while (str[*i] && ft_strchr_pos("hljztL", str[*i]) != -1)
+	while (str[*i] && str[(*i) + 1] && ft_strchr("hljztL", str[*i]))
 		(*i)++;
-	printf("size:%s\n", (*ind)->size);
 }
 
 void	ft_get_type(t_indic **ind, char *str, int *i)
 {
-	if (str[*i] && ft_strchr_pos("sSpdDioOuUxXcCeEfFgGaA", str[*i]) != -1)
-		(*ind)->type = str[*i];
+	int		n;
+
+	n = *i;
+	while (str[n] && !ft_strchr("sSpdDioOuUxXcCeEfFgGaA", str[n]))
+		n++;
+	if (str[n] && ft_strchr("sSpdDioOuUxXcCeEfFgGaA", str[n]))
+	{
+		(*ind)->type = str[n];
+		(*ind)->type_index = n;
+		printf("type:%c\n", (*ind)->type);
+	}
 }
