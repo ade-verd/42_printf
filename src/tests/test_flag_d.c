@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/26 14:56:22 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/26 17:12:12 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,6 +218,29 @@ int		ft_test_flag_d(void)
 	STOPIF0(ft_call_both("Number is %-15.6zd (-SIZE_MAX)", -SIZE_MAX));
 	STOPIF0(ft_call_both("Number is %-15.6zd (-SIZE_MAX-1)", -SIZE_MAX - 1));
 	STOPIF0(ft_call_both("Number is %-15.6zd (-1)", -1));
+
+	/*Undefined Behavior*/
+	ft_call_both("%0 d", 42);
+	ft_call_both("%0 d", -42);
+	ft_call_both("% 0d", 42);
+	ft_call_both("% 0d", -42);
+	ft_call_both("%5+d", 42);
+	ft_call_both("%5+d", -42);
+	ft_call_both("%-5+d", 42);
+	ft_call_both("%-0+5d", 42);
+	ft_call_both("%-5+d", -42);
+	ft_call_both("%-0+5d", -42);
+	ft_call_both("%zhd", 4294967296);
+	ft_call_both("%jzd", 9223372036854775807);
+	ft_call_both("%jhd", 9223372036854775807);
+	ft_call_both("%hjhd", 9223372036854775807);
+	ft_call_both("%ztllhhjhjhd", 9223372036854775807);
+	ft_call_both("%z", 9223372036854775807);
+	ft_call_both("%t", 9223372036854775807);
+	ft_call_both("%ll", 9223372036854775807);
+	ft_call_both("%l", 9223372036854775807);
+	ft_call_both("%h", 9223372036854775807);
+	ft_call_both("%j", 9223372036854775807);
 
 	printf("*** Flag d : all tests passed ***\n");
 	return (1);
