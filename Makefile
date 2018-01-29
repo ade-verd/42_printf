@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/29 11:40:49 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/29 14:36:34 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,10 +107,10 @@ BIN_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Binary$(LOG_NOCOLOR) deletion " \
 all: $(NAME)
 
 $(NAME): libft_make $(OBJ_PATH) $(OBJ)
-	@libtool -static -o $@ $(OBJ) $(LIBFT)
-	@ar -rc $(NAME) $(OBJ) && echo -e $(ASSEMBLING)
+	@libtool -static -o $@ $(OBJ) $(LIBFT) && echo -e $(ASSEMBLING)
+#	@ar -rc $(NAME) $(OBJ) && echo -e $(ASSEMBLING)
 	@ranlib $(NAME) && echo -e $(INDEXING)
-#	@ar -t $(NAME) list library's functions
+#	@ar -t $(NAME) # list library's functions
 
 libft_make:
 	@make -C $(LIB_PATH)
