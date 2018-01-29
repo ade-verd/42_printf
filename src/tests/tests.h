@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/25 15:36:24 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 11:31:42 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@
 # include "ft_printf.h"
 
 # define STOPIF0(x) if((x) == 0)	return (0);
+# define NONE	"\033[0m"
+# define CYAN	"\033[036m"
+# define RED	"\033[031m"
+# define GREEN 	"\033[032m"
 
 typedef struct	s_txt
 {

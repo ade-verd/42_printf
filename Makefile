@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/26 15:35:18 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/01/29 11:40:49 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -130,6 +130,8 @@ clean:
 	@rm -Rf $(OBJ_PATH)
 	@echo -e "$(TITLE)clean libft$(END_TITLE)"
 	@make -C $(LIB_PATH) clean
+	@echo -e "$(TITLE)clean src/tests$(END_TITLE)"
+	@make -C $(SRC_PATH) clean
 
 fclean:
 	@echo -e "$(TITLE)fclean $(NAME)$(END_TITLE)"
@@ -139,6 +141,8 @@ fclean:
 	@rm -f $(NAME)
 	@echo -e "$(TITLE)fclean libft$(END_TITLE)"
 	@make -C $(LIB_PATH) fclean
+	@echo -e "$(TITLE)fclean src/tests$(END_TITLE)"
+	@make -C $(SRC_PATH) fclean
 
 re: fclean all
 

@@ -40,41 +40,32 @@ void	ft_print_arg(va_list ap, char *str)
 
 int		ft_compare(int my_ret, int off_ret, char *my_print, char *off_print, char *str)
 {
-	char	*cyan;
-	char	*none;
-	char	*red;
-	char	*green;
 	int		isgood;
 
-	none = "\033[0m";
-	red = "\033[031m";
-	green = "\033[032m";
-	cyan = "\033[036m";
 	isgood = 1;
-
 	if (my_ret != off_ret)
 	{
-		printf("ret %sx%s\t", red, none);
+		printf("ret %sx%s\t", RED, NONE);
 		isgood = 0;
 	}
 	else
-		printf("ret %s√%s\t", green, none);
+		printf("ret %s√%s\t", GREEN, NONE);
 	if (ft_strcmp(my_print, off_print) != 0)
 	{
-		printf("print %sx%s\t\t", red, none);
+		printf("print %sx%s\t\t", RED, NONE);
 		isgood = 0;
 	}
 	else
-		printf("print %s√%s\t\t", green, none);
-	printf("%s|%s|%s\n", cyan, str, none);
+		printf("print %s√%s\t\t", GREEN, NONE);
+	printf("%s|%s|%s\n", CYAN, str, NONE);
 	if (isgood == 0)
 	{
 		if (ft_strcmp(my_print, off_print) != 0)
-			printf("\t\t\t|%s%s%s|\t", red, my_print, none);
+			printf("\t\t\t|%s%s%s|\t", RED, my_print, NONE);
 		else
 			printf("\t\t\t|%s|\t", my_print);
 		if (my_ret != off_ret)
-			printf("return %s%d%s\n", red, my_ret, none);
+			printf("return %s%d%s\n", RED, my_ret, NONE);
 		else
 			printf("return %d\n", my_ret);
 		printf("\tshould be :\t|%s|\treturn %d\n", off_print, off_ret);
