@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/29 13:54:20 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 17:20:18 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,7 @@ int		ft_test_flag_d(void)
 	STOPIF0(ft_call_both("Number is %.0d", 0));
 	STOPIF0(ft_call_both("Number is %.0d", +0));
 	STOPIF0(ft_call_both("Number is %.0d", -0));
+	STOPIF0(ft_call_both("Numbers r |%5.d| && |%5.0d|", 0, 0));
 	STOPIF0(ft_call_both("Number is %0+10.2d", 100));
 	STOPIF0(ft_call_both("Number is %0+10.2d", +100));
 	STOPIF0(ft_call_both("Number is %0+10.2d", -100));
@@ -234,6 +235,8 @@ int		ft_test_flag_d(void)
 	ft_call_both("Undefined behavior %zhd", 4294967296);
 	ft_call_both("Undefined behavior %jzd", 9223372036854775807);
 	ft_call_both("Undefined behavior %jhd", 9223372036854775807);
+
+	ft_call_both("%hd", -32768);
 
 	printf("*** Flag d : all tests passed ***\n");
 	return (1);

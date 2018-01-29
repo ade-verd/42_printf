@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 16:27:14 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/16 15:24:07 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 16:49:12 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ int		ft_call_both(char *str, ...)
 	va_copy(ap2, ap);
 	if (!(t = (t_txt*)malloc(sizeof(*t))))
 		return (-1);
-	if ((t->fd = ft_open("/tmp/out.txt", O_RDWR | O_CREAT |
+	if ((t->fd = ft_open(TMP_OUT, O_RDWR | O_CREAT |
 					O_APPEND, S_IRUSR | S_IWUSR)) == -1)
 		return (-1);
 	t->my_ret = ft_vdprintf(t->fd, str, ap);
-	if ((ft_close(t->fd)) == -1)
-		return (-1);
-	if ((t->fd = ft_open("/tmp/out.txt", O_RDONLY, S_IRUSR | S_IWUSR)) == -1)
-		return (-1);
+//	if ((ft_close(t->fd)) == -1)
+//		return (-1);
+//	if ((t->fd = ft_open(TMP_OUT, O_RDONLY, S_IRUSR | S_IWUSR)) == -1)
+//		return (-1);
 	if ((ft_read_fd(t->fd, &t->my_print, t->my_ret)) == -1)
 		return (-1);
 	t->off_print = ft_strnew(t->my_ret + 1000);

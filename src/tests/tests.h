@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/29 14:55:53 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 16:50:43 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,16 @@
 # include <limits.h>
 # include <stdint.h>
 # include "libft.h"
+# include "get_next_line.h"
 # include "ft_printf.h"
 
-# define STOPIF0(x) if((x) == 0)	return (0);
-# define NONE	"\033[0m"
-# define CYAN	"\033[036m"
-# define RED	"\033[031m"
-# define GREEN 	"\033[032m"
+# define TMP_OUT		"/tmp/out.txt"
+# define EXAMPLE_FILE	"./tests/test_flag_d.c"
+# define STOPIF0(x)		if((x) == 0)	return (0);
+# define NONE			"\033[0m"
+# define CYAN			"\033[036m"
+# define RED			"\033[031m"
+# define GREEN			"\033[032m"
 
 typedef struct	s_txt
 {
@@ -51,10 +54,12 @@ int				ft_compare(int my_ret, int off_ret, char *my_print,
 							char *off_print, char *str);
 int				ft_call_both(char *str, ...);
 
+int				ft_test_flag_no(void);
 int				ft_test_flag_d(void);
 int				ft_test_flag_upper_D(void);
 
 static const t_test	g_test[] = {
+	{"0", ft_test_flag_no},
 	{"di", ft_test_flag_d},
 	{"D", ft_test_flag_upper_D},
 	{0, 0}
