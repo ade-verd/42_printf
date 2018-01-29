@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 17:51:33 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/29 13:12:56 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 14:55:49 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int		ft_choose_flag(char *str)
 
 	ret = -10;
 	i = 0;
-	j = 0;
 	while (g_test[i].letter)
 	{
+		j = 0;
 		while (str[j])
 		{
 			if (ft_strchr(g_test[i].letter, str[j]))
