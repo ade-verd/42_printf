@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 16:27:23 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/29 16:49:10 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 17:39:07 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		ft_read_fd(int fd, char **str, int buf_size)
 		printf("lseek() error\npos = %d\n", pos);
 		return (-1);
 	}
-	if ((ret = read(fd, buf, buf_size)) <= 0)
+	if ((ret = read(fd, buf, buf_size)) < 0)
 	{
 		printf("read() error\n");
 		return (-1);

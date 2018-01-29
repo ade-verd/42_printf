@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/29 16:50:43 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 17:42:41 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # include "ft_printf.h"
 
 # define TMP_OUT		"/tmp/out.txt"
-# define EXAMPLE_FILE	"./tests/test_flag_d.c"
+# define EXAMPLE_FILE	"../Makefile"
 # define STOPIF0(x)		if((x) == 0)	return (0);
 # define NONE			"\033[0m"
 # define CYAN			"\033[036m"

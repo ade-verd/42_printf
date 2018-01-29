@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 15:11:07 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/29 16:49:52 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 17:42:39 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int		ft_test_flag_no(void)
 	STOPIF0(ft_call_both("Hey", 10, 12, 13));
 	while (get_next_line(fd, &line) > 0)
 	{
-		STOPIF0(ft_call_both(line));
+		if (!ft_strchr(line, '%'))
+			STOPIF0(ft_call_both(line));
 		ft_strdel(&line);
 	}
 	printf("*** No Flag : all tests passed ***\n");
