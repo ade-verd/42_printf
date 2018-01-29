@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 12:30:54 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/26 17:37:05 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 18:23:52 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_get_string(t_indic **ind, va_list ap, char **str)
 {
 	const t_ft	g_length[] = {
 		{"di", 0, 0, ft_get_string_di},
-		//{"uoxX", 0, },
+		{"uoxX", 0, 0, ft_get_string_ouxx},
 		//{"fFgGaAeE", 0, },
 		//{"csp", 0, },
 		//{"n", 0, },
@@ -29,7 +29,7 @@ void	ft_get_string(t_indic **ind, va_list ap, char **str)
 	{
 		if ((*ind)->type && ft_strchr(g_length[i].letter, (*ind)->type))
 		{
-			g_length[i].f3(ind, ap, str);
+			g_length[i].f3(ind, ap, str, 10);
 			return ;
 		}
 		i++;
@@ -37,7 +37,7 @@ void	ft_get_string(t_indic **ind, va_list ap, char **str)
 	*str = NULL;
 }
 
-void	ft_get_string_di(t_indic **ind, va_list ap, char **str)
+void	ft_get_string_di(t_indic **ind, va_list ap, char **str, int base)
 {
 	intmax_t	n;
 
@@ -57,5 +57,32 @@ void	ft_get_string_di(t_indic **ind, va_list ap, char **str)
 		n = va_arg(ap, ptrdiff_t);
 	else
 		n = va_arg(ap, int);
-	*str = ft_itoa_base(n, 10);
+	*str = ft_itoa_base(n, base);
+}
+
+void	ft_get_string_ouxx(t_indic **ind, va_list ap, char **str, int base)
+{
+	uintmax_t	n;
+
+	if ((*ind)->type == 'o' || (*ind)->type == 'O')
+		base = 8;
+	else if ((*ind)->type == 'x' || (*ind)->type == 'X')
+		base = 16;
+	if ((*ind)->size && ft_strcmp((*ind)->size, "hh") == 0)
+		n = (unsigned char)va_arg(ap, unsigned int);
+	else if ((*ind)->size && ft_strcmp((*ind)->size, "h") == 0)
+		n = (unsigned short int)va_arg(ap, unsigned int);
+	else if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
+		n = va_arg(ap, unsigned long int);
+	else if ((*ind)->size && ft_strcmp((*ind)->size, "ll") == 0)
+		n = va_arg(ap, unsigned long long int);
+	else if ((*ind)->size && ft_strcmp((*ind)->size, "j") == 0)
+		n = va_arg(ap, uintmax_t);
+	else if ((*ind)->size && ft_strcmp((*ind)->size, "z") == 0)
+		n = va_arg(ap, size_t);
+	else if ((*ind)->size && ft_strcmp((*ind)->size, "t") == 0)
+		n = va_arg(ap, ptrdiff_t);
+	else
+		n = va_arg(ap, unsigned int);
+	*str = ft_uitoa_base(n, base);
 }

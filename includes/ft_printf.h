@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/29 13:23:51 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 18:23:53 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct		s_ft
 	char			*letter;
 	void			(*f1)(va_list, t_indic**, t_buff**);
 	void			(*f2)(t_indic**, t_buff**, char **str);
-	void			(*f3)(t_indic**, va_list, char **str);
+	void			(*f3)(t_indic**, va_list, char **str, int base);
 }					t_ft;
 
 /*ft_printf and cie*/
@@ -102,8 +102,9 @@ void				ft_manage_minus(t_indic **ind, t_buff **buff, char **str);
 void				ft_precision_int(t_indic **ind, t_buff **buff, char **str);
 
 /*Size*/
-void				ft_get_string(t_indic **ind, va_list, char **str);
-void				ft_get_string_di(t_indic **ind, va_list, char **str);
+void				ft_get_string(t_indic **ind, va_list ap, char **str);
+void				ft_get_string_di(t_indic **i, va_list a, char **s, int b);
+void				ft_get_string_ouxx(t_indic **i, va_list a, char **s, int b);
 
 
 static const t_conv	g_tab[] = {

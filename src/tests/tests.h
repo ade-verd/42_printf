@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/29 17:42:41 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 19:00:21 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct	s_txt
 typedef struct	s_test
 {
 	char		*letter;
+	char		*designation;
 	int			(*f)(void);
 }				t_test;
 
@@ -56,13 +57,15 @@ int				ft_call_both(char *str, ...);
 
 int				ft_test_flag_no(void);
 int				ft_test_flag_d(void);
+int				ft_test_flag_o(void);
 int				ft_test_flag_upper_D(void);
 
 static const t_test	g_test[] = {
-	{"0", ft_test_flag_no},
-	{"di", ft_test_flag_d},
-	{"D", ft_test_flag_upper_D},
-	{0, 0}
+	{"0", "no conversion", ft_test_flag_no},
+	{"di", "integer base 10", ft_test_flag_d},
+	{"D", "long integer base 10 (eq. %ld)", ft_test_flag_upper_D},
+	{"o", "integer base 8", ft_test_flag_o},
+	{0, 0, 0}
 };
 
 #endif

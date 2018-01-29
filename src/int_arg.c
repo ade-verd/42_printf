@@ -6,13 +6,13 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 17:09:01 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/29 14:55:57 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 18:36:31 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_int_type_di(va_list ap, t_indic **ind, t_buff **buff)
+void	ft_int_types_diouxx(va_list ap, t_indic **ind, t_buff **buff)
 {
 	char	*str;
 
@@ -39,13 +39,13 @@ void	ft_int_type_D(va_list ap, t_indic **ind, t_buff **buff)
 			(*ind)->size[0] = 'l';
 		}
 	}
-	ft_int_type_di(ap, ind, buff);
+	ft_int_types_diouxx(ap, ind, buff);
 }
 
 void	ft_int_arg(va_list ap, t_indic **ind, t_buff **buff)
 {
 	const t_ft	g_ft[] = {
-		{"di", ft_int_type_di, NULL, NULL},
+		{"diouxX", ft_int_types_diouxx, NULL, NULL},
 		{"D", ft_int_type_D, NULL, NULL},
 		{0, 0, 0, 0}
 	};

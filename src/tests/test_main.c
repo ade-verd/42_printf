@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 17:51:33 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/29 14:55:49 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 17:57:47 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,12 @@ void	ft_available_types(void)
 	int		i;
 
 	i = 0;
-	printf("Avalaibable types: ");
+	printf("Avalaibable types:\n");
 	while (g_test[i].letter)
 	{
-		printf("%s", g_test[i].letter);
+		printf(" - %s\t%s\n", g_test[i].letter, g_test[i].designation);
 		i++;
 	}
-	printf("\n");
 }
 
 int		main(int ac, char **av)
