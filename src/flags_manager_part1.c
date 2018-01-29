@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 17:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/19 12:21:46 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 14:14:45 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ void	ft_manage_plus(t_indic **ind, t_buff **buff, char **str)
 			|| (ft_strchr((*ind)->flags, '0') && (*ind)->isprec == 0)))
 		isminus_or_is0 = 1;
 	if ((*ind)->flags && ft_strchr((*ind)->flags, '+')
-			&& ft_atoi(*str) > 0 && (*buff)->sign_printed == 0)
+			&& ft_atointmax(*str) > 0 && (*buff)->sign_printed == 0)
 		n++;
 	while (i++ < (w - n) && isminus_or_is0 != 1)
 		ft_putcbuffer(buff, ' ');
 	if ((*ind)->flags && ft_strchr((*ind)->flags, '+')
-			&& ft_atoi(*str) >= 0 && (*buff)->sign_printed == 0)
+			&& ft_atointmax(*str) >= 0 && (*buff)->sign_printed == 0)
 	{
 		ft_putcbuffer(buff, '+');
 		(*buff)->sign_printed++;
@@ -104,9 +104,9 @@ void	ft_print_sign_before(t_indic **ind, t_buff **buff, char **str)
 		if ((*ind)->flags && ft_strchr((*ind)->flags, '0') 
 				&& (*ind)->isprec == 0)
 		{
-			if (ft_atoi(*str) <= 0 && *str[0] == '-')
+			if (ft_atointmax(*str) <= 0 && *str[0] == '-')
 				ft_putcbuffer(buff, '-');
-			if (ft_atoi(*str) >= 0 && *str[0] == '+')
+			if (ft_atointmax(*str) >= 0 && *str[0] == '+')
 				ft_putcbuffer(buff, '+');
 		}
 		if ((*ind)->flags && ft_strchr((*ind)->flags, ' ') && *str[0] != '+'

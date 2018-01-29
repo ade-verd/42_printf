@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 11:50:42 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/26 18:45:22 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 13:54:20 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,6 +191,7 @@ int		ft_test_flag_d(void)
 	STOPIF0(ft_call_both("Number is %-15.6ld", 0));
 	STOPIF0(ft_call_both("Number is %-15.6ld", -100));
 	STOPIF0(ft_call_both("Number is %-15.6ld", 100));
+	STOPIF0(ft_call_both("Number is %0+10ld", -100));
 	STOPIF0(ft_call_both("Number is %-15.6ld", +100));
 	STOPIF0(ft_call_both("Number is %-15.6ld (LONG_MIN+1)", LONG_MIN + 1));
 	STOPIF0(ft_call_both("Number is %-15.6ld (LONG_MAX-1)", LONG_MAX - 1));
@@ -220,19 +221,19 @@ int		ft_test_flag_d(void)
 	STOPIF0(ft_call_both("Number is %-15.6zd (-1)", -1));
 
 	/*Undefined Behavior*/
-	ft_call_both("%0 d", 42);
-	ft_call_both("%0 d", -42);
-	ft_call_both("% 0d", 42);
-	ft_call_both("% 0d", -42);
-	ft_call_both("%5+d", 42);
-	ft_call_both("%5+d", -42);
-	ft_call_both("%-5+d", 42);
-	ft_call_both("%-0+5d", 42);
-	ft_call_both("%-5+d", -42);
-	ft_call_both("%-0+5d", -42);
-	ft_call_both("%zhd", 4294967296);
-	ft_call_both("%jzd", 9223372036854775807);
-	ft_call_both("%jhd", 9223372036854775807);
+	ft_call_both("Undefined behavior %0 d", 42);
+	ft_call_both("Undefined behavior %0 d", -42);
+	ft_call_both("Undefined behavior % 0d", 42);
+	ft_call_both("Undefined behavior % 0d", -42);
+	ft_call_both("Undefined behavior %5+d", 42);
+	ft_call_both("Undefined behavior %5+d", -42);
+	ft_call_both("Undefined behavior %-5+d", 42);
+	ft_call_both("Undefined behavior h%-0+5d", 42);
+	ft_call_both("Undefined behavior %-5+d", -42);
+	ft_call_both("Undefined behavior %-0+5d", -42);
+	ft_call_both("Undefined behavior %zhd", 4294967296);
+	ft_call_both("Undefined behavior %jzd", 9223372036854775807);
+	ft_call_both("Undefined behavior %jhd", 9223372036854775807);
 
 	printf("*** Flag d : all tests passed ***\n");
 	return (1);

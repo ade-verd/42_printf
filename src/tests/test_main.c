@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 17:51:33 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/19 11:47:00 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 13:12:56 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,19 @@ int		ft_choose_flag(char *str)
 {
 	int		ret;
 	int		i;
+	int		j;
 
 	ret = -10;
 	i = 0;
+	j = 0;
 	while (g_test[i].letter)
 	{
-		if (ft_strchr(str, g_test[i].letter))
-			STOPIF0(ret = g_test[i].f());
+		while (str[j])
+		{
+			if (ft_strchr(g_test[i].letter, str[j]))
+				STOPIF0(ret = g_test[i].f());
+			j++;
+		}
 		i++;
 	}
 	return (ret);
@@ -49,7 +55,7 @@ void	ft_available_types(void)
 	printf("Avalaibable types: ");
 	while (g_test[i].letter)
 	{
-		printf("%c", g_test[i].letter);
+		printf("%s", g_test[i].letter);
 		i++;
 	}
 	printf("\n");

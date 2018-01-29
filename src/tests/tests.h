@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/29 11:31:42 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 13:14:41 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct	s_txt
 
 typedef struct	s_test
 {
-	char		letter;
+	char		*letter;
 	int			(*f)(void);
 }				t_test;
 
@@ -52,9 +52,11 @@ int				ft_compare(int my_ret, int off_ret, char *my_print,
 int				ft_call_both(char *str, ...);
 
 int				ft_test_flag_d(void);
+int				ft_test_flag_upper_D(void);
 
 static const t_test	g_test[] = {
-	{'d', ft_test_flag_d},
+	{"di", ft_test_flag_d},
+	{"D", ft_test_flag_upper_D},
 	{0, 0}
 };
 

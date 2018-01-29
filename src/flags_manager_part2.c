@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 11:01:17 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/24 17:01:09 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 14:13:58 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 
 void	ft_hashtag_oxx(t_indic **ind, t_buff **buff, char **str)
 {
-	int		integer;
+	intmax_t	integer;
 
-	integer = ft_atoi(*str);
+	integer = ft_atointmax(*str);
 	if ((*ind)->flags && ft_strchr((*ind)->flags, 'o') && integer != 0)
 		ft_putcbuffer(buff, '0');
 	else if ((*ind)->flags && ft_strchr((*ind)->flags, 'x') && integer != 0)

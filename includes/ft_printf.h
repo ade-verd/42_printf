@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/26 18:23:21 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/29 13:23:51 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void				ft_get_string_di(t_indic **ind, va_list, char **str);
 
 
 static const t_conv	g_tab[] = {
-	{ "bdiouxX", ft_int_arg },/*
+	{ "bdDiouxX", ft_int_arg },/*
 	{ "DOU", ft_dou_arg },
 	{ "Cc", ft_c_arg },
 	{ "s", ft_s_arg },
