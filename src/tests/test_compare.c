@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 18:01:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/30 13:30:02 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/30 15:37:45 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,41 @@ void	ft_print_arg(va_list ap, char *str)
 	}
 }*/
 
+int		ft_compare_only_errors(int my_ret, int off_ret, char *my_print, char *off_print, char *str)
+{
+	if (my_ret != off_ret || ft_strcmp(my_print, off_print) != 0)
+	{
+		if (my_ret != off_ret)
+			printf("ret %sx%s\t", RED, NONE);
+		else
+			printf("ret %s√%s\t", GREEN, NONE);
+		if (ft_strcmp(my_print, off_print) != 0)
+			printf("print %sx%s\t\t", RED, NONE);
+		else
+			printf("print %s√%s\t\t", GREEN, NONE);
+		printf("%s|%s|%s\n", CYAN, str, NONE);
+		if (ft_strcmp(my_print, off_print) != 0)
+			printf("\t\t\t|%s%s%s|\t", RED, my_print, NONE);
+		else
+			printf("\t\t\t|%s|\t", my_print);
+		if (my_ret != off_ret)
+			printf("return %s%d%s\n", RED, my_ret, NONE);
+		else
+			printf("return %d\n", my_ret);
+		printf("\tshould be :\t|%s|\treturn %d\n", off_print, off_ret);
+	}
+	return (1);
+}
+
 int		ft_compare(int my_ret, int off_ret, char *my_print, char *off_print, char *str)
 {
 	int		isgood;
 
+	if (g_display_code == ERR_ONLY)
+	{
+		ft_compare_only_errors(my_ret, off_ret, my_print, off_print, str);
+		return (1);
+	}
 	isgood = 1;
 	if (my_ret != off_ret)
 	{
@@ -72,6 +103,5 @@ int		ft_compare(int my_ret, int off_ret, char *my_print, char *off_print, char *
 	}
 	else if (g_display_code != ERR_ONLY)
 		printf("\t\t\t|%s|\treturn %d\n", my_print, my_ret);
-	printf("Display_code : %d\n", g_display_code);
 	return (isgood);
 }

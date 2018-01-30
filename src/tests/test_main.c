@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 17:51:33 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/30 13:39:20 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/30 15:17:39 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,21 +63,19 @@ void	ft_available_types(void)
 	printf(" --%s\t%s\n", "errors", "Displays only errors");
 }
 
+
 int		main(int ac, char **av)
 {
 	int		i;
-	int		*display_code;
 
 	i = 1;
-	g_display_code = display_code;
-	printf("Display_code : %d\n", *display_code);
-	display_code = ALL;
+	g_display_code = ALL;
 	if (ac == 1)
 		ft_run_all();
 	else if (ac == 2 || ac == 3)
 	{
 		if (av[2] && strcmp(av[2], "--errors") == 0)
-			*display_code = ERR_ONLY;
+			g_display_code = ERR_ONLY;
 		if (strcmp(av[1], "-h") == 0 || (ft_choose_flag(av[i])) == -10)
 		{
 			fprintf(stderr, "Usage: ./test [conversion letter(s)] [Display code]\n");

@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 18:45:13 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/30 12:00:22 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/30 15:18:31 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,8 +220,6 @@ int		ft_test_flag_o(void)
 	STOPIF0(ft_call_both("Number is %-15.6zo (-SIZE_MAX)", -SIZE_MAX));
 	STOPIF0(ft_call_both("Number is %-15.6zo (-SIZE_MAX-1)", -SIZE_MAX - 1));
 	STOPIF0(ft_call_both("Number is %-15.6zo (-1)", -1));
-
-	printf("foumagueule?\n");
 
 	printf("*** Flag o : all tests passed ***\n");
 	return (1);

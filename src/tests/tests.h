@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/30 13:34:21 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/30 15:17:40 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,6 @@ static const t_test	g_test[] = {
 	{0, 0, 0}
 };
 
-static int		g_display_code;
+int		g_display_code;
 
 #endif
