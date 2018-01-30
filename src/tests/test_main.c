@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 17:51:33 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/29 17:57:47 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/30 13:39:20 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,30 +52,39 @@ void	ft_available_types(void)
 	int		i;
 
 	i = 0;
+	printf(" -h\thelp\n");
 	printf("Avalaibable types:\n");
 	while (g_test[i].letter)
 	{
-		printf(" - %s\t%s\n", g_test[i].letter, g_test[i].designation);
+		printf(" %s\t%s\n", g_test[i].letter, g_test[i].designation);
 		i++;
 	}
+	printf("\nDisplay code:\n");
+	printf(" --%s\t%s\n", "errors", "Displays only errors");
 }
 
 int		main(int ac, char **av)
 {
+	int		i;
+	int		*display_code;
+
+	i = 1;
+	g_display_code = display_code;
+	printf("Display_code : %d\n", *display_code);
+	display_code = ALL;
 	if (ac == 1)
 		ft_run_all();
-	else if (ac == 2)
+	else if (ac == 2 || ac == 3)
 	{
-		if (strcmp(av[1], "-h") == 0 || strcmp(av[1], "--help") == 0
-				|| (ft_choose_flag(av[1])) == -10)
+		if (av[2] && strcmp(av[2], "--errors") == 0)
+			*display_code = ERR_ONLY;
+		if (strcmp(av[1], "-h") == 0 || (ft_choose_flag(av[i])) == -10)
 		{
-			fprintf(stderr, "Usage: ./test [conversion letter(s)]\n");
+			fprintf(stderr, "Usage: ./test [conversion letter(s)] [Display code]\n");
 			ft_available_types();
 		}
 	}
 	else
-	{
-		fprintf(stderr, "Usage: ./test [conversion letter(s)]\n");
-	}
+		fprintf(stderr, "Usage: ./test [conversion letter(s)] [Display code]\n");
 	return (0);
 }

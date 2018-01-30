@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 18:01:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/16 15:30:52 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/30 13:30:02 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ int		ft_compare(int my_ret, int off_ret, char *my_print, char *off_print, char *
 			printf("return %d\n", my_ret);
 		printf("\tshould be :\t|%s|\treturn %d\n", off_print, off_ret);
 	}
-	else
+	else if (g_display_code != ERR_ONLY)
 		printf("\t\t\t|%s|\treturn %d\n", my_print, my_ret);
+	printf("Display_code : %d\n", g_display_code);
 	return (isgood);
 }

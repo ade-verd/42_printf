@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/29 19:00:21 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/30 13:34:21 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 
 # define TMP_OUT		"/tmp/out.txt"
 # define EXAMPLE_FILE	"../Makefile"
+# define ALL			1000
+//# define LIGHT			1001
+# define ERR_ONLY		1002
 # define STOPIF0(x)		if((x) == 0)	return (0);
 # define NONE			"\033[0m"
 # define CYAN			"\033[036m"
@@ -67,5 +70,7 @@ static const t_test	g_test[] = {
 	{"o", "integer base 8", ft_test_flag_o},
 	{0, 0, 0}
 };
+
+static int		g_display_code;
 
 #endif

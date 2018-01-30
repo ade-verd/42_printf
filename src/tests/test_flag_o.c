@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 18:45:13 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/29 19:00:23 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/30 12:00:22 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,14 @@ int		ft_test_flag_o(void)
 
 	/*Flag '#' oxX*/
 	STOPIF0(ft_call_both("Number is %+      10o", 100));
-	STOPIF0(ft_call_both("The number is %o\n", 0));
-	STOPIF0(ft_call_both("The number is %#o\n", 0));
-	STOPIF0(ft_call_both("The number is %#o\n", -0));
-	STOPIF0(ft_call_both("The number is %#o\n", +0));
-	STOPIF0(ft_call_both("The number is %o\n", 100));
-	STOPIF0(ft_call_both("The number is %#o\n", 100));
-	STOPIF0(ft_call_both("The number is %#o\n", -100));
-	STOPIF0(ft_call_both("The number is %#o\n\n", +100));
+	STOPIF0(ft_call_both("The number is %o", 0));
+	STOPIF0(ft_call_both("The number is %#o", 0));
+	STOPIF0(ft_call_both("The number is %#o", -0));
+	STOPIF0(ft_call_both("The number is %#o", +0));
+	STOPIF0(ft_call_both("The number is %o", 100));
+	STOPIF0(ft_call_both("The number is %#o", 100));
+	STOPIF0(ft_call_both("The number is %#o", -100));
+	STOPIF0(ft_call_both("The number is %#o", +100));
 /*	printf("The number is %x\n", 0);
 	printf("The number is %#x\n", 0);
 	printf("The number is %#x\n", -0);
@@ -130,14 +130,14 @@ int		ft_test_flag_o(void)
 	STOPIF0(ft_call_both("I changed the number : %3o", -10));
 	STOPIF0(ft_call_both("Again : %3o...", -123456789));
 
-	STOPIF0(ft_call_both("Le nombre est %#+-0 123.4o !", 1000));
-	STOPIF0(ft_call_both("Le nombre est %#+-0 *o !", 10, 0));
-	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4o !", 10, -5));
-	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4ho !", 10, +10));
-	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4hho !", 10, 15));//	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4lu !", 10, -20));
-//	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4llU !", 10, +25));
-	//STOPIF0(ft_call_both("Le nombre est %#+-0 *.4jC !", 10, -30));
-	//STOPIF0(ft_call_both("Le nombre est %#+-0 *.4zp !", 10, 35));
+	STOPIF0(ft_call_both("Le nombre est %#+-0 10.4o!", 1000));
+	STOPIF0(ft_call_both("Le nombre est %#+-0 *o!", 10, 0));
+	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4o!", 10, -5));
+	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4ho!", 10, +10));
+	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4hho!", 10, 15));//	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4lu !", 10, -20));
+//	STOPIF0(ft_call_both("Le nombre est %#+-0 *.4llU!", 10, +25));
+	//STOPIF0(ft_call_both("Le nombre est %#+-0 *.4jC!", 10, -30));
+	//STOPIF0(ft_call_both("Le nombre est %#+-0 *.4zp!", 10, 35));
 
 	/*Precision*/
 	STOPIF0(ft_call_both("Number is %.0o", 0));
