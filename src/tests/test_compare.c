@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 18:01:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/31 16:10:02 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/31 17:12:27 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		ft_compare_only_errors(int my_ret, int off_ret, char *my_print, char *off_p
 {
 	char *color;
 
-	color = ft_strstr(str, "Undefined behavior") ? YELLOW : RED;
+	color = ft_strstr(str, "ehavior") ? YELLOW : RED;
 	if (my_ret != off_ret || ft_strcmp(my_print, off_print) != 0)
 	{
 		if (my_ret != off_ret)
@@ -70,14 +70,14 @@ int		ft_compare_only_errors(int my_ret, int off_ret, char *my_print, char *off_p
 int		ft_compare(int my_ret, int off_ret, char *my_print, char *off_print, char *str)
 {
 	int		isgood;
-	char *color;
+	char	*color;
 
-	color = ft_strstr(str, "Undefined behavior") ? YELLOW : RED;
 	if (g_display_code == ERR_ONLY)
 	{
 		ft_compare_only_errors(my_ret, off_ret, my_print, off_print, str);
 		return (1);
 	}
+	color = ft_strstr(str, "ehavior") ? YELLOW : RED;
 	isgood = 1;
 	if (my_ret != off_ret)
 	{
