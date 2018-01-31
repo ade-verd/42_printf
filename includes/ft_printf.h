@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/31 14:45:59 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/31 17:37:46 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct		s_buff
 	char			*suffix;
 	int				sign_printed;
 	int				iszero;
+	int				printed;
 	int				index;
 	int				total;
 	int				fd;
