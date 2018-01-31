@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/30 15:17:40 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/31 16:04:48 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # define CYAN			"\033[036m"
 # define RED			"\033[031m"
 # define GREEN			"\033[032m"
+# define YELLOW			"\x1b[33m"
 
 typedef struct	s_txt
 {

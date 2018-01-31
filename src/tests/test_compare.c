@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 18:01:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/30 15:37:45 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/31 16:10:02 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,26 @@ void	ft_print_arg(va_list ap, char *str)
 
 int		ft_compare_only_errors(int my_ret, int off_ret, char *my_print, char *off_print, char *str)
 {
+	char *color;
+
+	color = ft_strstr(str, "Undefined behavior") ? YELLOW : RED;
 	if (my_ret != off_ret || ft_strcmp(my_print, off_print) != 0)
 	{
 		if (my_ret != off_ret)
-			printf("ret %sx%s\t", RED, NONE);
+			printf("ret %sx%s\t", color, NONE);
 		else
 			printf("ret %s√%s\t", GREEN, NONE);
 		if (ft_strcmp(my_print, off_print) != 0)
-			printf("print %sx%s\t\t", RED, NONE);
+			printf("print %sx%s\t\t", color, NONE);
 		else
 			printf("print %s√%s\t\t", GREEN, NONE);
 		printf("%s|%s|%s\n", CYAN, str, NONE);
 		if (ft_strcmp(my_print, off_print) != 0)
-			printf("\t\t\t|%s%s%s|\t", RED, my_print, NONE);
+			printf("\t\t\t|%s%s%s|\t", color, my_print, NONE);
 		else
 			printf("\t\t\t|%s|\t", my_print);
 		if (my_ret != off_ret)
-			printf("return %s%d%s\n", RED, my_ret, NONE);
+			printf("return %s%d%s\n", color, my_ret, NONE);
 		else
 			printf("return %d\n", my_ret);
 		printf("\tshould be :\t|%s|\treturn %d\n", off_print, off_ret);
@@ -67,7 +70,9 @@ int		ft_compare_only_errors(int my_ret, int off_ret, char *my_print, char *off_p
 int		ft_compare(int my_ret, int off_ret, char *my_print, char *off_print, char *str)
 {
 	int		isgood;
+	char *color;
 
+	color = ft_strstr(str, "Undefined behavior") ? YELLOW : RED;
 	if (g_display_code == ERR_ONLY)
 	{
 		ft_compare_only_errors(my_ret, off_ret, my_print, off_print, str);
@@ -76,14 +81,14 @@ int		ft_compare(int my_ret, int off_ret, char *my_print, char *off_print, char *
 	isgood = 1;
 	if (my_ret != off_ret)
 	{
-		printf("ret %sx%s\t", RED, NONE);
+		printf("ret %sx%s\t", color, NONE);
 		isgood = 0;
 	}
 	else
 		printf("ret %s√%s\t", GREEN, NONE);
 	if (ft_strcmp(my_print, off_print) != 0)
 	{
-		printf("print %sx%s\t\t", RED, NONE);
+		printf("print %sx%s\t\t", color, NONE);
 		isgood = 0;
 	}
 	else
@@ -92,11 +97,11 @@ int		ft_compare(int my_ret, int off_ret, char *my_print, char *off_print, char *
 	if (isgood == 0)
 	{
 		if (ft_strcmp(my_print, off_print) != 0)
-			printf("\t\t\t|%s%s%s|\t", RED, my_print, NONE);
+			printf("\t\t\t|%s%s%s|\t", color, my_print, NONE);
 		else
 			printf("\t\t\t|%s|\t", my_print);
 		if (my_ret != off_ret)
-			printf("return %s%d%s\n", RED, my_ret, NONE);
+			printf("return %s%d%s\n", color, my_ret, NONE);
 		else
 			printf("return %d\n", my_ret);
 		printf("\tshould be :\t|%s|\treturn %d\n", off_print, off_ret);
