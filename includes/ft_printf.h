@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/29 18:23:53 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/31 14:45:59 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct		s_buff
 	char			*str;
 	char			*suffix;
 	int				sign_printed;
+	int				iszero;
 	int				index;
 	int				total;
 	int				fd;
@@ -95,7 +96,8 @@ void				ft_int_type_d(va_list ap, t_indic **i, t_buff **buff);
 void				ft_print_sign_before(t_indic **i, t_buff **buff, char **s);
 void				ft_manage_hashtag(t_indic **ind, t_buff **buff, char **str);
 void				ft_manage_zero(t_indic **ind, t_buff **buff, char **str);
-void				ft_manage_plus(t_indic **ind, t_buff **buff, char **str);
+void				ft_manage_plus_signed(t_indic **i, t_buff **b, char **s);
+void				ft_manage_plus_unsigned(t_indic **i, t_buff **b, char **s);
 void				ft_manage_minus(t_indic **ind, t_buff **buff, char **str);
 
 /*Precision*/
