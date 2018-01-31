@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 17:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/31 16:02:26 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/31 18:11:11 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,8 @@ void	ft_manage_minus(t_indic **ind, t_buff **buff, char **str)
 
 	if (!(*ind)->flags || !(*ind)->width || !ft_strchr((*ind)->flags, '-'))
 		return ;
-	n = ft_strchr("+-", *str[0]) ? ft_strlen(*str) - 1 : ft_strlen(*str);
-	w = ((*ind)->precision - n <= 0) ? ((*ind)->width - (*buff)->sign_printed)
-			: ((*ind)->width - (*buff)->sign_printed - ((*ind)->precision - n));
-	n = ft_strlen(*str) - (*buff)->iszero;
+	w = (*ind)->width;
+	n = ft_strlen(*str) + (*buff)->printed;
 	i = 0;
 	if ((*ind)->type == 'n')
 	{

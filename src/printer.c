@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:06:41 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/30 17:32:13 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/31 17:43:44 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_init_buffer(t_buff **buff, int fd)
 	(*buff)->suffix = NULL;
 	(*buff)->sign_printed = 0;
 	(*buff)->iszero = 0;
+	(*buff)->printed = 0;
 	(*buff)->index = 0;
 	(*buff)->total = 0;
 	(*buff)->fd = fd;
@@ -46,8 +47,9 @@ void	ft_print_buffer(t_buff **buff)
 void	ft_putcbuffer(t_buff **buff, char c)
 {
 	(*buff)->str[(*buff)->index] = c;
-	(*buff)->index = (*buff)->index + 1;
+	(*buff)->index++;
 	(*buff)->str[(*buff)->index] = '\0';
+	(*buff)->printed++;
 	if ((*buff)->index == BUFF_MAX_SIZE)
 		ft_print_buffer(buff);
 }

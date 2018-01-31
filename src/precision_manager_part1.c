@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 15:49:33 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/30 18:33:50 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/31 18:03:46 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_precision_int(t_indic **ind, t_buff **buff, char **str)
 
 	i = 0;
 	prec = (*ind)->precision - (*buff)->iszero;
-	if ((*ind)->isprec == 1 && prec == 0 && ft_atoi(*str) == 0)
+	if ((*ind)->isprec == 1 && prec == 0 && ft_atointmax(*str) == 0)
 	{
 		ft_strclr(*str);
 		if ((*ind)->width > 0)
@@ -28,7 +28,7 @@ void	ft_precision_int(t_indic **ind, t_buff **buff, char **str)
 	}
 	else
 	{
-		if (ft_atoi(*str) <= 0 && *str[0] == '-')
+		if (ft_atointmax(*str) <= 0 && *str[0] == '-')
 		{
 			ft_putcbuffer(buff, '-');
 			(*buff)->sign_printed++;

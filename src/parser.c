@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/30 17:31:24 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/01/31 17:42:19 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,6 @@ void	ft_free_indic(t_indic **ind)
 {
 	if ((*ind)->flags)
 		ft_strdel(&(*ind)->flags);
-	if ((*ind)->width)
-		(*ind)->width = 0;
-	if ((*ind)->isprec)
-		(*ind)->isprec = 0;
-	if ((*ind)->precision)
-		(*ind)->precision = 0;
 	if ((*ind)->size)
 		ft_strdel(&(*ind)->size);
 	if (*ind)
@@ -85,6 +79,7 @@ void	ft_parse_str(va_list ap, char *str, int *ret, int fd)
 		if (str[i] == '%')
 		{
 			i++;
+			buff->printed = 0;
 			ft_init_indic(&ind);
 			ft_get_all_indics(&ind, ap, str, &i);
 			ft_convert(&ind, ap, &buff, &i);
