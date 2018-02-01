@@ -6,7 +6,7 @@
 #    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/29 18:45:30 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/02/01 18:59:23 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,10 @@ SRC_TEST = $(TESTS_PATH)test_main.c\
 		   $(TESTS_PATH)test_read.c\
 		   $(TESTS_PATH)test_flag_no.c\
 		   $(TESTS_PATH)test_flag_d.c\
-		   $(TESTS_PATH)test_flag_upper_D.c\
 		   $(TESTS_PATH)test_flag_o.c\
+		   $(TESTS_PATH)test_flag_u.c\
+		   $(TESTS_PATH)test_flag_upper_D.c\
+		   $(TESTS_PATH)test_flag_upper_U.c\
 
 SRC_NAME = \
 		   ft_printf.c\
