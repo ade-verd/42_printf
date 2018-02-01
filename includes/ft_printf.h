@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/01 13:57:38 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/01 17:32:42 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,8 @@ void				ft_parse_str(va_list ap, char *str, int *ret, int fd);
 
 /*Convert*/
 void				ft_indicators_manager(t_indic **i, t_buff **buff, char **s);
-void				ft_int_arg(va_list ap, t_indic **ind, t_buff**);
-void				ft_int_type_d(va_list ap, t_indic **i, t_buff **buff);
+void				ft_int_diouxx(va_list ap, t_indic **ind, t_buff **buff);
+void				ft_int_capital_dou(va_list ap, t_indic **ind, t_buff **buf);
 
 /*Flags*/
 void				ft_print_sign_before(t_indic **i, t_buff **buff, char **s);
@@ -112,8 +112,8 @@ void				ft_get_string_ouxx(t_indic **i, va_list a, char **s, int b);
 
 
 static const t_conv	g_tab[] = {
-	{ "bdDiouxX", ft_int_arg },/*
-	{ "DOU", ft_dou_arg },
+	{ "bdioux", ft_int_diouxx },
+	{ "DOU", ft_int_capital_dou },/*
 	{ "Cc", ft_c_arg },
 	{ "s", ft_s_arg },
 	{ "S", ft_ws_arg },
