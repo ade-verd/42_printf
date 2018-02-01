@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/29 18:45:13 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/30 18:44:45 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/01 11:54:11 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,6 +221,10 @@ int		ft_test_flag_o(void)
 	STOPIF0(ft_call_both("Number is %-15.6zo (-SIZE_MAX)", -SIZE_MAX));
 	STOPIF0(ft_call_both("Number is %-15.6zo (-SIZE_MAX-1)", -SIZE_MAX - 1));
 	STOPIF0(ft_call_both("Number is %-15.6zo (-1)", -1));
+
+	/*Some Moulitests*/
+	STOPIF0(ft_call_both("Basics tests: %#6o", 2500));
+	STOPIF0(ft_call_both("@moulitest: %#.o %#.0o", 0, 0));
 
 	printf("*** Flag o : all tests passed ***\n");
 	return (1);
