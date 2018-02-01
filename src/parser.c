@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/31 17:42:19 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/01 18:21:10 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,30 @@ void	ft_get_all_indics(t_indic **ind, va_list ap, char *str, int *i)
 
 void	ft_convert(t_indic **ind, va_list ap, t_buff **buff, int *index)
 {
+	const t_conv	g_tab[] = {
+		{ "bdDioOuUxX", ft_int_arg },/*
+		{ "Cc", ft_c_arg },
+		{ "s", ft_s_arg },
+		{ "S", ft_ws_arg },
+		{ "p", ft_p_arg },
+		{ "%", ft_pct_arg },*/
+		{ 0, 0}
+	};
 	int		i;
 	int		found;
 
 	i = 0;
 	found = 0;
-	while (g_tab[i].letters)
+	while (g_tab[i].letters && found == 0)
 	{
 		if ((*ind)->type && ft_strchr_pos(g_tab[i].letters, (*ind)->type) != -1)
 		{
-			found = 1;
+			found++;
 			g_tab[i].f(ap, ind, buff);
-			break ;
 		}
 		i++;
 	}
-	if (found == 0)
-		(*index)--;
+	(*index) = (found == 0) ? (*index)-- : (*index) + 0;
 }
 
 void	ft_parse_str(va_list ap, char *str, int *ret, int fd)

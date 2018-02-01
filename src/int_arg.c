@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 17:09:01 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/01 17:32:25 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/01 18:20:26 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_int_diouxx(va_list ap, t_indic **ind, t_buff **buff)
 		ft_putsbuffer(buff, (*buff)->suffix);
 }
 
-void	ft_int_capital_dou(va_list ap, t_indic **ind, t_buff **buff)
+void	ft_int_arg(va_list ap, t_indic **ind, t_buff **buff)
 {
 	if (ft_strchr("DOU", (*ind)->type))
 	{
