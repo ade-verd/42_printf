@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 11:01:17 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/31 17:26:40 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/01 14:53:43 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,27 +20,47 @@
 
 void	ft_hashtag_oxx(t_indic **ind, t_buff **buff, char **str)
 {
-	uintmax_t	integer;
-
-	integer = ft_atointmax(*str);
-	if (integer == 0)
+	if (ft_atointmax(*str) == 0)
 		return ;
-	if ((*ind)->flags && ft_strchr("oxX", (*ind)->type) && (*buff)->iszero == 0)
+	if ((*buff)->iszero == 0)
+	{
+		if ((*ind)->type == 'o')
+		{
+			(*buff)->prefix = "0";
+			(*buff)->iszero++;
+			(*buff)->sign_printed++;
+		}
+		if ((*ind)->type == 'x' || (*ind)->type == 'X')
+		{
+			(*buff)->prefix = "0x";
+			(*buff)->iszero++;
+			(*buff)->sign_printed += 2;
+		}
+	}
+	else
+	{
+		if ((*ind)->type == 'x' || (*ind)->type == 'X')
+		{
+			(*buff)->prefix = "x";
+			(*buff)->sign_printed++;
+		}
+	}
+	/*if (ft_strchr("oxX", (*ind)->type) && (*buff)->iszero == 0)
 	{
 		ft_putcbuffer(buff, '0');
 		(*buff)->iszero++;
 		(*buff)->sign_printed++;
 	}
-	if ((*ind)->flags && (*ind)->type == 'x')
+	if ((*ind)->type == 'x')
 	{
 		ft_putsbuffer(buff, "x");
 		(*buff)->sign_printed++;
 	}
-	else if ((*ind)->flags && (*ind)->type == 'X')
+	else if ((*ind)->type == 'X')
 	{
 		ft_putsbuffer(buff, "X");
 		(*buff)->sign_printed++;
-	}
+	}*/
 }
 
 /*

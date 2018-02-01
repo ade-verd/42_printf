@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 17:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/31 18:11:11 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/01 14:23:19 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,11 @@ void	ft_manage_plus_unsigned(t_indic **ind, t_buff **buff, char **str)
 	n = ft_strlen(*str);
 	w = ((*ind)->precision - n <= 0) ? ((*ind)->width - (*buff)->sign_printed)
 			: ((*ind)->width - (*buff)->sign_printed - ((*ind)->precision - n));
-	n = ft_strlen(*str);
 	i = 0;
 	isminus_or_is0 = 0;
+//	printf("n:%d\t", n);
+//	printf("w:%d\t", w);
+//	printf("w-n:%d\n", w-n);
 	if ((*ind)->flags && (ft_strchr((*ind)->flags, '-')
 			|| (ft_strchr((*ind)->flags, '0') && (*ind)->isprec == 0)))
 		isminus_or_is0 = 1;
@@ -95,7 +97,8 @@ void	ft_manage_minus(t_indic **ind, t_buff **buff, char **str)
 	if (!(*ind)->flags || !(*ind)->width || !ft_strchr((*ind)->flags, '-'))
 		return ;
 	w = (*ind)->width;
-	n = ft_strlen(*str) + (*buff)->printed;
+	n = (*buff)->prefix ? ft_strlen(*str) + ft_strlen((*buff)->prefix)
+		+ (*buff)->printed : ft_strlen(*str) + (*buff)->printed;
 	i = 0;
 	if ((*ind)->type == 'n')
 	{

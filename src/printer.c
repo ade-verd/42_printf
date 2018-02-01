@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:06:41 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/01/31 17:43:44 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/01 13:56:26 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_init_buffer(t_buff **buff, int fd)
 	*buff = NULL;
 	*buff = (t_buff*)malloc(sizeof(t_buff));
 	(*buff)->str = ft_strnew(BUFF_MAX_SIZE);
+	(*buff)->prefix = NULL;
 	(*buff)->suffix = NULL;
 	(*buff)->sign_printed = 0;
 	(*buff)->iszero = 0;
