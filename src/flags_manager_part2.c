@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 11:01:17 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 13:29:19 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/02 16:12:28 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,15 @@ void	ft_hashtag_gg(t_indic **ind, t_buff **buff, char **str)
 ** ft_manage_hashtag
 */
 
-static const t_ft	g_ft[] = {
-		{"oxX", NULL, ft_hashtag_oxx, NULL},
-	//	{"eEfFaA", NULL, ft_hashtag_eeffaa, NULL},
-	//	{"gG", NULL, ft_hashtag_gg, NULL},
-	{0, 0, 0, 0}
-};
 
 void	ft_manage_hashtag(t_indic **ind, t_buff **buff, char **str)
 {
+	const t_ft	g_ft[] = {
+		{"oxX", NULL, ft_hashtag_oxx, NULL},
+	//	{"eEfFaA", NULL, ft_hashtag_eeffaa, NULL},
+	//	{"gG", NULL, ft_hashtag_gg, NULL},
+		{0, 0, 0, 0}
+	};
 	int		i;
 
 	i = 0;
