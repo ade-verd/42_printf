@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_flag_Upper_U.c                                :+:      :+:    :+:   */
+/*   flag_capital_U.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-verd <ade-verd@stUdent.42.fr>          +#+  +:+       +#+        */
+/*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/01 19:00:45 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/01 19:07:06 by ade-verd         ###   ########.fr       */
+/*   Created: 2018/02/02 09:50:59 by ade-verd          #+#    #+#             */
+/*   Updated: 2018/02/02 09:51:19 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "tests.h"
 
-int		ft_test_flag_upper_U(void)
+int		ft_flag_capital_U(void)
 {
 	printf("*** Flag U ***\n");
 
