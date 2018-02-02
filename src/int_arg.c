@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 17:09:01 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 12:58:36 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/02 13:29:52 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,3 @@ void	ft_int_arg(va_list ap, t_indic **ind, t_buff **buff)
 	}
 	ft_int_diouxx(ap, ind, buff);
 }
-/*
-void	ft_int_arg(va_list ap, t_indic **ind, t_buff **buff)
-{
-	const t_ft	g_ft[] = {
-		{"diouxX", ft_int_types_diouxx, NULL, NULL},
-		{"DOU", ft_int_type_DOU, NULL, NULL},
-		{0, 0, 0, 0}
-	};
-	int			i;
-
-	i = 0;
-	while (g_ft[i].letter)
-	{
-		if ((*ind)->type && ft_strchr(g_ft[i].letter, (*ind)->type))
-		{
-			g_ft[i].f1(ap, ind, buff);
-			break ;
-		}
-		i++;
-	}
-}*/

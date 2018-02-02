@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 11:01:17 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 13:22:48 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/02 13:29:19 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,45 +25,17 @@ void	ft_hashtag_oxx(t_indic **ind, t_buff **buff, char **str)
 	base = (*ind)->type == 'o' ? 10 : 16;
 	if (ft_uatoi_base(*str, base) == 0)
 		return ;
-//	if ((*buff)->iszero == 0)
-//	{
-		if ((*ind)->type == 'o')
-		{
-			(*buff)->prefix = "0";
-			(*buff)->iszero++;
-			(*buff)->sign_printed++;
-		}
-		if ((*ind)->type == 'x' || (*ind)->type == 'X')
-		{
-			(*buff)->prefix = "0x";
-			(*buff)->iszero++;
-			(*buff)->sign_printed += 2;
-		}
-//	}
-//	else
-//	{
-//		if ((*ind)->type == 'x' || (*ind)->type == 'X')
-//		{
-//			(*buff)->prefix = "x";
-//			(*buff)->sign_printed++;
-//		}
-//	}
-/*	if (ft_strchr("oxX", (*ind)->type))
+	if ((*ind)->type == 'o')
 	{
-		ft_putcbuffer(buff, '0');
+		(*buff)->prefix = "0";
 		(*buff)->iszero++;
 		(*buff)->sign_printed++;
 	}
-	if ((*ind)->type == 'x')
+	if ((*ind)->type == 'x' || (*ind)->type == 'X')
 	{
-		ft_putcbuffer(buff, 'x');
-		(*buff)->sign_printed++;
+		(*buff)->prefix = (*ind)->type == 'x' ? "0x" : "0X";
+		(*buff)->sign_printed += 2;
 	}
-	else if ((*ind)->type == 'X')
-	{
-		ft_putcbuffer(buff, 'X');
-		(*buff)->sign_printed++;
-	}*/
 }
 
 /*
