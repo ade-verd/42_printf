@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 10:07:52 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/02 10:49:46 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,11 @@ int				ft_flag_no(void);
 int				ft_flag_d(void);
 int				ft_flag_o(void);
 int				ft_flag_u(void);
+int				ft_flag_x(void);
 int				ft_flag_capital_D(void);
+int				ft_flag_capital_O(void);
 int				ft_flag_capital_U(void);
+int				ft_flag_capital_X(void);
 
 int		g_display_code;
 
@@ -73,11 +76,11 @@ static const t_test	g_test[] = {
 	{"di", "int -> signed decimal (base 10)", ft_flag_d},
 	{"o", "int -> unsigned octal (base 8)", ft_flag_o},
 	{"u", "int -> unsigned decimal (base 10)", ft_flag_u},
-	//{"x", "int -> unsigned hexadecimal (base 16)", ft_flag_x},
-	//{"X", "int -> UNSIGNED HEXADECIMAL (BASE 16)", ft_flag_capital_X},
+	{"x", "int -> unsigned hexadecimal (base 16)", ft_flag_x},
 	{"D", "long int -> signed decimal (base 10) (eq. %ld)", ft_flag_capital_D},
-	//{"O", "long int -> unsigned octal (base 8) (eq. %ld)", ft_flag_capital_O},
+	{"O", "long int -> unsigned octal (base 8) (eq. %ld)", ft_flag_capital_O},
 	{"U", "long int -> unsigned decimal (base 10) (eq. %ld)", ft_flag_capital_U},
+	{"X", "int -> UNSIGNED HEXADECIMAL (BASE 16)", ft_flag_capital_X},
 	{0, 0, 0}
 };
 

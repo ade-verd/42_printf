@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 17:09:01 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/01 18:31:19 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/02 12:58:36 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ void	ft_int_diouxx(va_list ap, t_indic **ind, t_buff **buff)
 	char	*str;
 
 	ft_get_string(ind, ap, &str);
-	if ((*ind)->type == 'X')
-		str = ft_strupper(str);
+	if ((*ind)->type == 'x')
+		str = ft_strlower(str);
 	ft_indicators_manager(ind, buff, &str);
-	if ((*buff)->prefix)
-		ft_putsbuffer(buff, (*buff)->prefix);
 	ft_putsbuffer(buff, str);
 	if ((*buff)->suffix)
 		ft_putsbuffer(buff, (*buff)->suffix);
