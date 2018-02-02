@@ -6,13 +6,13 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 17:09:01 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 15:43:48 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/02 17:33:45 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_int_diouxx(va_list ap, t_indic **ind, t_buff **buff)
+void	ft_int_bdiouxx(va_list ap, t_indic **ind, t_buff **buff)
 {
 	char	*str;
 
@@ -41,5 +41,5 @@ void	ft_int_arg(va_list ap, t_indic **ind, t_buff **buff)
 			(*ind)->size[0] = 'l';
 		}
 	}
-	ft_int_diouxx(ap, ind, buff);
+	ft_int_bdiouxx(ap, ind, buff);
 }

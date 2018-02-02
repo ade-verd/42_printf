@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 09:49:55 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 09:50:05 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/02 18:31:42 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,6 @@ int		ft_call_both(char *str, ...)
 					O_APPEND, S_IRUSR | S_IWUSR)) == -1)
 		return (-1);
 	t->my_ret = ft_vdprintf(t->fd, str, ap);
-//	if ((ft_close(t->fd)) == -1)
-//		return (-1);
-//	if ((t->fd = ft_open(TMP_OUT, O_RDONLY, S_IRUSR | S_IWUSR)) == -1)
-//		return (-1);
 	if ((ft_read_fd(t->fd, &t->my_print, t->my_ret)) == -1)
 		return (-1);
 	t->off_print = ft_strnew(t->my_ret + 1000);

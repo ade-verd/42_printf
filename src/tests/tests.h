@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 10:49:46 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/02 17:49:21 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int				ft_flag_capital_D(void);
 int				ft_flag_capital_O(void);
 int				ft_flag_capital_U(void);
 int				ft_flag_capital_X(void);
+int				ft_flag_b_bonus(void);
 
 int		g_display_code;
 
@@ -81,6 +82,7 @@ static const t_test	g_test[] = {
 	{"O", "long int -> unsigned octal (base 8) (eq. %ld)", ft_flag_capital_O},
 	{"U", "long int -> unsigned decimal (base 10) (eq. %ld)", ft_flag_capital_U},
 	{"X", "int -> UNSIGNED HEXADECIMAL (BASE 16)", ft_flag_capital_X},
+	{"b", "int -> binary (base 2)", ft_flag_b_bonus},
 	{0, 0, 0}
 };
 

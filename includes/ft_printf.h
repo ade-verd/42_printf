@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 16:52:52 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/02 17:38:25 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void				ft_parse_str(va_list ap, char *str, int *ret, int fd);
 /*Convert*/
 void				ft_indicators_manager(t_indic **i, t_buff **buff, char **s);
 void				ft_int_arg(va_list ap, t_indic **ind, t_buff **buff);
-void				ft_int_diouxx(va_list ap, t_indic **ind, t_buff **buff);
 
 /*Flags*/
 void				ft_print_sign_before(t_indic **i, t_buff **buff, char **s);
@@ -107,7 +106,5 @@ void				ft_precision_int(t_indic **ind, t_buff **buff, char **str);
 
 /*Size*/
 void				ft_get_string(t_indic **ind, va_list ap, char **str);
-void				ft_get_string_di(t_indic **i, va_list a, char **s, int b);
-void				ft_get_string_ouxx(t_indic **i, va_list a, char **s, int b);
 
 #endif
