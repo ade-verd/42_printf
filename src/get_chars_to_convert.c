@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:42:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 13:39:09 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/05 13:23:31 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,8 +106,8 @@ void	ft_get_type(t_indic **ind, char *str, int *i)
 	int		n;
 
 	n = *i;
-	while (str[n] && !ft_strchr("sSpdDioOuUxXcCeEfFgGaA", str[n]))
+	while (str[n] && !ft_strchr("sSpdDioOuUxXcCeEfFgGaAb", str[n]))
 		n++;
-	if (str[n] && ft_strchr("sSpdDioOuUxXcCeEfFgGaA", str[n]))
+	if (str[n] && ft_strchr("sSpdDioOuUxXcCeEfFgGaAb", str[n]))
 		(*ind)->type = str[n];
 }
