@@ -164,7 +164,7 @@ void	ft_manage_zero(t_indic **ind, t_buff **buff, char **str)
 	if (!(*ind)->flags || !(*ind)->width || !ft_strchr((*ind)->flags, '0')
 			|| ft_strchr((*ind)->flags, '-'))
 		return ;
-	if ((*ind)->isprec == 1 && ft_strchr("diouxX", (*ind)->type))
+	if ((*ind)->isprec == 1 && ft_strchr("bdiouxX", (*ind)->type))
 		return ;
 	width = (*ind)->width - (*buff)->sign_printed;
 	len = ft_strlen(*str);

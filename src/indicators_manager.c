@@ -16,7 +16,7 @@ void	ft_precision_manager(t_indic **ind, t_buff **buff, char **str)
 {
 	const t_ft	g_pres[] = {
 	//	{"aA", NULL, ft_precision_, NULL},
-		{"diouxX", NULL, ft_precision_int, NULL},
+		{"bdiouxX", NULL, ft_precision_int, NULL},
 	//	{"eE", NULL, ft_precision_, NULL},
 	//	{"fF", NULL, ft_precision_, NULL},
 	//	{"gG", NULL, ft_precision_, NULL},
