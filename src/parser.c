@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 13:39:39 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/08 18:42:05 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	ft_get_all_indics(t_indic **ind, va_list ap, char *str, int *i)
 void	ft_convert(t_indic **ind, va_list ap, t_buff **buff, int *index)
 {
 	const t_conv	g_tab[] = {
-		{ "bdDioOuUxX", ft_int_arg },/*
-		{ "Cc", ft_c_arg },
+		{ "bdDioOuUxX", ft_int_arg },
+		{ "cC", ft_char_arg },/*
 		{ "s", ft_s_arg },
 		{ "S", ft_ws_arg },
 		{ "p", ft_p_arg },
