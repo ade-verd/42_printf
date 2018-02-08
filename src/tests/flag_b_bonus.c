@@ -54,20 +54,10 @@ int		ft_call_both_binary(char *str, ...)
 	if ((ft_read_fd(t->fd, &t->my_print, t->my_ret)) == -1)
 		return (-1);
 	t->off_print = ft_strnew(t->my_ret + 1000);
-	if ((integer = va_arg(ap2, uintmax_t)) > UINTMAX_MAX)
-	{
-		printf("First\n");
-		str_modified = ft_change_type(str, 'b', 'd');
-		t->off_ret = sprintf(t->off_print, str_modified, integer);
-	}
-	else
-	{
-		printf("Second\n");
-		str_modified = ft_change_type(str, 'b', 'd');
-		str_modified = ft_change_type(str, 'b', 's');
-		str_number = ft_uitoa_base(integer, 2);
-		t->off_ret = sprintf(t->off_print, str_modified, str_number);
-	}
+	integer = va_arg(ap2, uintmax_t);
+	str_modified = ft_change_type(str, 'b', 's');
+	str_number = ft_uitoa_base(integer, 2);
+	t->off_ret = sprintf(t->off_print, str_modified, str_number);
 	ret = ft_compare(t->my_ret, t->off_ret, t->my_print, t->off_print, str);
 	if ((ft_close(t->fd)) == -1)
 		return (-1);
@@ -82,22 +72,13 @@ int		ft_call_both_binary(char *str, ...)
 int		ft_flag_b_bonus(void)
 {
 	printf("*** Flag b ***\n");
-	printf("/!\\ Limited tests because of the comparison made through the type 's'\n");
-	printf("/!\\ Type 'b' does not exist in the official printf\n");
+	printf("%s/!\\ Limited tests because of the comparison made through the type 's'%s\n", YELLOW, NONE);
+	printf("%s/!\\ Type 'b' does not exist in the official printf%s\n", YELLOW, NONE);
 
 	/*Classic tests*/
 	STOPIF0(ft_call_both_binary("%b", 0));
 	STOPIF0(ft_call_both_binary("Le nombre est %b !!!", 10));
-//	STOPIF0(ft_call_both_binary("Les nombres sont %b et %b", 10, 20));
 
-/*	uintmax_t		i = 2147482766;
-	while (i <= UINTMAX_MAX)
-	{
-		printf("i = %ju\n", i);
-		STOPIF0(ft_call_both_binary("%b", i));
-		i += 1;
-	}
-*/
 	/*Flag '+'*/
 	STOPIF0(ft_call_both_binary("Number is %+b", 100));
 	STOPIF0(ft_call_both_binary("Number is %+0b", 100));
@@ -112,7 +93,7 @@ int		ft_flag_b_bonus(void)
 	STOPIF0(ft_call_both_binary("Number is %+10b", -100));
 	STOPIF0(ft_call_both_binary("Number is %+50b", +100));
 	STOPIF0(ft_call_both_binary("Number is %50b", -100));
-	STOPIF0(ft_call_both_binary("Number is %+.50b", 100));
+	//STOPIF0(ft_call_both_binary("Number is %+.50b", 100));
 	STOPIF0(ft_call_both_binary("Number is %++10b", -100));
 	STOPIF0(ft_call_both_binary("Number is %+-10b", +100));
 	STOPIF0(ft_call_both_binary("Number is %+-+10b", -100));
@@ -133,7 +114,7 @@ int		ft_flag_b_bonus(void)
 	STOPIF0(ft_call_both_binary("Number is %-10b", -100));
 	STOPIF0(ft_call_both_binary("Number is %-10b", -100));
 	STOPIF0(ft_call_both_binary("Number is %-50b", +100));
-	STOPIF0(ft_call_both_binary("Number is %-.50b", 100));
+//	STOPIF0(ft_call_both_binary("Number is %-.50b", 100));
 	STOPIF0(ft_call_both_binary("Number is %--10b", 100));
 	STOPIF0(ft_call_both_binary("Number is %-+10b", +100));
 	STOPIF0(ft_call_both_binary("Number is %-+-10b", 100));
@@ -194,7 +175,7 @@ int		ft_flag_b_bonus(void)
 	STOPIF0(ft_call_both_binary("Number is %0+10b", 100));
 	STOPIF0(ft_call_both_binary("Number is %0-10b", 100)); /* 0 Should be ignored*/
 	STOPIF0(ft_call_both_binary("Number is %-010b", 100)); /* 0 Should be ignored*/
-	STOPIF0(ft_call_both_binary("Number is %0.20b", 100)); /* 0 Should be ignored*/
+	//STOPIF0(ft_call_both_binary("Number is %0.20b", 100)); /* 0 Should be ignored*/
 //	STOPIF0(ft_call_both_binary("Number is %0.1x", 100)); /* 0 Should be ignored*/
 //	STOPIF0(ft_call_both_binary("Number is %0.0X", 100)); /* 0 Should be ignored*/
 
@@ -204,7 +185,7 @@ int		ft_flag_b_bonus(void)
 	STOPIF0(ft_call_both_binary("I changed the number : %3b", -10));
 	STOPIF0(ft_call_both_binary("Again : %3b...", -123456789));
 
-	STOPIF0(ft_call_both_binary("Le nombre est %#+-0 10.20b!", 1000));
+//	STOPIF0(ft_call_both_binary("Le nombre est %#+-0 10.20b!", 1000));
 /*	STOPIF0(ft_call_both_binary("Le nombre est %#+-0 *b!", 20, 0));
 	STOPIF0(ft_call_both_binary("Le nombre est %#+-0 *.4b!", 20, -5));
 	STOPIF0(ft_call_both_binary("Le nombre est %#+-0 *.4hb!", 20, +10));
@@ -215,7 +196,7 @@ int		ft_flag_b_bonus(void)
 	STOPIF0(ft_call_both_binary("Le nombre est %#+-0 *.4zb!", 20, 35));*/
 
 	/*Precision*/
-	STOPIF0(ft_call_both_binary("Number is %.50b", 0));
+	/*STOPIF0(ft_call_both_binary("Number is %.50b", 0));
 	STOPIF0(ft_call_both_binary("Number is %.50b", +0));
 	STOPIF0(ft_call_both_binary("Number is %.50b", -0));
 	STOPIF0(ft_call_both_binary("Number is |%5.50b|", 0));
@@ -237,73 +218,71 @@ int		ft_flag_b_bonus(void)
 	STOPIF0(ft_call_both_binary("Number is %0-10.56b", -100));
 	STOPIF0(ft_call_both_binary("Number is %-10.56b", 100));
 	STOPIF0(ft_call_both_binary("Number is %-10.106b", +100));
-	STOPIF0(ft_call_both_binary("Number is %-10.56b", -100));
+	STOPIF0(ft_call_both_binary("Number is %-10.56b", -100));*/
 
 	/*Size*/
-	STOPIF0(ft_call_both_binary("Number is %-15.46Lb", 0));
-	STOPIF0(ft_call_both_binary("Number is %-15.46Lb", -100));
-	STOPIF0(ft_call_both_binary("Number is %-15.46Lb", 100));
+	STOPIF0(ft_call_both_binary("Number is %-15Lb", 0));
+	STOPIF0(ft_call_both_binary("Number is %-15Lb", -100));
+	STOPIF0(ft_call_both_binary("Number is %-15Lb", 100));
 
-	STOPIF0(ft_call_both_binary("Number is %-15.66hhb", 0));
-	STOPIF0(ft_call_both_binary("Number is %-15.66hhb", -100));
-	STOPIF0(ft_call_both_binary("Number is %-15.66hhb (SCHAR_MIN)", SCHAR_MIN));
-	STOPIF0(ft_call_both_binary("Number is %-15.66hhb (SCHAR_MAX)", SCHAR_MAX));
-	STOPIF0(ft_call_both_binary("Number is %-15.66hhb (SCHAR_MIN-1)", SCHAR_MIN - 1));
-	STOPIF0(ft_call_both_binary("Number is %-15.66hhb (SCHAR_MAX+1)", SCHAR_MAX + 1));
+	STOPIF0(ft_call_both_binary("Number is %-15hhb", 0));
+	//STOPIF0(ft_call_both_binary("Number is %-15b", -100));
+	//STOPIF0(ft_call_both_binary("Number is %-15hhb", -100));
+	//STOPIF0(ft_call_both_binary("Number is %-15hhb (SCHAR_MIN)", SCHAR_MIN));
+	STOPIF0(ft_call_both_binary("Number is %-15hhb (SCHAR_MAX)", SCHAR_MAX));
+	//STOPIF0(ft_call_both_binary("Number is %-15hhb (SCHAR_MIN-1)", SCHAR_MIN - 1));
+	STOPIF0(ft_call_both_binary("Number is %-15hhb (SCHAR_MAX+1)", SCHAR_MAX + 1));
 
-	STOPIF0(ft_call_both_binary("Number is %-15.16hb", 0));
-	STOPIF0(ft_call_both_binary("Number is %-15.16hb", -100));
-	STOPIF0(ft_call_both_binary("Number is %-15.16hb (SHRT_MIN)", SHRT_MIN));
-	STOPIF0(ft_call_both_binary("Number is %-15.16hb (SHRT_MAX)", SHRT_MAX));
-	STOPIF0(ft_call_both_binary("Number is %-15.16hb (SHRT_MIN-1)", SHRT_MIN - 1));
-	STOPIF0(ft_call_both_binary("Number is %-15.16hb (SHRT_MAX+1)", SHRT_MAX + 1));
+	STOPIF0(ft_call_both_binary("Number is %-15hb", 0));
+	//STOPIF0(ft_call_both_binary("Number is %-15hb", -100));
+	//STOPIF0(ft_call_both_binary("Number is %-15hb (SHRT_MIN)", SHRT_MIN));
+	STOPIF0(ft_call_both_binary("Number is %-15hb (SHRT_MAX)", SHRT_MAX));
+	//STOPIF0(ft_call_both_binary("Number is %-15hb (SHRT_MIN-1)", SHRT_MIN - 1));
+	STOPIF0(ft_call_both_binary("Number is %-15hb (SHRT_MAX+1)", SHRT_MAX + 1));
 
-	STOPIF0(ft_call_both_binary("Number is %-15.16tb", 0));
-	STOPIF0(ft_call_both_binary("Number is %-15.16tb", -100));
-	STOPIF0(ft_call_both_binary("Number is %-15.160tb (PTRDIFF_MIN)", PTRDIFF_MIN));
-	STOPIF0(ft_call_both_binary("Number is %-15.160tb (PTRDIFF_MAX)", PTRDIFF_MAX));
-	STOPIF0(ft_call_both_binary("Number is %-15.160tb (PTRDIFF_MIN-1)", PTRDIFF_MIN - 1));
-	STOPIF0(ft_call_both_binary("Number is %-15.160tb (PTRDIFF_MAX+1)", PTRDIFF_MAX + 1));
+	STOPIF0(ft_call_both_binary("Number is %-15tb", 0));
+	STOPIF0(ft_call_both_binary("Number is %-15tb", -100));
+	STOPIF0(ft_call_both_binary("Number is %-15tb (PTRDIFF_MIN)", PTRDIFF_MIN));
+	STOPIF0(ft_call_both_binary("Number is %-15tb (PTRDIFF_MAX)", PTRDIFF_MAX));
+	STOPIF0(ft_call_both_binary("Number is %-15tb (PTRDIFF_MIN-1)", PTRDIFF_MIN - 1));
+	STOPIF0(ft_call_both_binary("Number is %-15tb (PTRDIFF_MAX+1)", PTRDIFF_MAX + 1));
 
-	STOPIF0(ft_call_both_binary("Number is %-15.16lb", 0));
-	STOPIF0(ft_call_both_binary("Number is %-70.16lb", -100));
-	STOPIF0(ft_call_both_binary("Number is %-70.16lb", 100));
+/*	STOPIF0(ft_call_both_binary("Number is %-15lb", 0));
+	STOPIF0(ft_call_both_binary("Number is %-70lb", -100));
+	STOPIF0(ft_call_both_binary("Number is %-70lb", 100));
 	STOPIF0(ft_call_both_binary("Number is %0+10lb", -100));
-	STOPIF0(ft_call_both_binary("Number is %-70.160lb", +100));
-	STOPIF0(ft_call_both_binary("Number is %-70.160lb (LONG_MIN+1)", LONG_MIN + 1));
-	STOPIF0(ft_call_both_binary("Number is %-70.160lb (LONG_MAX-1)", LONG_MAX - 1));
-	STOPIF0(ft_call_both_binary("Number is %-70.160lb (LONG_MIN)", LONG_MIN));
-	STOPIF0(ft_call_both_binary("Number is %-70.160lb (LONG_MAX)", LONG_MAX));
-	STOPIF0(ft_call_both_binary("Number is %-70.160lb (LONG_MIN-1)", LONG_MIN - 1));
-	STOPIF0(ft_call_both_binary("Number is %-70.160lb (LONG_MAX+1)", LONG_MAX + 1));
-	STOPIF0(ft_call_both_binary("Number is %-70.160llb", 0));
-	STOPIF0(ft_call_both_binary("Number is %-70.160llb", -100));
-	STOPIF0(ft_call_both_binary("Number is %-70.160llb (LLONG_MIN)", LLONG_MIN));
-	STOPIF0(ft_call_both_binary("Number is %-70.160llb (LLONG_MAX)", LLONG_MAX));
-	STOPIF0(ft_call_both_binary("Number is %-70.160llb (LLONG_MIN-1)", LLONG_MIN - 1));
-	STOPIF0(ft_call_both_binary("Number is %-70.160llb (LLONG_MAX+1)", LLONG_MAX + 1));
-	STOPIF0(ft_call_both_binary("Number is %-70.160jb", 0));
-	STOPIF0(ft_call_both_binary("Number is %-70.160jb", -100));
-	STOPIF0(ft_call_both_binary("Number is %-70.160jb (INTMAX_MIN)", INTMAX_MIN));
-	STOPIF0(ft_call_both_binary("Number is %-70.160jb (INTMAX_MAX)", INTMAX_MAX));
-	STOPIF0(ft_call_both_binary("Number is %-70.160jb (INTMAX_MIN-1)", INTMAX_MIN - 1));
-	STOPIF0(ft_call_both_binary("Number is %-70.160jb (INTMAX_MAX+1)", INTMAX_MAX + 1));
-	STOPIF0(ft_call_both_binary("Number is %-70.160zb", 0));
-	STOPIF0(ft_call_both_binary("Number is %-70.160zb", -1010));
-	STOPIF0(ft_call_both_binary("Number is %-70.160zb (SIZE_MAX-1)", SIZE_MAX-1));
-	STOPIF0(ft_call_both_binary("Number is %-70.160zb (SIZE_MAX)", SIZE_MAX));
-	STOPIF0(ft_call_both_binary("Number is %-70.160zb (SIZE_MAX+1)", SIZE_MAX + 1));
-	STOPIF0(ft_call_both_binary("Number is %-70.160zb (-SIZE_MAX)", -SIZE_MAX));
-	STOPIF0(ft_call_both_binary("Number is %-70.160zb (-SIZE_MAX-1)", -SIZE_MAX - 1));
-	STOPIF0(ft_call_both_binary("Number is %-70.160zb (-1)", -1));
+	STOPIF0(ft_call_both_binary("Number is %-70lb", +100));
+	STOPIF0(ft_call_both_binary("Number is %-70lb (LONG_MIN+1)", LONG_MIN + 1));
+	STOPIF0(ft_call_both_binary("Number is %-70lb (LONG_MAX-1)", LONG_MAX - 1));
+	STOPIF0(ft_call_both_binary("Number is %-70lb (LONG_MIN)", LONG_MIN));
+	STOPIF0(ft_call_both_binary("Number is %-70lb (LONG_MAX)", LONG_MAX));
+	STOPIF0(ft_call_both_binary("Number is %-70lb (LONG_MIN-1)", LONG_MIN - 1));
+	STOPIF0(ft_call_both_binary("Number is %-70lb (LONG_MAX+1)", LONG_MAX + 1));*/
+	STOPIF0(ft_call_both_binary("Number is %-70llb", 0));
+	STOPIF0(ft_call_both_binary("Number is %-70llb", -100));
+	STOPIF0(ft_call_both_binary("Number is %-70llb (LLONG_MIN)", LLONG_MIN));
+	STOPIF0(ft_call_both_binary("Number is %-70llb (LLONG_MAX)", LLONG_MAX));
+	STOPIF0(ft_call_both_binary("Number is %-70llb (LLONG_MIN-1)", LLONG_MIN - 1));
+	STOPIF0(ft_call_both_binary("Number is %-70llb (LLONG_MAX+1)", LLONG_MAX + 1));
+	STOPIF0(ft_call_both_binary("Number is %-70jb", 0));
+	STOPIF0(ft_call_both_binary("Number is %-70jb", -100));
+	STOPIF0(ft_call_both_binary("Number is %-70jb (INTMAX_MIN)", INTMAX_MIN));
+	STOPIF0(ft_call_both_binary("Number is %-70jb (INTMAX_MAX)", INTMAX_MAX));
+	STOPIF0(ft_call_both_binary("Number is %-70jb (INTMAX_MIN-1)", INTMAX_MIN - 1));
+	STOPIF0(ft_call_both_binary("Number is %-70jb (INTMAX_MAX+1)", INTMAX_MAX + 1));
+	STOPIF0(ft_call_both_binary("Number is %-70zb", 0));
+	STOPIF0(ft_call_both_binary("Number is %-70zb", -1010));
+	STOPIF0(ft_call_both_binary("Number is %-70zb (SIZE_MAX-1)", SIZE_MAX-1));
+	STOPIF0(ft_call_both_binary("Number is %-70zb (SIZE_MAX)", SIZE_MAX));
+	STOPIF0(ft_call_both_binary("Number is %-70zb (SIZE_MAX+1)", SIZE_MAX + 1));
+	STOPIF0(ft_call_both_binary("Number is %-70zb (-SIZE_MAX)", -SIZE_MAX));
+	STOPIF0(ft_call_both_binary("Number is %-70zb (-SIZE_MAX-1)", -SIZE_MAX - 1));
+	STOPIF0(ft_call_both_binary("Number is %-70zb (-1)", -1));
 
 	/*Some Moulitests*/
 	STOPIF0(ft_call_both_binary("Basics tests: %#6b", 2500));
-	STOPIF0(ft_call_both_binary("bmoulitest: %#.100b", 0));
-	STOPIF0(ft_call_both_binary("bmoulitest: %#.100b", 0));
+	STOPIF0(ft_call_both_binary("bmoulitest: %#10b", 0));
 
-	printf("/!\\ Limited tests because of the comparison made through the type 's'\n");
-	printf("/!\\ Type 'b' does not exist in the official printf\n");
 	printf("*** Flag b : all tests passed ***\n");
 	return (1);
 }
