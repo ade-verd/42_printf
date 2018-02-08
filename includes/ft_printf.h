@@ -6,7 +6,7 @@
 /*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 17:38:25 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/08 12:13:54 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <limits.h>
-# include <inttypes.h> /*intmax_t uintmax_t*/
+# include <stdint.h>
 # include <stddef.h> /*ptrdiff_t*/
 # include "libft.h"
 
