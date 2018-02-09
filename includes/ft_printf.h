@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/08 12:13:54 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/09 16:46:16 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct		s_ft
 	void			(*f1)(va_list, t_indic**, t_buff**);
 	void			(*f2)(t_indic**, t_buff**, char **str);
 	void			(*f3)(t_indic**, va_list, char **str, int base);
+	void			(*f4)(t_indic**, va_list, char **str);
 }					t_ft;
 
 /*ft_printf and cie*/
@@ -91,7 +92,8 @@ void				ft_parse_str(va_list ap, char *str, int *ret, int fd);
 
 /*Convert*/
 void				ft_indicators_manager(t_indic **i, t_buff **buff, char **s);
-void				ft_int_arg(va_list ap, t_indic **ind, t_buff **buff);
+void				ft_arg_int(va_list ap, t_indic **ind, t_buff **buff);
+void				ft_arg_char(va_list ap, t_indic **ind, t_buff **buff);
 
 /*Flags*/
 void				ft_print_sign_before(t_indic **i, t_buff **buff, char **s);

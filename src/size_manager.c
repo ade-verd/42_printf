@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 12:30:54 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/05 19:17:35 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/09 17:40:35 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,26 @@ void	ft_get_string_bouxx(t_indic **ind, va_list ap, char **str, int base)
 	*str = ft_uitoa_base((*ind)->nb, base);
 }
 
+void	ft_get_chars_csp(t_indic **ind, va_list ap, char **str)
+{
+    unsigned char   c;
+
+	if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
+		
+	else
+    	c = (unsigned char)va_arg(ap, int);
+}
+
+
 void	ft_get_string(t_indic **ind, va_list ap, char **str)
 {
 	const t_ft	g_length[] = {
-		{"di", 0, 0, ft_get_string_di},
-		{"bouxX", 0, 0, ft_get_string_bouxx},
-		//{"fFgGaAeE", 0, },
-		//{"csp", 0, },
-		//{"n", 0, },
-		{0, 0, 0, 0}
+		{"3di", 0, 0, ft_get_string_di, 0},
+		{"3bouxX", 0, 0, ft_get_string_bouxx, 0},
+		//{"3fFgGaAeE", 0, , 0},
+		{"4csp", 0, ft_get_chars_csp, 0},
+		//{"3n", 0, , 0},
+		{0, 0, 0, 0, 0}
 	};
 	int		i;
 
@@ -77,7 +88,10 @@ void	ft_get_string(t_indic **ind, va_list ap, char **str)
 	{
 		if ((*ind)->type && ft_strchr(g_length[i].letter, (*ind)->type))
 		{
-			g_length[i].f3(ind, ap, str, 10);
+			if (g_length[i].letter[0] == 3)
+				g_length[i].f3(ind, ap, str, 10);
+			else if (g_length[i].letter[0] == 4)
+				g_length[i].f4(ind, ap, str);
 			return ;
 		}
 		i++;

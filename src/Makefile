@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/02/02 17:50:16 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/02/09 15:21:25 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRC_TEST = $(TESTS_PATH)main.c\
 		   $(TESTS_PATH)flag_capital_O.c\
 		   $(TESTS_PATH)flag_capital_U.c\
 		   $(TESTS_PATH)flag_capital_X.c\
+		   $(TESTS_PATH)flag_c.c\
 		   $(TESTS_PATH)flag_b_bonus.c\
 
 SRC_NAME = \
@@ -59,7 +60,8 @@ SRC_NAME = \
 		   precision_manager_part1.c\
 		   size_manager.c\
 		   \
-		   int_arg.c\
+		   arg_int.c\
+		   arg_char.c\
 
 SRC_ALL = $(SRC_NAME) $(SRC_TEST)
 

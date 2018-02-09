@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ade-verd <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/01/29 14:36:34 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/02/09 15:21:04 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,8 @@ SRC_NAME = \
 		   precision_manager_part1.c\
 		   size_manager.c\
 		   \
-		   int_arg.c\
+		   arg_int.c\
+		   arg_char.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 09:52:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 09:52:12 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/09 15:14:26 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void	ft_available_types(void)
 
 int		main(int ac, char **av)
 {
+	setlocale(LC_ALL, "en_US.UTF-8");
 	int		i;
 
 	i = 1;
