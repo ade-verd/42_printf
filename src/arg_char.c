@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 17:52:58 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/12 20:12:39 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/12 20:30:44 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,5 @@ void	ft_arg_char(va_list ap, t_indic **ind, t_buff **buff)
 	else
 		str[0] = (*ind)->c;
 	ft_putsbuffer(buff, str);
-	if ((*ind)->c == 0)
-		ft_putcbuffer(buff, 03);
-	//{
-	//	(*buff)->str[(*buff)->index] = '.';
-	//	(*buff)->index++;
-	//	(*buff)->str[(*buff)->index] = '\0';
-	//}
 	ft_strdel(&str);
 }
