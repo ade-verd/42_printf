@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:06:41 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/01 16:12:20 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/12 20:19:01 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_free_buff(t_buff **buff)
 
 void	ft_print_buffer(t_buff **buff)
 {
-	ft_putstr_fd((*buff)->str, (*buff)->fd);
+	write((*buff)->fd, (*buff)->str, ft_strlen((*buff)->str));
 	ft_strclr((*buff)->str);
 	(*buff)->total = (*buff)->total + (*buff)->index;
 	(*buff)->index = 0;

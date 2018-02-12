@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 12:30:54 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/12 12:27:33 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/12 18:49:33 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,14 +60,9 @@ void	ft_get_string_bouxx(t_indic **ind, va_list ap, char **str, int base)
 	*str = ft_uitoa_base((*ind)->nb, base);
 }
 
-void	ft_get_chars_csp(t_indic **ind, va_list ap)
+/*void	ft_get_chars_csp(t_indic **ind, va_list ap)
 {
-	/*if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
-		
-	else*/
-    	(*ind)->c = va_arg(ap, wchar_t);
-		printf("num:%d\n", (*ind)->c);
-}
+}*/
 
 
 void	ft_get_string(t_indic **ind, va_list ap, char **str)
@@ -76,7 +71,7 @@ void	ft_get_string(t_indic **ind, va_list ap, char **str)
 		{"3di", 0, 0, ft_get_string_di, 0},
 		{"3bouxX", 0, 0, ft_get_string_bouxx, 0},
 		//{"3fFgGaAeE", 0, , 0},
-		{"4csp", 0, 0, 0, ft_get_chars_csp},
+		//{"4csp", 0, 0, 0, ft_get_chars_csp},
 		//{"3n", 0, , 0},
 		{0, 0, 0, 0, 0}
 	};

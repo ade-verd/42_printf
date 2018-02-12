@@ -6,13 +6,14 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/12 15:19:05 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/12 20:16:26 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
+# include <unistd.h>
 # include <stdarg.h>
 # include <stdlib.h>
 # include <limits.h>
@@ -25,11 +26,20 @@
 # define BUFF_MAX_SIZE	4096
 
 /*Unicode masks*/
-# define MASK_BYTE0		0x0		/*0000 0000*/
-# define MASK_BYTE1		0xC0	/*1100 0000*/ 
-# define MASK_BYTE2		0xE0	/*1110 0000*/
-# define MASK_BYTE3		0xF0	/*1111 0000*/
-# define MASK_BYTE10	0x80	/*1000 0000*/
+# define MASK_BYTE00	0x0		/*0xxx xxxx*/
+# define RMASK_BYTE00	0x7F	/*0111 1111*/
+
+# define MASK_BYTE01	0xC0	/*110x xxxx*/ 
+# define RMASK_BYTE01	0x1F	/*0001 1111*/ 
+
+# define MASK_BYTE02	0xE0	/*1110 xxxx*/
+# define RMASK_BYTE02	0x0F	/*0000 1111*/
+
+# define MASK_BYTE03	0xF0	/*1111 0xxx*/
+# define RMASK_BYTE03	0x07	/*0000 0111*/
+
+# define MASK_BYTE10	0x80	/*10xx xxxx*/
+# define RMASK_BYTE10	0x3F	/*0011 1111*/
 
 /*Buffer*/
 typedef struct		s_buff
