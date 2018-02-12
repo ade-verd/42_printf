@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:07:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/09 16:01:06 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/12 15:23:31 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int		ft_flag_c(void)
 {
-	wchar_t unicode = L'我'; /*我是一只猫。*/
+	wchar_t bits2= L'¾';  /*¾我是一只猫。*/
+//	wchar_t bits3 = L'¾';  /*¾我是一只猫。*/
+//	wchar_t bits4 = L'¾';  /*¾我是一只猫。*/
 
 	printf("*** Flag c ***\n");
 
@@ -26,11 +28,13 @@ int		ft_flag_c(void)
 	STOPIF0(ft_call_both("Char is %c", 'a'));
 	STOPIF0(ft_call_both("Char is |%c|!", 'a'));
 	STOPIF0(ft_call_both("Chars are |%c| & |%c|!", 'a', 'z'));
+	//STOPIF0(ft_call_both("%c", -1));
 
 	/*Unicode*/
-	STOPIF0(ft_call_both("lil c %c", unicode));
-	STOPIF0(ft_call_both("lil c %lc", unicode));
-	STOPIF0(ft_call_both("big C %C", unicode));
+//	STOPIF0(ft_call_both("%c", bits2));
+//	STOPIF0(ft_call_both("lil c %c", bits2));
+	STOPIF0(ft_call_both("lil c %lc", bits2));
+	STOPIF0(ft_call_both("big C %C", bits2));
 
 	/*Flag '+'*/
 

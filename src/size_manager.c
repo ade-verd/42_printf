@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 12:30:54 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/12 12:05:42 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/12 12:27:33 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ void	ft_get_chars_csp(t_indic **ind, va_list ap)
 	/*if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
 		
 	else*/
-    	(*ind)->c = (unsigned char)va_arg(ap, int);
+    	(*ind)->c = va_arg(ap, wchar_t);
+		printf("num:%d\n", (*ind)->c);
 }
 
 

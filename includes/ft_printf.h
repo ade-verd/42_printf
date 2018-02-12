@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/12 12:06:33 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/12 15:19:05 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,14 @@
 
 # include <stdio.h> /* /!\ /!\ A SUPPRIMER /!\ /!\ */
 
-# define BUFF_MAX_SIZE	1000
+# define BUFF_MAX_SIZE	4096
+
+/*Unicode masks*/
+# define MASK_BYTE0		0x0		/*0000 0000*/
+# define MASK_BYTE1		0xC0	/*1100 0000*/ 
+# define MASK_BYTE2		0xE0	/*1110 0000*/
+# define MASK_BYTE3		0xF0	/*1111 0000*/
+# define MASK_BYTE10	0x80	/*1000 0000*/
 
 /*Buffer*/
 typedef struct		s_buff
@@ -48,7 +55,7 @@ typedef struct		s_indic
 	char			*size;
 	char			type;
 	intmax_t		nb;
-	char			c;
+	unsigned int	c;
 }					t_indic;
 
 /*Associated function types and pointers*/
