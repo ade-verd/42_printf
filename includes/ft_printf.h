@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/09 16:46:16 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/12 12:06:33 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct		s_indic
 	char			*size;
 	char			type;
 	intmax_t		nb;
+	char			c;
 }					t_indic;
 
 /*Associated function types and pointers*/
@@ -63,7 +64,7 @@ typedef struct		s_ft
 	void			(*f1)(va_list, t_indic**, t_buff**);
 	void			(*f2)(t_indic**, t_buff**, char **str);
 	void			(*f3)(t_indic**, va_list, char **str, int base);
-	void			(*f4)(t_indic**, va_list, char **str);
+	void			(*f4)(t_indic**, va_list);
 }					t_ft;
 
 /*ft_printf and cie*/
@@ -108,5 +109,6 @@ void				ft_precision_int(t_indic **ind, t_buff **buff, char **str);
 
 /*Size*/
 void				ft_get_string(t_indic **ind, va_list ap, char **str);
+void				ft_get_chars_csp(t_indic **ind, va_list ap);
 
 #endif

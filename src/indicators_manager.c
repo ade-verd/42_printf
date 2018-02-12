@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 12:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 13:29:37 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/12 11:20:45 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	ft_precision_manager(t_indic **ind, t_buff **buff, char **str)
 {
 	const t_ft	g_pres[] = {
-	//	{"aA", NULL, ft_precision_, NULL},
-		{"bdiouxX", NULL, ft_precision_int, NULL},
-	//	{"eE", NULL, ft_precision_, NULL},
-	//	{"fF", NULL, ft_precision_, NULL},
-	//	{"gG", NULL, ft_precision_, NULL},
-	//	{"sS", NULL, ft_precision_, NULL},
-		{0, 0, 0, 0}
+	//	{"aA", NULL, ft_precision_, NULL, NULL},
+		{"bdiouxX", NULL, ft_precision_int, NULL, NULL},
+	//	{"eE", NULL, ft_precision_, NULL, NULL},
+	//	{"fF", NULL, ft_precision_, NULL, NULL},
+	//	{"gG", NULL, ft_precision_, NULL, NULL},
+	//	{"sS", NULL, ft_precision_, NULL, NULL},
+		{0, 0, 0, 0, 0}
 	};
 	int		i;
 

@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 17:52:58 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/09 17:40:40 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/12 12:06:05 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ void    ft_iscapital_c(t_indic **ind)
 
 void	ft_arg_char(va_list ap, t_indic **ind, t_buff **buff)
 {
-    char    *str;
-
     ft_iscapital_c(ind);
-
-    ft_putcbuffer(buff, c);
+	ft_get_chars_csp(ind, ap);
+    ft_putcbuffer(buff, (*ind)->c);
 }
