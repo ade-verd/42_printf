@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 17:52:58 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/13 13:32:38 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/13 16:11:13 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,12 @@ void	ft_arg_char(va_list ap, t_indic **ind, t_buff **buff)
 	char 	*str;
 	int		iszero;
 
-    (*ind)->c = va_arg(ap, wchar_t);
-	iszero = (*ind)->c == 0 ? 1 : 0;
 	str = ft_strnew(4);
 	ft_bzero(str, 4);
     ft_iscapital_c(ind);
+	ft_get_string(ind, ap, &str);
+	//(*ind)->c = va_arg(ap, wchar_t);
+	iszero = (*ind)->c == 0 ? 1 : 0;
 	if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
 		ft_convert_unicode(ind, &str);
 	else

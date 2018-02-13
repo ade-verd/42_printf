@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/12 20:22:02 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/13 16:19:25 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ void	ft_convert(t_indic **ind, va_list ap, t_buff **buff, int *index)
 {
 	const t_conv	g_tab[] = {
 		{ "bdDioOuUxX", ft_arg_int },
-		{ "cC", ft_arg_char },/*
-		{ "s", ft_s_arg },
+		{ "cC", ft_arg_char },
+		{ "sS", ft_arg_string },/*
 		{ "S", ft_ws_arg },
 		{ "p", ft_p_arg },
 		{ "%", ft_pct_arg },*/

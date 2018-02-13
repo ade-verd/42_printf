@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/09 15:42:38 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/13 16:38:20 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int				ft_flag_capital_O(void);
 int				ft_flag_capital_U(void);
 int				ft_flag_capital_X(void);
 int				ft_flag_c(void);
+int				ft_flag_s(void);
 int				ft_flag_b_bonus(void);
 
 int		g_display_code;
@@ -84,7 +85,8 @@ static const t_test	g_test[] = {
 	{"O", "long int -> unsigned octal (base 8) (eq. %ld)", ft_flag_capital_O},
 	{"U", "long int -> unsigned decimal (base 10) (eq. %ld)", ft_flag_capital_U},
 	{"X", "int -> UNSIGNED HEXADECIMAL (BASE 16)", ft_flag_capital_X},
-	{"c", "int -> unsigned char", ft_flag_c},
+	{"cC", "int -> unsigned char", ft_flag_c},
+	{"s", "char* -> pointer to a string (or to an array of character type)", ft_flag_s},
 	{"b", "int -> binary (base 2)", ft_flag_b_bonus},
 	{0, 0, 0}
 };
