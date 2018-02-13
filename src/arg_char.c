@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 17:52:58 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/13 11:58:24 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/13 13:32:38 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void    ft_iscapital_c(t_indic **ind)
 
 void 	ft_convert_unicode(t_indic **ind, char **byte)
 {
-	int 			nb_bits;
+	int 	nb_bits;
 
 	nb_bits = ft_bitlen((*ind)->c);
 	if (nb_bits <= 7)
@@ -59,9 +59,11 @@ void 	ft_convert_unicode(t_indic **ind, char **byte)
 
 void	ft_arg_char(va_list ap, t_indic **ind, t_buff **buff)
 {
-	char 			*str;
+	char 	*str;
+	int		iszero;
 
     (*ind)->c = va_arg(ap, wchar_t);
+	iszero = (*ind)->c == 0 ? 1 : 0;
 	str = ft_strnew(4);
 	ft_bzero(str, 4);
     ft_iscapital_c(ind);
@@ -69,10 +71,10 @@ void	ft_arg_char(va_list ap, t_indic **ind, t_buff **buff)
 		ft_convert_unicode(ind, &str);
 	else
 		str[0] = (*ind)->c;
+	if (iszero == 1)
+		str[0] = '.';
 	ft_indicators_manager(ind, buff, &str);
-	ft_putsbuffer(buff, str);
-	if (str[0] == 0) 
-		ft_putcbuffer(buff, str[0]);
+	iszero == 1 ? ft_putcbuffer(buff, 0) : ft_putsbuffer(buff, str);
 	if ((*buff)->suffix)
 		ft_putsbuffer(buff, (*buff)->suffix);
 	ft_strdel(&str);
