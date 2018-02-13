@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:06:41 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/12 20:34:02 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/13 11:58:03 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,4 @@ void	ft_putsbuffer(t_buff **buff, char *str)
 		ft_putcbuffer(buff, str[i]);
 		i++;
 	}
-	if (str[0] == 0)
-		ft_putcbuffer(buff, str[0]);
 }

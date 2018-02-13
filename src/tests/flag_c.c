@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:07:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/12 19:27:11 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/13 11:37:19 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,37 @@ int		ft_flag_c(void)
 	STOPIF0(ft_call_both("lil c (4 bits) %c", bits4));
 	STOPIF0(ft_call_both("lil c (4 bits) %lc", bits4));
 	STOPIF0(ft_call_both("big C (4 bits) %C", bits4));
+	
+	/*Size 'hl'*/
+	STOPIF0(ft_call_both("lil c (4 bits) %lc", bits4));
+	STOPIF0(ft_call_both("lil c (4 bits) %hc", bits4));
+	STOPIF0(ft_call_both("lil c (4 bits) %lC", bits4));
+	STOPIF0(ft_call_both("lil c (4 bits) %hC", bits4));
 
 	/*Flag '+'*/
+	STOPIF0(ft_call_both("(2 bits) %0lc", bits2));
+	STOPIF0(ft_call_both("(2 bits) %+0lc", bits2));
+	STOPIF0(ft_call_both("(2 bits) %5lc", bits2));
+	STOPIF0(ft_call_both("(2 bits) %+5lc", bits2));
 
 	/*Flag '-'*/
+	STOPIF0(ft_call_both("(2 bits) %-0lc", bits2));
+	STOPIF0(ft_call_both("(2 bits) %-5lc", bits2));
 
 	/*Flag ' ' (whitespace)*/
-
-	/*Flag '#' oxX*/
+	STOPIF0(ft_call_both("(2 bits) % lc", bits2));
+	STOPIF0(ft_call_both("(2 bits) %- 5lc", bits2));
+	STOPIF0(ft_call_both("(2 bits) %+ 5lc", bits2));
 
 	/*Flag '0'*/
-
-	/*Width*/
-
-	/*Precision*/
-
-	/*Size*/
+	STOPIF0(ft_call_both("(2 bits) %0+ 5lc", bits2));
+	STOPIF0(ft_call_both("(2 bits) %0- 5lc", bits2));
+	STOPIF0(ft_call_both("(2 bits) %0+- 5lc", bits2));
+	STOPIF0(ft_call_both("(2 bits) %#0+- 5lc", bits2));
+	STOPIF0(ft_call_both("(2 bits) %#0+- 5lc", bits2));
+	STOPIF0(ft_call_both("(2 bits) %#0+- 5.lc", bits2));
+	STOPIF0(ft_call_both("(2 bits) %#0+- 5.0lc", bits2));
+	STOPIF0(ft_call_both("(2 bits) %#0+- 5.10lc", bits2));
 
 	/*Some Moulitests*/
 

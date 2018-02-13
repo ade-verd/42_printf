@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 17:52:58 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/12 20:30:44 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/13 11:58:24 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,11 @@ void	ft_arg_char(va_list ap, t_indic **ind, t_buff **buff)
 		ft_convert_unicode(ind, &str);
 	else
 		str[0] = (*ind)->c;
+	ft_indicators_manager(ind, buff, &str);
 	ft_putsbuffer(buff, str);
+	if (str[0] == 0) 
+		ft_putcbuffer(buff, str[0]);
+	if ((*buff)->suffix)
+		ft_putsbuffer(buff, (*buff)->suffix);
 	ft_strdel(&str);
 }
