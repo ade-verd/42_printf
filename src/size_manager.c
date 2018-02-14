@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 12:30:54 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/13 16:10:10 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/14 12:47:26 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	ft_get_chars_cs(t_indic **ind, va_list ap, char **str)
 	else if ((*ind)->type == 's')
 	{
 		if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
-    		*str = (char*)va_arg(ap, wchar_t*);
+    		(*ind)->ws = va_arg(ap, wchar_t*);
 		else
     		*str = va_arg(ap, char*);
 	}

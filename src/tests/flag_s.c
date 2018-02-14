@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:07:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/13 16:51:27 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/14 14:40:01 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 int		ft_flag_s(void)
 {
-	wchar_t* bits2 = L"¾ÀÁÒúĬŞ";
-	wchar_t* bits3 = L"*ကခᎈ";
-	wchar_t* bits4 = L"𐀂𐀂𐀃𘚠";
+	wchar_t* bytes2 = L"¾ÀÁÒúĬŞ";
+	wchar_t* bytes3 = L"ကခᎈ";
+	wchar_t* bytes4 = L"𐀂𐀂𐀃𘚠";
 
 	printf("*** Flag s ***\n");
 
 	/*Classic tests*/
-	//STOPIF0(ft_call_both("%s", 0));
-	//STOPIF0(ft_call_both("%s", "\0"));
-	//STOPIF0(ft_call_both("%s!", 0));
-	//STOPIF0(ft_call_both("%s!", "\0"));
+	STOPIF0(ft_call_both("%s", 0));
+	STOPIF0(ft_call_both("%s", "\0"));
+	STOPIF0(ft_call_both("%s!", 0));
+	STOPIF0(ft_call_both("%s!", "\0"));
 	STOPIF0(ft_call_both("%s", "0"));
 	STOPIF0(ft_call_both("%s", "a"));
 	STOPIF0(ft_call_both("%s", "Hey\tya"));
@@ -33,49 +33,68 @@ int		ft_flag_s(void)
 	STOPIF0(ft_call_both("Strings are |%s| & |%s|!", "Mother", "fucker"));
 
 	/*Unicode*/
-	STOPIF0(ft_call_both("(2 bits) %s", bits2));
-	STOPIF0(ft_call_both("lil c (2 bits) %s", bits2));
-	STOPIF0(ft_call_both("lil c (2 bits) %ls", bits2));
-	STOPIF0(ft_call_both("big C (2 bits) %S", bits2));
-	STOPIF0(ft_call_both("(3 bits) %s", bits3));
-	STOPIF0(ft_call_both("(3 bits) lil c %s", bits3));
-	STOPIF0(ft_call_both("(3 bits) lil c %ls", bits3));
-	STOPIF0(ft_call_both("(3 bits) big C %S", bits3));
-	STOPIF0(ft_call_both("(4 bits) %s", bits4));
-	STOPIF0(ft_call_both("lil c (4 bits) %s", bits4));
-	STOPIF0(ft_call_both("lil c (4 bits) %ls", bits4));
-	STOPIF0(ft_call_both("big C (4 bits) %S", bits4));
-	
+	STOPIF0(ft_call_both("Unicode in format |က|"));
+	STOPIF0(ft_call_both("(2 bytes) %s", bytes2));
+	STOPIF0(ft_call_both("lil c (2 bytes) %s", bytes2));
+	STOPIF0(ft_call_both("lil c (2 bytes) %ls", bytes2));
+	STOPIF0(ft_call_both("big C (2 bytes) %S", bytes2));
+	STOPIF0(ft_call_both("(3 bytes) %s", bytes3));
+	STOPIF0(ft_call_both("(3 bytes) lil c %s", bytes3));
+	STOPIF0(ft_call_both("(3 bytes) lil c %ls", bytes3));
+	STOPIF0(ft_call_both("(3 bytes) big C %S", bytes3));
+	STOPIF0(ft_call_both("(4 bytes) %s", bytes4));
+	STOPIF0(ft_call_both("lil c (4 bytes) %s", bytes4));
+	STOPIF0(ft_call_both("lil c (4 bytes) %ls", bytes4));
+	STOPIF0(ft_call_both("big C (4 bytes) %S", bytes4));
+
 	/*Size 'hl'*/
-	STOPIF0(ft_call_both("lil c (4 bits) %ls", bits4));
-	STOPIF0(ft_call_both("lil c (4 bits) %hs", bits4));
-	STOPIF0(ft_call_both("lil c (4 bits) %lS", bits4));
-	STOPIF0(ft_call_both("lil c (4 bits) %hS", bits4));
+	STOPIF0(ft_call_both("lil c (4 bytes) %ls", bytes4));
+	STOPIF0(ft_call_both("lil c (4 bytes) %hs", bytes4));
+	STOPIF0(ft_call_both("lil c (4 bytes) %lS", bytes4));
+	STOPIF0(ft_call_both("lil c (4 bytes) %hS", bytes4));
 
 	/*Flag '+'*/
-	STOPIF0(ft_call_both("(2 bits) %0ls", bits2));
-	STOPIF0(ft_call_both("(2 bits) %+0ls", bits2));
-	STOPIF0(ft_call_both("(2 bits) %5ls", bits2));
-	STOPIF0(ft_call_both("(2 bits) %+5ls", bits2));
+	STOPIF0(ft_call_both("(2 bytes) %0ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %+0ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %5ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %+5ls", bytes2));
 
 	/*Flag '-'*/
-	STOPIF0(ft_call_both("(2 bits) %-0ls", bits2));
-	STOPIF0(ft_call_both("(2 bits) %-5ls", bits2));
+	STOPIF0(ft_call_both("(2 bytes) %-0ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %-5ls", bytes2));
 
 	/*Flag ' ' (whitespace)*/
-	STOPIF0(ft_call_both("(2 bits) % ls", bits2));
-	STOPIF0(ft_call_both("(2 bits) %- 5ls", bits2));
-	STOPIF0(ft_call_both("(2 bits) %+ 5ls", bits2));
+	STOPIF0(ft_call_both("(2 bytes) % ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %- 5ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %+ 5ls", bytes2));
 
 	/*Flag '0'*/
-	STOPIF0(ft_call_both("(2 bits) %0+ 5ls", bits2));
-	STOPIF0(ft_call_both("(2 bits) %0- 5ls", bits2));
-	STOPIF0(ft_call_both("(2 bits) %0+- 5ls", bits2));
-	STOPIF0(ft_call_both("(2 bits) %#0+- 5ls", bits2));
-	STOPIF0(ft_call_both("(2 bits) %#0+- 5ls", bits2));
-	STOPIF0(ft_call_both("(2 bits) %#0+- 5.ls", bits2));
-	STOPIF0(ft_call_both("(2 bits) %#0+- 5.0ls", bits2));
-	STOPIF0(ft_call_both("(2 bits) %#0+- 5.10ls", bits2));
+	STOPIF0(ft_call_both("(2 bytes) %0+ 5ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %0- 5ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %0+- 5ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %#0+- 5ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %#0+- 5ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %#0+- 5.ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %#0+- 5.0ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %#0+- 5.10ls", bytes2));
+
+	/*Width*/
+	STOPIF0(ft_call_both("(2 bytes) %+ 5ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %- 5ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %+- 5ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %+- 5ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %+- 5ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %+- 5.ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %+- 5.0ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %+- 5.10ls", bytes2));
+
+	/*Unicode cut by precision*/
+	STOPIF0(ft_call_both("Unicode (3bytes) cut by precision (2) %.2ls", bytes3));
+	STOPIF0(ft_call_both("Unicode (3bytes) cut by precision (2)|%.2ls|!", bytes3));
+
+	/*Should return -1*/
+//	STOPIF0(ft_call_both("%+- 5.10ls", "char etoile"));
+//	STOPIF0(ft_call_both("%+- 5.10S", "char a voile"));
 
 	/*Some Moulitests*/
 	STOPIF0(ft_call_both("%2s", 0));

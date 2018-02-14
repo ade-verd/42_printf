@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:07:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/13 12:12:43 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/14 10:33:51 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		ft_flag_c(void)
 {
-	wchar_t bits2 = L'¾'; /*¾ÀÁÒúĬŞ*/
-	wchar_t bits3 = L'ᎈ';  /*ကခᎈ*/
-	wchar_t bits4 = L'𐀂';  /*𐀂𐀃𘚠*/
+	wchar_t bytes2 = L'¾'; /*¾ÀÁÒúĬŞ*/
+	wchar_t bytes3 = L'ᎈ';  /*ကခᎈ*/
+	wchar_t bytes4 = L'𐀂';  /*𐀂𐀃𘚠*/
 
 	printf("*** Flag c ***\n");
 
@@ -34,49 +34,49 @@ int		ft_flag_c(void)
 	STOPIF0(ft_call_both("-1 %c", -1));
 
 	/*Unicode*/
-	STOPIF0(ft_call_both("(2 bits) %c", bits2));
-	STOPIF0(ft_call_both("lil c (2 bits) %c", bits2));
-	STOPIF0(ft_call_both("lil c (2 bits) %lc", bits2));
-	STOPIF0(ft_call_both("big C (2 bits) %C", bits2));
-	STOPIF0(ft_call_both("(3 bits) %c", bits3));
-	STOPIF0(ft_call_both("(3 bits) lil c %c", bits3));
-	STOPIF0(ft_call_both("(3 bits) lil c %lc", bits3));
-	STOPIF0(ft_call_both("(3 bits) big C %C", bits3));
-	STOPIF0(ft_call_both("(4 bits) %c", bits4));
-	STOPIF0(ft_call_both("lil c (4 bits) %c", bits4));
-	STOPIF0(ft_call_both("lil c (4 bits) %lc", bits4));
-	STOPIF0(ft_call_both("big C (4 bits) %C", bits4));
+	STOPIF0(ft_call_both("(2 bytes) %c", bytes2));
+	STOPIF0(ft_call_both("lil c (2 bytes) %c", bytes2));
+	STOPIF0(ft_call_both("lil c (2 bytes) %lc", bytes2));
+	STOPIF0(ft_call_both("big C (2 bytes) %C", bytes2));
+	STOPIF0(ft_call_both("(3 bytes) %c", bytes3));
+	STOPIF0(ft_call_both("(3 bytes) lil c %c", bytes3));
+	STOPIF0(ft_call_both("(3 bytes) lil c %lc", bytes3));
+	STOPIF0(ft_call_both("(3 bytes) big C %C", bytes3));
+	STOPIF0(ft_call_both("(4 bytes) %c", bytes4));
+	STOPIF0(ft_call_both("lil c (4 bytes) %c", bytes4));
+	STOPIF0(ft_call_both("lil c (4 bytes) %lc", bytes4));
+	STOPIF0(ft_call_both("big C (4 bytes) %C", bytes4));
 	
 	/*Size 'hl'*/
-	STOPIF0(ft_call_both("lil c (4 bits) %lc", bits4));
-	STOPIF0(ft_call_both("lil c (4 bits) %hc", bits4));
-	STOPIF0(ft_call_both("lil c (4 bits) %lC", bits4));
-	STOPIF0(ft_call_both("lil c (4 bits) %hC", bits4));
+	STOPIF0(ft_call_both("lil c (4 bytes) %lc", bytes4));
+	STOPIF0(ft_call_both("lil c (4 bytes) %hc", bytes4));
+	STOPIF0(ft_call_both("lil c (4 bytes) %lC", bytes4));
+	STOPIF0(ft_call_both("lil c (4 bytes) %hC", bytes4));
 
 	/*Flag '+'*/
-	STOPIF0(ft_call_both("(2 bits) %0lc", bits2));
-	STOPIF0(ft_call_both("(2 bits) %+0lc", bits2));
-	STOPIF0(ft_call_both("(2 bits) %5lc", bits2));
-	STOPIF0(ft_call_both("(2 bits) %+5lc", bits2));
+	STOPIF0(ft_call_both("(2 bytes) %0lc", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %+0lc", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %5lc", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %+5lc", bytes2));
 
 	/*Flag '-'*/
-	STOPIF0(ft_call_both("(2 bits) %-0lc", bits2));
-	STOPIF0(ft_call_both("(2 bits) %-5lc", bits2));
+	STOPIF0(ft_call_both("(2 bytes) %-0lc", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %-5lc", bytes2));
 
 	/*Flag ' ' (whitespace)*/
-	STOPIF0(ft_call_both("(2 bits) % lc", bits2));
-	STOPIF0(ft_call_both("(2 bits) %- 5lc", bits2));
-	STOPIF0(ft_call_both("(2 bits) %+ 5lc", bits2));
+	STOPIF0(ft_call_both("(2 bytes) % lc", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %- 5lc", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %+ 5lc", bytes2));
 
 	/*Flag '0'*/
-	STOPIF0(ft_call_both("(2 bits) %0+ 5lc", bits2));
-	STOPIF0(ft_call_both("(2 bits) %0- 5lc", bits2));
-	STOPIF0(ft_call_both("(2 bits) %0+- 5lc", bits2));
-	STOPIF0(ft_call_both("(2 bits) %#0+- 5lc", bits2));
-	STOPIF0(ft_call_both("(2 bits) %#0+- 5lc", bits2));
-	STOPIF0(ft_call_both("(2 bits) %#0+- 5.lc", bits2));
-	STOPIF0(ft_call_both("(2 bits) %#0+- 5.0lc", bits2));
-	STOPIF0(ft_call_both("(2 bits) %#0+- 5.10lc", bits2));
+	STOPIF0(ft_call_both("(2 bytes) %0+ 5lc", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %0- 5lc", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %0+- 5lc", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %#0+- 5lc", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %#0+- 5lc", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %#0+- 5.lc", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %#0+- 5.0lc", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %#0+- 5.10lc", bytes2));
 
 	/*Some Moulitests*/
 	STOPIF0(ft_call_both("%2c", 0));
