@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/02/14 13:22:32 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/02/14 16:53:09 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,7 @@ SRC_NAME = \
 		   get_chars_to_convert.c\
 		   parser.c\
 		   printer.c\
+		   error_manager.c\
 		   \
 		   indicators_manager.c\
 		   flags_manager_part1.c\

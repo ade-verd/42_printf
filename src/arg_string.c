@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 14:12:59 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/14 16:01:52 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/14 18:01:10 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,10 @@ int 	ft_wslen_bytes(t_indic **ind)
 			bytes += 2;
 		else if (nb_bits <= 16)
 			bytes += 3;
-		else
+		else if (nb_bits <= 21)
 			bytes += 4;
+		else
+			return (-1);
 		if ((*ind)->precision && (*ind)->precision <= bytes)
 			return (bytes);
 		i++;
@@ -63,13 +65,17 @@ void	ft_arg_string_ws(t_indic **ind, t_buff **buff)
 	int 	index;
 	int 	bytes;
 
-	bytes = ft_wslen_bytes(ind);
+	if ((bytes = ft_wslen_bytes(ind)) == -1)
+	{
+		ft_error_manager(buff);
+		return ;
+	}
 	i = 0;
 	index = 0;
-	if (!(str = ft_strnew(bytes)))
+	if (!(str = ft_strnew(ft_abs(bytes))))
 		exit (0);
 	ft_bzero(str, bytes);
-	while ((*ind)->ws[i])
+	while ((*ind)->ws[i]  && bytes >= 0)
 	{
 		ft_unicode_to_str(ind, &str, (*ind)->ws[i], &index);
 		i++;

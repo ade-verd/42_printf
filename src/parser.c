@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/13 16:19:25 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/14 17:38:25 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,8 @@ void	ft_parse_str(va_list ap, char *str, int *ret, int fd)
 			ft_putcbuffer(&buff, str[i]);
 		i++;
 	}
-	ft_print_buffer(&buff);
-	*ret = buff->total;
+	if (buff->err != -1)
+		ft_print_buffer(&buff);
+	*ret = buff->err != -1 ? buff->total : -1;
 	ft_free_buff(&buff);
 }
