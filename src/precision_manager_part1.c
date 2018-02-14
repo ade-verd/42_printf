@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 15:49:33 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/14 14:04:03 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/14 16:01:08 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	ft_precision_string(t_indic **ind, t_buff **buff, char **str)
 
 	i = 0;
 	len = ft_strlen(*str);
+	(*buff)->total += 0; 
 	if ((*ind)->precision < len)
 	{
 		while ((*str)[i])
