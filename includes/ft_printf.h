@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/13 16:37:17 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/14 13:39:51 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct		s_indic
 	char			type;
 	intmax_t		nb;
 	unsigned int	c;
+	wchar_t			*ws;
 }					t_indic;
 
 /*Associated function types and pointers*/
@@ -113,6 +114,7 @@ void				ft_indicators_manager(t_indic **i, t_buff **buff, char **s);
 void				ft_arg_int(va_list ap, t_indic **ind, t_buff **buff);
 void				ft_arg_char(va_list ap, t_indic **ind, t_buff **buff);
 void				ft_arg_string(va_list ap, t_indic **ind, t_buff **buff);
+void 				ft_convert_unicode(t_indic **ind, char **byte, int *i);
 
 /*Flags*/
 void				ft_print_sign_before(t_indic **i, t_buff **buff, char **s);
@@ -124,9 +126,13 @@ void				ft_manage_minus(t_indic **ind, t_buff **buff, char **str);
 
 /*Precision*/
 void				ft_precision_int(t_indic **ind, t_buff **buff, char **str);
+void				ft_precision_string(t_indic **i, t_buff **buff, char **str);
 
 /*Size*/
 void				ft_get_string(t_indic **ind, va_list ap, char **str);
 void				ft_get_chars_csp(t_indic **ind, va_list ap);
+
+/*Unicode*/
+void 				ft_unicode_to_str(t_indic**, char **s, wchar_t c, int *i);
 
 #endif
