@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 17:47:58 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/05 19:17:33 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 20:23:57 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ int		ft_call_both_binary(char *str, ...)
 	va_copy(ap2, ap);
 	if (!(t = (t_txt*)malloc(sizeof(*t))))
 		return (-1);
-	if ((t->fd = ft_open(TMP_OUT, O_RDWR | O_CREAT |
-					O_APPEND, S_IRUSR | S_IWUSR)) == -1)
+	if ((t->fd = ft_open(TMP_OUT, O_RDWR | O_CREAT, S_IRUSR | S_IWUSR)) == -1)
 		return (-1);
 	t->my_ret = ft_vdprintf(t->fd, str, ap);
 	if ((ft_read_fd(t->fd, &t->my_print, t->my_ret)) == -1)
@@ -60,6 +59,8 @@ int		ft_call_both_binary(char *str, ...)
 	t->off_ret = sprintf(t->off_print, str_modified, str_number);
 	ret = ft_compare(t->my_ret, t->off_ret, t->my_print, t->off_print, str);
 	if ((ft_close(t->fd)) == -1)
+		return (-1);
+	if ((ft_remove(TMP_OUT)) == -1)
 		return (-1);
 	ft_memdel((void**)&t->my_print);
 	ft_memdel((void**)&t->off_print);
@@ -283,6 +284,6 @@ int		ft_flag_b_bonus(void)
 	STOPIF0(ft_call_both_binary("Basics tests: %#6b", 2500));
 	STOPIF0(ft_call_both_binary("bmoulitest: %#10b", 0));
 
-	printf("*** Flag b : all tests passed ***\n");
+	printf("\n*** Flag b [%d/%d] ***\n", g_counter_ok, g_counter_ok + g_counter_ko);
 	return (1);
 }

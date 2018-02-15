@@ -14,6 +14,7 @@
 
 int		ft_flag_@(void)
 {
+	ft_init_counters();
 	printf("*** Flag @ ***\n");
 
 	/*Classic tests*/
@@ -223,6 +224,6 @@ int		ft_flag_@(void)
 	STOPIF0(ft_call_both("Basics tests: %#6@", 2500));
 	STOPIF0(ft_call_both("@moulitest: %#.@ %#.0@", 0, 0));
 
-	printf("*** Flag @ : all tests passed ***\n");
+	printf("\n*** Flag @ [%d/%d] ***\n", g_counter_ok, g_counter_ok + g_counter_ko);
 	return (1);
 }

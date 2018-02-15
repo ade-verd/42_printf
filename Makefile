@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/02/14 16:53:21 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/02/15 15:56:12 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRC_NAME = \
 		   \
 		   arg_int.c\
 		   arg_char.c\
+		   arg_string.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

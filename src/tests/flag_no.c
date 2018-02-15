@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 09:51:37 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 09:51:47 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 20:09:36 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		ft_flag_no(void)
 	char	*line;
 	if ((fd = ft_open(EXAMPLE_FILE, O_RDONLY , S_IRUSR)) == -1)
 		return (-1);
+	ft_init_counters();
 	printf("*** No Flag ***\n");
 
 	STOPIF0(ft_call_both(""));
@@ -29,7 +30,7 @@ int		ft_flag_no(void)
 			STOPIF0(ft_call_both(line));
 		ft_strdel(&line);
 	}
-	printf("*** No Flag : all tests passed ***\n");
+	printf("\n*** No Flag [%d/%d] ***\n", g_counter_ok, g_counter_ok + g_counter_ko);
 	if ((ft_close(fd)) == -1)
 		return (-1);
 	return (1);

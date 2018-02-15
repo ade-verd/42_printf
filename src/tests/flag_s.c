@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:07:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 19:20:59 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 20:02:56 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int		ft_flag_s(void)
 	wchar_t* bytes3 = L"ကခᎈ";
 	wchar_t* bytes4 = L"𐀂𐀂𐀃𘚠";
 
-	printf("*** Flag s ***\n");
+	ft_init_counters();
+	printf("*** Flags sS ***\n");
 
 	/*Classic tests*/
 	STOPIF0(ft_call_both("%s", 0));
@@ -105,6 +106,6 @@ int		ft_flag_s(void)
 	STOPIF0(ft_call_both("%2s", 0));
 	STOPIF0(ft_call_both("%-2s", 0));
 	
-	printf("*** Flag s : all tests passed ***\n");
+	printf("\n*** Flags sS [%d/%d] ***\n", g_counter_ok, g_counter_ok + g_counter_ko);
 	return (1);
 }

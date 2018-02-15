@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 13:12:21 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 20:01:36 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define TMP_OUT		"/tmp/out.txt"
 # define EXAMPLE_FILE	"../Makefile"
 # define ALL			1000
-//# define LIGHT			1001
+# define LIGHT			1001
 # define ERR_ONLY		1002
 # define STOPIF0(x)		if((x) == 0)	return (0);
 # define NONE			"\033[0m"
@@ -60,6 +60,7 @@ int				ft_read_fd(int fd, char **str, int buf_size);
 int				ft_compare(int my_ret, int off_ret, char *my_print,
 							char *off_print, char *str);
 int				ft_call_both(char *str, ...);
+void			ft_init_counters(void);
 
 int				ft_flag_no(void);
 int				ft_flag_d(void);
@@ -74,7 +75,9 @@ int				ft_flag_c(void);
 int				ft_flag_s(void);
 int				ft_flag_b_bonus(void);
 
-int		g_display_code;
+int				g_display_code;
+int				g_counter_ok;
+int				g_counter_ko;
 
 static const t_test	g_test[] = {
 	{"0", "no conversion", ft_flag_no},

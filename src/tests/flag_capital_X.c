@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 10:24:36 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 10:53:39 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 20:09:56 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		ft_flag_capital_X(void)
 {
+	ft_init_counters();
 	printf("*** Flag X ***\n");
 
 	/*Classic tests*/
@@ -206,6 +207,6 @@ int		ft_flag_capital_X(void)
 	STOPIF0(ft_call_both("Basics tests: %#6X", 2500));
 	STOPIF0(ft_call_both("Xmoulitest: %#.X %#.0X", 0, 0));
 
-	printf("*** Flag X : all tests passed ***\n");
+	printf("\n*** Flags X [%d/%d] ***\n", g_counter_ok, g_counter_ok + g_counter_ko);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 09:52:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 15:53:01 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 20:21:33 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	ft_available_types(void)
 		i++;
 	}
 	printf("\nDisplay code:\n");
+	printf(" --%s\t%s\n", "all  ", "Displays all details until the first error");
+	printf(" --%s\t%s\n", "light", "Displays a check when the test is good otherwise error's details");
 	printf(" --%s\t%s\n", "errors", "Displays only errors");
 }
 
@@ -67,17 +69,21 @@ void	ft_available_types(void)
 int		main(int ac, char **av)
 {
 	setlocale(LC_ALL, "en_US.UTF-8");
-	int		i;
 
-	i = 1;
-	g_display_code = ALL;
+	g_display_code = LIGHT;
 	if (ac == 1)
 		ft_run_all();
 	else if (ac == 2 || ac == 3)
 	{
-		if (av[2] && strcmp(av[2], "--errors") == 0)
+		if ((av[1] && strcmp(av[1], "--all") == 0)
+			|| (av[2] && strcmp(av[2], "--all") == 0))
+			g_display_code = ALL;
+		else if ((av[1] && strcmp(av[1], "--errors") == 0)
+			|| (av[2] && strcmp(av[2], "--errors") == 0))
 			g_display_code = ERR_ONLY;
-		if (strcmp(av[1], "-h") == 0 || (ft_choose_flag(av[i])) == -10)
+		else
+			g_display_code = LIGHT;
+		if (strcmp(av[1], "-h") == 0 || (ft_choose_flag(av[1])) == -10)
 		{
 			fprintf(stderr, "Usage: ./test [conversion letter(s)] [Display code]\n");
 			ft_available_types();

@@ -14,6 +14,7 @@
 
 int		ft_flag_x(void)
 {
+	ft_init_counters();
 	printf("*** Flag x ***\n");
 
 	/*Classic tests*/
@@ -206,6 +207,6 @@ int		ft_flag_x(void)
 	STOPIF0(ft_call_both("Basics tests: %#6x", 2500));
 	STOPIF0(ft_call_both("xmoulitest: %#.x %#.0x", 0, 0));
 
-	printf("*** Flag x : all tests passed ***\n");
+	printf("\n*** Flag x [%d/%d] ***\n", g_counter_ok, g_counter_ok + g_counter_ko);
 	return (1);
 }

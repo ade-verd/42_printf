@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/14 16:52:33 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 18:30:47 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ void				ft_manage_hashtag(t_indic **ind, t_buff **buff, char **str);
 void				ft_manage_zero(t_indic **ind, t_buff **buff, char **str);
 void				ft_manage_plus_signed(t_indic **i, t_buff **b, char **s);
 void				ft_manage_plus_unsigned(t_indic **i, t_buff **b, char **s);
+void				ft_manage_plus_string(t_indic **ind, t_buff **buff, char **str);
 void				ft_manage_minus(t_indic **ind, t_buff **buff, char **str);
 
 /*Precision*/

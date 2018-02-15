@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 09:50:36 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 09:50:57 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 20:10:52 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int		ft_flag_capital_D(void)
 {
+	ft_init_counters();
 	printf("*** Flag D ***\n");
 
 	/*Classic tests*/
@@ -193,6 +194,6 @@ int		ft_flag_capital_D(void)
 	ft_call_both("Undefined behavior %jzD", 9223372036854775807);
 	ft_call_both("Undefined behavior %jhD", 9223372036854775807);
 
-	printf("*** Flag D : all tests passed ***\n");
+	printf("\n*** Flag D [%d/%d] ***\n", g_counter_ok, g_counter_ok + g_counter_ko);
 	return (1);
 }
