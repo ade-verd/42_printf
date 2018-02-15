@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 12:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 15:39:28 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 16:03:45 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,6 @@ void	ft_indicators_manager(t_indic **ind, t_buff **buff, char **str)
 		return ;
 	ft_flags_manager(ind, buff, str);
 	ft_precision_manager(ind, buff, str);
+	printf("Erreur\n");
 	ft_manage_minus(ind, buff, str);
 }
