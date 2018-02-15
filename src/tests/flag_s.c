@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:07:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 16:20:21 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 19:05:55 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,21 @@ int		ft_flag_s(void)
 
 	/*Classic tests*/
 	STOPIF0(ft_call_both("%s", 0));
+	STOPIF0(ft_call_both("%S", 0));
 	STOPIF0(ft_call_both("%s", "\0"));
+	STOPIF0(ft_call_both("%S", "\0"));
 	STOPIF0(ft_call_both("%s!", 0));
+	STOPIF0(ft_call_both("%S!", 0));
 	STOPIF0(ft_call_both("%s!", "\0"));
+	STOPIF0(ft_call_both("%S!", L"\0"));
 	STOPIF0(ft_call_both("%s", "0"));
 	STOPIF0(ft_call_both("%s", "a"));
 	STOPIF0(ft_call_both("%s", "Hey\tya"));
 	STOPIF0(ft_call_both("The string is %s", "Yololo"));
 	STOPIF0(ft_call_both("The string is |%s|!", "Chabalabala"));
 	STOPIF0(ft_call_both("Strings are |%s| & |%s|!", "Mother", "fucker"));
-	//STOPIF0(ft_call_both("%5.2s is a string", "this"));
-	//STOPIF0(ft_call_both("%5.2s is a string", ""));
+	STOPIF0(ft_call_both("%5.2s is a string", "this"));
+	STOPIF0(ft_call_both("%5.2s is a string", ""));
 
 	/*Unicode*/
 	STOPIF0(ft_call_both("Unicode in format |က|"));

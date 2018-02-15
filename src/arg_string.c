@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 14:12:59 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 16:25:38 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 19:08:22 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int 	ft_wslen_bytes(t_indic **ind)
 
 	i = 0;
 	bytes = 0;
-	while ((*ind)->ws[i])
+	while ((*ind)->ws && (*ind)->ws[i])
 	{
 		nb_bits = ft_bitlen((*ind)->ws[i]);
 		if (nb_bits <= 7)
@@ -81,14 +81,12 @@ void 	ft_ws_to_char(t_indic **ind, t_buff **buff, char **str)
 	}
 }
 
-void	ft_arg_string_ws(t_indic **ind, t_buff **buff)
+void	ft_arg_string_ws(t_indic **ind, t_buff **buff, char **str)
 {
-	char 	*str;
-
-	ft_ws_to_char(ind, buff, &str);
-	ft_indicators_manager(ind, buff, &str);
-	if (str)
-		ft_putsbuffer(buff, str);
+	ft_ws_to_char(ind, buff, str);
+	ft_indicators_manager(ind, buff, str);
+	if (*str)
+		ft_putsbuffer(buff, *str);
 	else
 		ft_putsbuffer(buff, "(null)");
 	if ((*buff)->suffix)
@@ -102,7 +100,7 @@ void	ft_arg_string(va_list ap, t_indic **ind, t_buff **buff)
 	ft_iscapital_s(ind);
 	ft_get_string(ind, ap, &str);
 	if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
-		ft_arg_string_ws(ind, buff);
+		ft_arg_string_ws(ind, buff, &str);
 	else
 	{
 		ft_indicators_manager(ind, buff, &str);
@@ -113,4 +111,6 @@ void	ft_arg_string(va_list ap, t_indic **ind, t_buff **buff)
 		if ((*buff)->suffix)
 			ft_putsbuffer(buff, (*buff)->suffix);
 	}
+	if (str && (*buff)->err != -1)
+		ft_strdel(&str);
 }

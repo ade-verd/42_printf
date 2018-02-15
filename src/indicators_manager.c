@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 12:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 16:03:45 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 18:36:04 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ void	ft_flags_manager(t_indic **ind, t_buff **buff, char **str)
 {
 	ft_print_sign_before(ind, buff, str);
 	ft_manage_hashtag(ind, buff, str);
-	if ((*ind)->type && ft_strchr("di", (*ind)->type))
+	if (ft_strchr("di", (*ind)->type))
 		ft_manage_plus_signed(ind, buff, str);
+//	else if ((*ind)->type == 's')
+		//ft_manage_plus_string(ind, buff, str);
 	else
 		ft_manage_plus_unsigned(ind, buff, str);
 	if ((*buff)->prefix)
@@ -61,6 +63,5 @@ void	ft_indicators_manager(t_indic **ind, t_buff **buff, char **str)
 		return ;
 	ft_flags_manager(ind, buff, str);
 	ft_precision_manager(ind, buff, str);
-	printf("Erreur\n");
 	ft_manage_minus(ind, buff, str);
 }

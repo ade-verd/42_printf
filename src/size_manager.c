@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 12:30:54 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/14 12:47:26 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 19:07:46 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,27 @@ void	ft_get_string_bouxx(t_indic **ind, va_list ap, char **str, int base)
 
 void	ft_get_chars_cs(t_indic **ind, va_list ap, char **str)
 {
+	char 	*tmp;
+
 	if ((*ind)->type == 'c')
 	{
 		if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
-	    	(*ind)->c = va_arg(ap, wchar_t);
+			(*ind)->c = va_arg(ap, wchar_t);
 		else
-	    	(*ind)->c = (char)va_arg(ap, int);
+			(*ind)->c = (char)va_arg(ap, int);
 	}
 	else if ((*ind)->type == 's')
 	{
 		if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
-    		(*ind)->ws = va_arg(ap, wchar_t*);
+		{
+			if (!((*ind)->ws = va_arg(ap, wchar_t*)))
+				(*ind)->ws = L"(null)";
+		}
 		else
-    		*str = va_arg(ap, char*);
+		{
+			tmp = va_arg(ap, char*);
+			*str = ft_strdup(tmp); 
+		}
 	}
 }
 
