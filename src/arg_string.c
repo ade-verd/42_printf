@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 14:12:59 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 14:20:24 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 15:54:10 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void 	ft_ws_to_char(t_indic **ind, t_buff **buff, char **str)
 		return ;
 	}
 	if (!(*str = ft_strnew(bytes)))
-		exit (0);
+		return ;
 	ft_bzero(*str, bytes);
 	while ((*ind)->ws[i]  && bytes >= 0)
 	{

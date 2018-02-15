@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:07:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 14:01:49 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 15:40:54 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ int		ft_flag_s(void)
 	STOPIF0(ft_call_both("(2 bytes) %0- 25ls", bytes2));
 	STOPIF0(ft_call_both("(2 bytes) %0+- 25ls", bytes2));
 	STOPIF0(ft_call_both("(2 bytes) %#0+- 25ls", bytes2));
-	STOPIF0(ft_call_both("(2 bytes) %#0+- 25ls", bytes2));
 	STOPIF0(ft_call_both("(2 bytes) %#0+- 25.ls", bytes2));
 	STOPIF0(ft_call_both("(2 bytes) %#0+- 25.0ls", bytes2));
 	STOPIF0(ft_call_both("(2 bytes) %#0+- 25.10ls", bytes2));
@@ -82,11 +81,9 @@ int		ft_flag_s(void)
 	STOPIF0(ft_call_both("(2 bytes) %+ 25ls", bytes2));
 	STOPIF0(ft_call_both("(2 bytes) %- 25ls", bytes2));
 	STOPIF0(ft_call_both("(2 bytes) %+- 25ls", bytes2));
-	STOPIF0(ft_call_both("(2 bytes) %+- 25ls", bytes2));
-	STOPIF0(ft_call_both("(2 bytes) %+- 25ls", bytes2));
 	STOPIF0(ft_call_both("(2 bytes) %+- 25.ls", bytes2));
 	STOPIF0(ft_call_both("(2 bytes) %+- 25.0ls", bytes2));
-	STOPIF0(ft_call_both("(2 bytes) %+- 25.10ls", bytes2));
+	STOPIF0(ft_call_both("(2 bytes) %+- 25.3ls", bytes2));
 
 	/*Unicode cut by precision*/
 	STOPIF0(ft_call_both("Unicode (3bytes) cut by precision (2) %.2ls", bytes3));
