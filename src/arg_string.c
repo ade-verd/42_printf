@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 14:12:59 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/14 18:01:10 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 14:20:24 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,28 +58,34 @@ int 	ft_wslen_bytes(t_indic **ind)
 	return (bytes);
 }
 
-void	ft_arg_string_ws(t_indic **ind, t_buff **buff)
+void 	ft_ws_to_char(t_indic **ind, t_buff **buff, char **str)
 {
-	char 	*str;
 	int 	i;
 	int 	index;
 	int 	bytes;
 
+	i = 0;
+	index = 0;
 	if ((bytes = ft_wslen_bytes(ind)) == -1)
 	{
 		ft_error_manager(buff);
 		return ;
 	}
-	i = 0;
-	index = 0;
-	if (!(str = ft_strnew(ft_abs(bytes))))
+	if (!(*str = ft_strnew(bytes)))
 		exit (0);
-	ft_bzero(str, bytes);
+	ft_bzero(*str, bytes);
 	while ((*ind)->ws[i]  && bytes >= 0)
 	{
-		ft_unicode_to_str(ind, &str, (*ind)->ws[i], &index);
+		ft_unicode_to_str(ind, str, (*ind)->ws[i], &index);
 		i++;
 	}
+}
+
+void	ft_arg_string_ws(t_indic **ind, t_buff **buff)
+{
+	char 	*str;
+
+	ft_ws_to_char(ind, buff, &str);
 	ft_indicators_manager(ind, buff, &str);
 	if (str)
 		ft_putsbuffer(buff, str);
@@ -93,7 +99,7 @@ void	ft_arg_string(va_list ap, t_indic **ind, t_buff **buff)
 {
 	char 	*str;
 
-    ft_iscapital_s(ind);
+	ft_iscapital_s(ind);
 	ft_get_string(ind, ap, &str);
 	if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
 		ft_arg_string_ws(ind, buff);

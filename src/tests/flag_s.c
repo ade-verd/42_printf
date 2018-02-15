@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:07:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 13:43:24 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 14:01:49 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,10 @@ int		ft_flag_s(void)
 	STOPIF0(ft_call_both("Unicode (3bytes) cut by precision (2)|%.2ls|!", bytes3));
 
 	/*Should return -1*/
-	STOPIF0(ft_call_both("should return -1 %+- 25.10ls", "char étoile"));
-	STOPIF0(ft_call_both("should return -1 %+- 25.10S", "char à voile"));
-	STOPIF0(ft_call_both("should not return -1 %+- 25.10ls", L"char étoile"));
-	STOPIF0(ft_call_both("should not return -1 %+- 25.10S", L"char à voile"));
+	STOPIF0(ft_call_both("should return -1 %+- 20.15ls", "char etoile"));
+	STOPIF0(ft_call_both("should return -1 %+- 20.15S", "char a voile"));
+	STOPIF0(ft_call_both("should not return -1 %+- 20.15ls", L"char etoile"));
+	STOPIF0(ft_call_both("should not return -1 %+- 20.15S", L"char a voile"));
 
 	/*Some Moulitests*/
 	STOPIF0(ft_call_both("%2s", 0));

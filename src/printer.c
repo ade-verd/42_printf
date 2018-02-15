@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:06:41 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/13 11:58:03 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 14:03:26 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	ft_init_buffer(t_buff **buff, int fd)
 	(*buff)->index = 0;
 	(*buff)->total = 0;
 	(*buff)->fd = fd;
+	(*buff)->err = 0;
 }
 
 void	ft_free_buff(t_buff **buff)
