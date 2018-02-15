@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/13 16:38:20 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 13:12:21 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct	s_test
 
 int				ft_open(char *path, int oflag, int perm);
 int				ft_close(int fd);
+int 			ft_remove(char *path);
 int				ft_read_fd(int fd, char **str, int buf_size);
 int				ft_compare(int my_ret, int off_ret, char *my_print,
 							char *off_print, char *str);

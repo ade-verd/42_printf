@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 09:52:20 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/02 09:52:26 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 13:42:14 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,53 @@ int		ft_close(int fd)
 	return (1);
 }
 
+int 	ft_remove(char *path)
+{
+	if (remove(path) == -1)
+	{
+		printf("remove() error\n");
+		return (-1);
+	}
+	return (1);
+}
+
 int		ft_read_fd(int fd, char **str, int buf_size)
+{
+	int		ret;
+	int 	pos;
+	char	buf[buf_size + 1];
+	char	*tmp;
+
+	*str = ft_strnew(0);
+	if ((pos = lseek(fd, 0, SEEK_SET)) < 0)
+	{
+		printf("lseek() error\npos = %d\n", pos);
+		return (-1);
+	}
+	while ((ret = read(fd, buf, buf_size)) > 0)
+	{
+		buf[ret] = '\0';
+		if (!(tmp = ft_strjoin(*str, buf)))
+			return (-1);
+		if (*str)
+			ft_strdel(str);
+		if (!(*str = ft_strdup(tmp)))
+			return (-1);
+		if (tmp)
+			ft_strdel(&tmp);
+	}
+	return (ret);
+}
+
+
+/*int		ft_read_fd(int fd, char **str, int buf_size)
 {
 	char	buf[buf_size + 1];
 	int		ret;
 	int		pos;
 
+	if (buf_size < 0)
+		buf_size = 0;
 	if ((pos = lseek(fd, -(buf_size), SEEK_END)) < 0)
 	{
 		printf("lseek() error\npos = %d\n", pos);
@@ -53,4 +94,4 @@ int		ft_read_fd(int fd, char **str, int buf_size)
 	buf[buf_size] = '\0';
 	*str = ft_strjoin("", buf);
 	return (1);
-}
+}*/
