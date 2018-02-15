@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:07:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 19:05:55 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/15 19:20:59 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int		ft_flag_s(void)
 	/*Some Moulitests*/
 	STOPIF0(ft_call_both("%2s", 0));
 	STOPIF0(ft_call_both("%-2s", 0));
-
-		printf("*** Flag s : all tests passed ***\n");
+	
+	printf("*** Flag s : all tests passed ***\n");
 	return (1);
 }
