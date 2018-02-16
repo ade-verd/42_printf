@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 12:30:54 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 19:07:46 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/16 13:47:35 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,13 @@ void	ft_get_string_bouxx(t_indic **ind, va_list ap, char **str, int base)
 	*str = ft_uitoa_base((*ind)->nb, base);
 }
 
+void	ft_get_string_p(t_indic **ind, va_list ap, char **str, int base)
+{
+	base = 16;
+	(*ind)->nb = (unsigned long int)va_arg(ap, void*);
+	*str = ft_uitoa_base((*ind)->nb, base);
+}
+
 void	ft_get_chars_cs(t_indic **ind, va_list ap, char **str)
 {
 	char 	*tmp;
@@ -92,10 +99,10 @@ void	ft_get_string(t_indic **ind, va_list ap, char **str)
 	const t_ft	length[] = {
 		{"3di", 0, 0, ft_get_string_di, 0},
 		{"3bouxX", 0, 0, ft_get_string_bouxx, 0},
+		{"3p", 0, 0, ft_get_string_p, 0},
 		//{"3fFgGaAeE", 0, , 0},
 		{"4cs", 0, 0, 0, ft_get_chars_cs},
 		//{"3n", 0, , 0},
-		//{"3p", 0, , 0},
 		{0, 0, 0, 0, 0}
 	};
 	int		i;

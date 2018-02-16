@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 13:01:35 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/16 11:40:24 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/16 13:23:44 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ int				ft_flag_capital_U(void);
 int				ft_flag_capital_X(void);
 int				ft_flag_c(void);
 int				ft_flag_s(void);
+int				ft_flag_p(void);
 int				ft_flag_percent(void);
 int				ft_flag_b_bonus(void);
 
@@ -92,6 +93,7 @@ static const t_test	g_test[] = {
 	{"X", "int -> UNSIGNED HEXADECIMAL (BASE 16)", ft_flag_capital_X},
 	{"cC", "int -> unsigned char", ft_flag_c},
 	{"s", "char* -> pointer to a string (or to an array of character type)", ft_flag_s},
+	{"p", "pointer void* -> unsigned hexadecimal (base 16)", ft_flag_p},
 	{"%", "percent", ft_flag_percent},
 	{"b", "int -> binary (base 2)", ft_flag_b_bonus},
 	{0, 0, 0}

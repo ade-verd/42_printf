@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 17:09:01 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/09 17:40:44 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/16 15:52:10 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,22 @@ void	ft_int_bdiouxx(va_list ap, t_indic **ind, t_buff **buff)
 	ft_get_string(ind, ap, &str);
 	if ((*ind)->type == 'x')
 		str = ft_strlower(str);
+	ft_indicators_manager(ind, buff, &str);
+	ft_putsbuffer(buff, str);
+	if ((*buff)->suffix)
+		ft_putsbuffer(buff, (*buff)->suffix);
+}
+
+void	ft_int_p(va_list ap, t_indic **ind, t_buff **buff)
+{
+	char	*str;
+
+	(*buff)->prefix = "0x";
+	(*buff)->sign_printed += 2;
+	ft_get_string(ind, ap, &str);
+	str = ft_strlower(str);
+	if ((*ind)->isprec == 1 && (*ind)->precision == 0 && (*ind)->nb == 0)
+		ft_strclr(str);
 	ft_indicators_manager(ind, buff, &str);
 	ft_putsbuffer(buff, str);
 	if ((*buff)->suffix)
@@ -41,5 +57,8 @@ void	ft_arg_int(va_list ap, t_indic **ind, t_buff **buff)
 			(*ind)->size[0] = 'l';
 		}
 	}
-	ft_int_bdiouxx(ap, ind, buff);
+	if ((*ind)->type == 'p')
+		ft_int_p(ap, ind, buff);
+	else
+		ft_int_bdiouxx(ap, ind, buff);
 }

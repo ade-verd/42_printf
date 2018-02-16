@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 12:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 18:36:04 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/16 15:26:48 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_precision_manager(t_indic **ind, t_buff **buff, char **str)
 {
 	const t_ft	g_pres[] = {
 	//	{"aA", NULL, ft_precision_, NULL, NULL},
-		{"bdiouxX", NULL, ft_precision_int, NULL, NULL},
+		{"bpdiouxX", NULL, ft_precision_int, NULL, NULL},
 	//	{"eE", NULL, ft_precision_, NULL, NULL},
 	//	{"fF", NULL, ft_precision_, NULL, NULL},
 	//	{"gG", NULL, ft_precision_, NULL, NULL},
@@ -45,8 +45,6 @@ void	ft_flags_manager(t_indic **ind, t_buff **buff, char **str)
 	ft_manage_hashtag(ind, buff, str);
 	if (ft_strchr("di", (*ind)->type))
 		ft_manage_plus_signed(ind, buff, str);
-//	else if ((*ind)->type == 's')
-		//ft_manage_plus_string(ind, buff, str);
 	else
 		ft_manage_plus_unsigned(ind, buff, str);
 	if ((*buff)->prefix)

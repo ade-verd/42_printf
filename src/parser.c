@@ -6,30 +6,11 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/16 12:44:32 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/16 15:25:33 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	ft_init_indic(t_indic **ind)
-{
-	*ind = NULL;
-	*ind = (t_indic*)malloc(sizeof(t_indic));
-	(*ind)->width = 0;
-	(*ind)->isprec = 0;
-	(*ind)->precision = 0;
-}
-
-void	ft_free_indic(t_indic **ind)
-{
-	if ((*ind)->flags)
-		ft_strdel(&(*ind)->flags);
-	if ((*ind)->size)
-		ft_strdel(&(*ind)->size);
-	if (*ind)
-		ft_memdel((void**)ind);
-}
 
 void	ft_get_all_indics(t_indic **ind, va_list ap, char *str, int *i)
 {
@@ -48,12 +29,10 @@ void	ft_get_all_indics(t_indic **ind, va_list ap, char *str, int *i)
 void	ft_convert(t_indic **ind, va_list ap, t_buff **buff, int *index)
 {
 	const t_conv	g_tab[] = {
-		{ "bdDioOuUxX", ft_arg_int },
+		{ "bpdDioOuUxX", ft_arg_int },
 		{ "cC%", ft_arg_char },
 		{ "sS", ft_arg_string },/*
-		{ "S", ft_ws_arg },
-		{ "p", ft_p_arg },
-		{ "%", ft_pct_arg },*/
+		{ "p", ft_p_arg },*/
 		{ 0, 0}
 	};
 	int		i;
@@ -90,7 +69,7 @@ void	ft_parse_str(va_list ap, char *str, int *ret, int fd)
 			ft_init_indic(&ind);
 			ft_get_all_indics(&ind, ap, str, &i);
 			ft_convert(&ind, ap, &buff, &i);
-			ft_free_indic(&ind);
+			ft_reset_struct(&ind, &buff);
 		}
 		else
 			ft_putcbuffer(&buff, str[i]);

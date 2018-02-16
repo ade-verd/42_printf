@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 11:01:17 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 18:12:16 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/16 14:19:20 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_manage_zero(t_indic **ind, t_buff **buff, char **str)
 	if (!(*ind)->flags || !(*ind)->width || !ft_strchr((*ind)->flags, '0')
 			|| ft_strchr((*ind)->flags, '-'))
 		return ;
-	if ((*ind)->isprec == 1 && ft_strchr("bdiouxX", (*ind)->type))
+	if ((*ind)->isprec == 1 && ft_strchr("bpdiouxX", (*ind)->type))
 		return ;
 	width = (*ind)->width - (*buff)->sign_printed;
 	len = ft_strlen(*str);
@@ -62,9 +62,9 @@ void	ft_hashtag_oxx(t_indic **ind, t_buff **buff, char **str)
 		(*buff)->iszero++;
 		(*buff)->sign_printed++;
 	}
-	if ((*ind)->type == 'x' || (*ind)->type == 'X')
+	else
 	{
-		(*buff)->prefix = (*ind)->type == 'x' ? "0x" : "0X";
+		(*buff)->prefix = (*ind)->type == 'X' ? "0X" : "0x";
 		(*buff)->sign_printed += 2;
 	}
 }
@@ -97,7 +97,7 @@ void	ft_manage_hashtag(t_indic **ind, t_buff **buff, char **str)
 	int		i;
 
 	i = 0;
-	if ((*ind)->flags && ft_strchr((*ind)->flags, '#'))
+	if ((*ind)->flags && ft_strchr((*ind)->flags, '#')) 
 	{
 		while (g_ft[i].letter)
 		{
