@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/16 15:25:33 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/16 16:39:17 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@ void	ft_get_all_indics(t_indic **ind, va_list ap, char *str, int *i)
 	ft_get_width(ind, ap, str, i);
 	ft_get_precision(ind, ap, str, i);
 	ft_get_size(ind, str, i);
+	//printf("i:|%d|\n", *i);
 	ft_get_type(ind, str, i);
 /*	printf("Flags:|%s|\n", (*ind)->flags);
 	printf("Width:|%d|\n", (*ind)->width);
 	printf("Precision:|%d|\n", (*ind)->precision);
 	printf("Size:|%s|\n", (*ind)->size);
-	printf("Type:|%c|\n", (*ind)->type);*/
+	printf("Type:|%c|\t", (*ind)->type);
+	printf("Type:|%d|\n", (*ind)->type);*/
 }
 
 void	ft_convert(t_indic **ind, va_list ap, t_buff **buff, int *index)
@@ -68,7 +70,9 @@ void	ft_parse_str(va_list ap, char *str, int *ret, int fd)
 			buff->printed = 0;
 			ft_init_indic(&ind);
 			ft_get_all_indics(&ind, ap, str, &i);
-			ft_convert(&ind, ap, &buff, &i);
+			if (ind->type > 0)
+				ft_convert(&ind, ap, &buff, &i);
+			//printf("str:|%s|\n", (buff)->str);
 			ft_reset_struct(&ind, &buff);
 		}
 		else
