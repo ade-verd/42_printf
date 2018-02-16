@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 14:12:59 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 19:08:22 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/16 18:48:00 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void 	ft_ws_to_char(t_indic **ind, t_buff **buff, char **str)
 	if ((bytes = ft_wslen_bytes(ind)) == -1)
 	{
 		ft_error_manager(buff);
+		*str = NULL;
 		return ;
 	}
 	if (!(*str = ft_strnew(bytes)))

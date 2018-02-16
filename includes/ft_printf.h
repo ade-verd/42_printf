@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/16 15:06:53 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/16 18:32:34 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,5 +144,6 @@ void 				ft_unicode_to_str(t_indic**, char **s, wchar_t c, int *i);
 
 /*Errors*/
 void				ft_error_manager(t_buff **buff);
+void				ft_arg_novalid_conv(t_indic **i, t_buff **b);
 
 #endif

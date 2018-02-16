@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/02/16 15:07:21 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/02/16 17:41:41 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,7 @@ SRC_NAME = \
 		   arg_int.c\
 		   arg_char.c\
 		   arg_string.c\
+		   arg_novalid_conv.c\
 
 SRC_ALL = $(SRC_NAME) $(SRC_TEST)
 
