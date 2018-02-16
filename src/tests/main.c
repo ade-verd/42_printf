@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 09:52:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 20:29:28 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/16 12:39:44 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,20 +69,26 @@ void	ft_available_types(void)
 int		main(int ac, char **av)
 {
 	setlocale(LC_ALL, "en_US.UTF-8");
+	int 	i;
+	int 	explicit;
 
-	g_display_code = LIGHT;
-	if (ac == 1)
+	i = ac;
+	while (i > 1 && explicit != 1)
+	{
+		i--;
+		g_display_code = !g_display_code && strcmp(av[i], "--all") == 0 
+						? ALL : g_display_code;
+		g_display_code = !g_display_code && strcmp(av[i], "--errors") == 0
+						? ERR_ONLY : g_display_code;
+		g_display_code = !g_display_code && strcmp(av[i], "--light") == 0
+						? LIGHT : g_display_code;
+		explicit = g_display_code ? 1 : 0;
+	}
+	g_display_code = explicit != 1 ? ALL : g_display_code;
+	if (ac == 1 || (ac == 2 && explicit == 1))
 		ft_run_all();
 	else if (ac == 2 || ac == 3)
 	{
-		if ((av[1] && strcmp(av[1], "--all") == 0)
-			|| (av[2] && strcmp(av[2], "--all") == 0))
-			g_display_code = ALL;
-		else if ((av[1] && strcmp(av[1], "--errors") == 0)
-			|| (av[2] && strcmp(av[2], "--errors") == 0))
-			g_display_code = ERR_ONLY;
-		else
-			g_display_code = LIGHT;
 		if (strcmp(av[1], "-h") == 0 || (ft_choose_flag(av[1])) == -10)
 		{
 			fprintf(stderr, "Usage: ./test [conversion letter(s)] [Display code]\n");
