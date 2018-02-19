@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 17:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/19 13:08:09 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 13:36:58 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ void	ft_manage_plus_unsigned(t_indic **ind, t_buff **buff, char **str)
 	i = 0;
 	isminus_or_is0 = 0;
 	if ((*ind)->flags && (ft_strchr((*ind)->flags, '-')
-			|| (ft_strchr((*ind)->flags, '0') && (*ind)->isprec == 0)))
+			|| (ft_strchr((*ind)->flags, '0') && (*ind)->isprec == 0)
+			|| (ft_strchr((*ind)->flags, '0') && (*ind)->type == 'c')))
 		isminus_or_is0 = 1;
 	while (i++ < (w - n) && isminus_or_is0 != 1)
 		ft_putcbuffer(buff, ' ');

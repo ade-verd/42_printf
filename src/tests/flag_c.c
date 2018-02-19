@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:07:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/19 13:14:05 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 13:22:08 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ int		ft_flag_c(void)
 	STOPIF0(ft_call_both("(2 bytes) %+ 5lc", bytes2));
 
 	/*Flag '0'*/
+	STOPIF0(ft_call_both("|%5.c|", 'a'));
+	STOPIF0(ft_call_both("|%05c|", 'a'));
+	STOPIF0(ft_call_both("|%05.c|", 0));
+	STOPIF0(ft_call_both("|%05.c|", 'a'));
 	STOPIF0(ft_call_both("(2 bytes) %0+ 5lc", bytes2));
 	STOPIF0(ft_call_both("(2 bytes) %0- 5lc", bytes2));
 	STOPIF0(ft_call_both("(2 bytes) %0+- 5lc", bytes2));
@@ -82,7 +86,6 @@ int		ft_flag_c(void)
 	/*Some Moulitests*/
 	STOPIF0(ft_call_both("%2c", 0));
 	STOPIF0(ft_call_both("%-2c", 0));
-	STOPIF0(ft_call_both("|%05.c|", 0));
 
 	printf("\n*** Flags c [%d/%d] ***\n", g_counter_ok, g_counter_ok + g_counter_ko);
 	return (1);
