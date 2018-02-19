@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 09:51:37 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 20:09:36 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 15:29:18 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,18 @@ int		ft_flag_no(void)
 	STOPIF0(ft_call_both(""));
 	STOPIF0(ft_call_both("Hey"));
 	STOPIF0(ft_call_both("Hey", 10, 12, 13));
+
 	while (get_next_line(fd, &line) > 0)
 	{
 		if (!ft_strchr(line, '%'))
 			STOPIF0(ft_call_both(line));
 		ft_strdel(&line);
 	}
+
+	STOPIF0(ft_call_both("|%05.Z|", 0));
+	STOPIF0(ft_call_both("|%15.Z|", "abc"));
+	STOPIF0(ft_call_both("|%-15.Z|", "abc"));
+
 	printf("\n*** No Flag [%d/%d] ***\n", g_counter_ok, g_counter_ok + g_counter_ko);
 	if ((ft_close(fd)) == -1)
 		return (-1);

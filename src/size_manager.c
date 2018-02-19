@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 12:30:54 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/16 13:47:35 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 15:02:19 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,11 @@ void	ft_get_chars_cs(t_indic **ind, va_list ap, char **str)
 		}
 		else
 		{
-			tmp = va_arg(ap, char*);
-			*str = ft_strdup(tmp); 
+			if (!(tmp = va_arg(ap, char*)))
+				*str = (*ind)->isprec && !(*ind)->precision 
+				? ft_strdup("") : ft_strdup("(null)");
+			else
+				*str = ft_strdup(tmp);
 		}
 	}
 }

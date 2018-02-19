@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 14:12:59 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/16 18:48:00 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 14:59:46 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,6 @@ void	ft_arg_string_ws(t_indic **ind, t_buff **buff, char **str)
 	ft_indicators_manager(ind, buff, str);
 	if (*str)
 		ft_putsbuffer(buff, *str);
-	else
-		ft_putsbuffer(buff, "(null)");
 	if ((*buff)->suffix)
 		ft_putsbuffer(buff, (*buff)->suffix);
 }
@@ -107,8 +105,8 @@ void	ft_arg_string(va_list ap, t_indic **ind, t_buff **buff)
 		ft_indicators_manager(ind, buff, &str);
 		if (str)
 			ft_putsbuffer(buff, str);
-		else
-			ft_putsbuffer(buff, "(null)");
+		//else
+		//	ft_putsbuffer(buff, "(null)");
 		if ((*buff)->suffix)
 			ft_putsbuffer(buff, (*buff)->suffix);
 	}

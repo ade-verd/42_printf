@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:07:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/16 18:08:37 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 15:21:37 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int		ft_flag_percent(void)
 	/*Some Moulitests*/
 	STOPIF0(ft_call_both("%2%", 0));
 	STOPIF0(ft_call_both("%-2%", 0));
+	STOPIF0(ft_call_both("|%05.%|", 0));
 	STOPIF0(ft_call_both("Percent without valid specifier %"));
 
 	printf("\n*** Flags %% [%d/%d] ***\n", g_counter_ok, g_counter_ok + g_counter_ko);

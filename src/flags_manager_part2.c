@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 11:01:17 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/19 12:28:21 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 15:19:04 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 void	ft_manage_zero(t_indic **ind, t_buff **buff, char **str)
 {
 	int		width;
-	int		len;
+	int		n;
 	int		i;
 
 	if (!(*ind)->flags || !(*ind)->width || !ft_strchr((*ind)->flags, '0')
@@ -32,9 +32,11 @@ void	ft_manage_zero(t_indic **ind, t_buff **buff, char **str)
 	if ((*ind)->isprec == 1 && ft_strchr("bpdiouxX", (*ind)->type))
 		return ;
 	width = (*ind)->width - (*buff)->sign_printed;
-	len = ft_strlen(*str);
+	n = ft_strlen(*str);
+	if ((*ind)->type == 's')
+		n = (*ind)->isprec && ((*ind)->precision < n) ? (*ind)->precision : n;
 	i = 0;
-	while (i < (width - len))
+	while (i < (width - n))
 	{
 		ft_putcbuffer(buff, '0');
 		(*buff)->iszero++;
