@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:07:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/19 13:22:08 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 19:01:16 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int		ft_flag_c(void)
 	wchar_t bytes2 = L'¾'; /*¾ÀÁÒúĬŞ*/
 	wchar_t bytes3 = L'ᎈ';  /*ကခᎈ*/
 	wchar_t bytes4 = L'𐀂';  /*𐀂𐀃𘚠*/
+	int		nb_inf = 0xD800;
+	int		nb_sup = 0xDFFF;
 
 	ft_init_counters();
 	printf("*** Flag c ***\n");
@@ -86,6 +88,12 @@ int		ft_flag_c(void)
 	/*Some Moulitests*/
 	STOPIF0(ft_call_both("%2c", 0));
 	STOPIF0(ft_call_both("%-2c", 0));
+	
+	/*Weard behavior on MacOS - Do not consider as error*/
+	STOPIF0(ft_call_both("(OK) Weard behavior on MacOS %C\t(%X)", nb_inf-1, nb_inf-1));
+	STOPIF0(ft_call_both("(KO) Weard behavior on MacOS %C\t(%X)", nb_inf, nb_inf));
+	STOPIF0(ft_call_both("(KO) Weard behavior on MacOS %C\t(%X)", nb_sup, nb_sup));
+	STOPIF0(ft_call_both("(OK) Weard behavior on MacOS %C\t(%X)", nb_sup+1, nb_sup+1));
 
 	printf("\n*** Flags c [%d/%d] ***\n", g_counter_ok, g_counter_ok + g_counter_ko);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/19 12:30:32 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 18:39:31 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ void				ft_get_string(t_indic **ind, va_list ap, char **str);
 void				ft_get_chars_csp(t_indic **ind, va_list ap);
 
 /*Unicode*/
-void 				ft_unicode_to_str(t_indic**, char **s, wchar_t c, int *i);
+void 				ft_unicode_to_str(t_indic**, t_buff **b, char **s, int *i);
 
 /*Errors*/
 void				ft_error_manager(t_buff **buff);

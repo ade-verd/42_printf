@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 17:52:58 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/16 12:43:48 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 18:40:10 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_arg_char(va_list ap, t_indic **ind, t_buff **buff)
 		(*ind)->c = '%';
 	else
 		ft_get_string(ind, ap, &str);
-	ft_unicode_to_str(ind, &str, (*ind)->c, &i);
+	ft_unicode_to_str(ind, buff, &str, &i);
 	iszero = (*ind)->c == 0 ? 1 : 0;
 	if (iszero == 1)
 		str[0] = '.';

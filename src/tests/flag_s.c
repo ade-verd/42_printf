@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:07:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/19 13:40:55 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 19:06:46 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,24 @@ int		ft_flag_s(void)
 	/*Unicode*/
 	STOPIF0(ft_call_both("Unicode in format |က|"));
 	STOPIF0(ft_call_both("(2 bytes) %s", bytes2));
-	STOPIF0(ft_call_both("lil c (2 bytes) %s", bytes2));
-	STOPIF0(ft_call_both("lil c (2 bytes) %ls", bytes2));
-	STOPIF0(ft_call_both("big C (2 bytes) %S", bytes2));
+	STOPIF0(ft_call_both("lil s (2 bytes) %s", bytes2));
+	STOPIF0(ft_call_both("lil s (2 bytes) %ls", bytes2));
+	STOPIF0(ft_call_both("Capital S (2 bytes) %S", bytes2));
 	STOPIF0(ft_call_both("(3 bytes) %s", bytes3));
-	STOPIF0(ft_call_both("(3 bytes) lil c %s", bytes3));
-	STOPIF0(ft_call_both("(3 bytes) lil c %ls", bytes3));
-	STOPIF0(ft_call_both("(3 bytes) big C %S", bytes3));
+	STOPIF0(ft_call_both("(3 bytes) lil s %s", bytes3));
+	STOPIF0(ft_call_both("(3 bytes) lil s %ls", bytes3));
+	STOPIF0(ft_call_both("(3 bytes) Capital S %S", bytes3));
 	STOPIF0(ft_call_both("(4 bytes) %s", bytes4));
-	STOPIF0(ft_call_both("lil c (4 bytes) %s", bytes4));
-	STOPIF0(ft_call_both("lil c (4 bytes) %ls", bytes4));
-	STOPIF0(ft_call_both("big C (4 bytes) %S", bytes4));
+	STOPIF0(ft_call_both("lil s (4 bytes) %s", bytes4));
+	STOPIF0(ft_call_both("lil s (4 bytes) %ls", bytes4));
+	STOPIF0(ft_call_both("%S", bytes4));
+	STOPIF0(ft_call_both("Capital S (4 bytes) %S", bytes4));
 
 	/*Size 'hl'*/
-	STOPIF0(ft_call_both("lil c (4 bytes) %ls", bytes4));
-	STOPIF0(ft_call_both("lil c (4 bytes) %hs", bytes4));
-	STOPIF0(ft_call_both("lil c (4 bytes) %lS", bytes4));
-	STOPIF0(ft_call_both("lil c (4 bytes) %hS", bytes4));
+	STOPIF0(ft_call_both("lil s (4 bytes) %ls", bytes4));
+	STOPIF0(ft_call_both("lil s (4 bytes) %hs", bytes4));
+	STOPIF0(ft_call_both("lil s (4 bytes) %lS", bytes4));
+	STOPIF0(ft_call_both("lil s (4 bytes) %hS", bytes4));
 
 	/*Flag '+'*/
 	STOPIF0(ft_call_both("(2 bytes) %0ls", bytes2));
