@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 17:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/19 15:31:26 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 15:45:14 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,37 @@ void	ft_manage_plus_unsigned(t_indic **ind, t_buff **buff, char **str)
 	n = ft_strlen(*str);
 	w = ((*ind)->precision < n)	? ((*ind)->width - (*buff)->sign_printed)
 		: ((*ind)->width - (*buff)->sign_printed - ((*ind)->precision - n));
-	if ((*ind)->type == 's')
-	{
-		n = (*ind)->isprec && ((*ind)->precision < n) ? (*ind)->precision : n;
-		w = (*ind)->width;
-	}
 	i = 0;
 	isminus_or_is0 = 0;
 	if ((*ind)->flags && (ft_strchr((*ind)->flags, '-')
-		|| (ft_strchr((*ind)->flags, '0') && (*ind)->isprec == 0)
-		|| (ft_strchr((*ind)->flags, '0') && ft_strchr("cs%0", (*ind)->type)))) 
+		|| (ft_strchr((*ind)->flags, '0') && (*ind)->isprec == 0)))
+		isminus_or_is0 = 1;
+	while (i++ < (w - n) && isminus_or_is0 != 1)
+		ft_putcbuffer(buff, ' ');
+}
+
+/*
+** ft_manage_plus_string
+** The converted value is to be right ajusted.
+** In case of no flag and width > 0 : str is right ajusted by default according
+** to width and str's length
+*/
+
+void	ft_manage_plus_string(t_indic **ind, t_buff **buff, char **str)
+{
+	int		w;
+	int		n;
+	int		i;
+	int		isminus_or_is0;
+
+	n = ft_strlen(*str);
+	if ((*ind)->type == 's')
+		n = (*ind)->isprec && ((*ind)->precision < n) ? (*ind)->precision : n;
+	w = (*ind)->width;
+	i = 0;
+	isminus_or_is0 = 0;
+	if ((*ind)->flags && (ft_strchr((*ind)->flags, '-')
+		|| (ft_strchr((*ind)->flags, '0'))))
 		isminus_or_is0 = 1;
 	while (i++ < (w - n) && isminus_or_is0 != 1)
 		ft_putcbuffer(buff, ' ');

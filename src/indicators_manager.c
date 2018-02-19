@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 12:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/19 12:42:08 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 15:35:59 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	ft_flags_manager(t_indic **ind, t_buff **buff, char **str)
 	ft_manage_hashtag(ind, buff, str);
 	if (ft_strchr("di", (*ind)->type))
 		ft_manage_plus_signed(ind, buff, str);
+	else if (ft_strchr("sc%0", (*ind)->type))
+		ft_manage_plus_string(ind, buff, str);
 	else
 		ft_manage_plus_unsigned(ind, buff, str);
 	if ((*buff)->prefix)
