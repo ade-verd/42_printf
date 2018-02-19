@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/02 09:51:49 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 20:09:19 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 12:48:45 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,7 @@ int		ft_flag_o(void)
 	STOPIF0(ft_call_both("Number is %0-10.6o", +100));
 	STOPIF0(ft_call_both("Number is %0-10.6o", -100));
 	STOPIF0(ft_call_both("Number is %-10.6o", 100));
+	STOPIF0(ft_call_both("Number is %-10.3o", 100));
 	STOPIF0(ft_call_both("Number is %-10.6o", +100));
 	STOPIF0(ft_call_both("Number is %-10.6o", -100));
 

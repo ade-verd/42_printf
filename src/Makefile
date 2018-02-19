@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/02/16 17:41:41 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/02/19 12:02:06 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRC_TEST = $(TESTS_PATH)main.c\
 		   $(TESTS_PATH)flag_c.c\
 		   $(TESTS_PATH)flag_s.c\
 		   $(TESTS_PATH)flag_p.c\
+		   $(TESTS_PATH)flag_mix.c\
 		   $(TESTS_PATH)flag_percent.c\
 		   $(TESTS_PATH)flag_b_bonus.c\
 

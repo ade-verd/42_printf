@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:07:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 20:10:38 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 13:14:05 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ int		ft_flag_c(void)
 	/*Some Moulitests*/
 	STOPIF0(ft_call_both("%2c", 0));
 	STOPIF0(ft_call_both("%-2c", 0));
+	STOPIF0(ft_call_both("|%05.c|", 0));
 
 	printf("\n*** Flags c [%d/%d] ***\n", g_counter_ok, g_counter_ok + g_counter_ko);
 	return (1);

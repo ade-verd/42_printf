@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 17:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/16 18:44:48 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 13:08:09 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,11 @@ void	ft_manage_plus_unsigned(t_indic **ind, t_buff **buff, char **str)
 	int		isminus_or_is0;
 
 	n = ft_strlen(*str);
-	w = ((*ind)->precision - n <= 0) ? ((*ind)->width - (*buff)->sign_printed)
+	w = ((*ind)->precision < n)	? ((*ind)->width - (*buff)->sign_printed)
 		: ((*ind)->width - (*buff)->sign_printed - ((*ind)->precision - n));
 	if ((*ind)->type == 's')
 	{
-		n = ((*ind)->precision - n) <= 0 ? n - (*ind)->precision : n;
+		n = (*ind)->isprec && ((*ind)->precision < n) ? (*ind)->precision : n;
 		w = (*ind)->width;
 	}
 	i = 0;

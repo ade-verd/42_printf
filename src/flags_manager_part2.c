@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 11:01:17 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/16 14:19:20 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 12:28:21 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_hashtag_oxx(t_indic **ind, t_buff **buff, char **str)
 		return ;
 	if ((*ind)->type == 'o')
 	{
-		(*buff)->prefix = "0";
+		(*buff)->prefix = "0\0";
 		(*buff)->iszero++;
 		(*buff)->sign_printed++;
 	}

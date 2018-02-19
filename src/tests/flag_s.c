@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/09 15:07:29 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/15 20:02:56 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 13:09:51 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,10 @@ int		ft_flag_s(void)
 	STOPIF0(ft_call_both("(2 bytes) %+- 25.ls", bytes2));
 	STOPIF0(ft_call_both("(2 bytes) %+- 25.0ls", bytes2));
 	STOPIF0(ft_call_both("(2 bytes) %+- 25.3ls", bytes2));
+	STOPIF0(ft_call_both("%15.4s", "Pouloulou"));
+	STOPIF0(ft_call_both("%15.8s", "Pouloulou"));
+	STOPIF0(ft_call_both("%15.9s", "Pouloulou"));
+	STOPIF0(ft_call_both("%4.s", "Hi"));
 
 	/*Unicode cut by precision*/
 	STOPIF0(ft_call_both("Unicode (3bytes) cut by precision (2) %.2ls", bytes3));
@@ -105,7 +109,7 @@ int		ft_flag_s(void)
 	/*Some Moulitests*/
 	STOPIF0(ft_call_both("%2s", 0));
 	STOPIF0(ft_call_both("%-2s", 0));
-	
+
 	printf("\n*** Flags sS [%d/%d] ***\n", g_counter_ok, g_counter_ok + g_counter_ko);
 	return (1);
 }

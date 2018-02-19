@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 14:58:03 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/16 15:25:11 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/19 12:29:13 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void	ft_free_buff(t_buff **buff)
 {
 	if (((*buff)->str))
 		ft_strdel(&(*buff)->str);
+	if (((*buff)->prefix))
+		(*buff)->prefix = "\0\0";
 	if (((*buff)->suffix))
 		ft_strdel(&(*buff)->suffix);
 	if (*buff)
@@ -60,6 +62,8 @@ void	ft_free_buff(t_buff **buff)
 void	ft_reset_struct(t_indic **ind, t_buff **buff)
 {
 	ft_free_indic(ind);
+	if (((*buff)->prefix))
+		(*buff)->prefix = "\0\0";
 	if (((*buff)->suffix))
 		ft_strdel(&(*buff)->suffix);
 	(*buff)->sign_printed = 0;
