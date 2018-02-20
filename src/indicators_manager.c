@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 12:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/19 15:35:59 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/20 19:42:53 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,20 @@
 
 void	ft_precision_manager(t_indic **ind, t_buff **buff, char **str)
 {
-	const t_ft	g_pres[] = {
-	//	{"aA", NULL, ft_precision_, NULL, NULL},
-		{"bpdiouxX", NULL, ft_precision_int, NULL, NULL},
-	//	{"eE", NULL, ft_precision_, NULL, NULL},
-	//	{"fF", NULL, ft_precision_, NULL, NULL},
-	//	{"gG", NULL, ft_precision_, NULL, NULL},
+	int			i;
+	const t_ft	prec[] = {{"bpdiouxX", NULL, ft_precision_int, NULL, NULL},
 		{"sS", NULL, ft_precision_string, NULL, NULL},
 		{0, 0, 0, 0, 0}
 	};
-	int		i;
 
 	i = 0;
 	if ((*ind)->isprec == 0)
 		return ;
-	while (g_pres[i].letter)
+	while (prec[i].letter)
 	{
-		if ((*ind)->type && ft_strchr(g_pres[i].letter, (*ind)->type))
+		if ((*ind)->type && ft_strchr(prec[i].letter, (*ind)->type))
 		{
-			g_pres[i].f2(ind, buff, str);
+			prec[i].f2(ind, buff, str);
 			break ;
 		}
 		i++;
@@ -52,9 +47,6 @@ void	ft_flags_manager(t_indic **ind, t_buff **buff, char **str)
 	if ((*buff)->prefix)
 		ft_putsbuffer(buff, (*buff)->prefix);
 	ft_manage_zero(ind, buff, str);
-	//printf("prefix: |%s|\n", (*buff)->prefix);
-	//printf("str   : |%s|\n", *str);
-	//printf("suffix: |%s|\n", (*buff)->suffix);
 }
 
 void	ft_indicators_manager(t_indic **ind, t_buff **buff, char **str)

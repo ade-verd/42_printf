@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   precision_manager_part1.c                          :+:      :+:    :+:   */
+/*   precision_manager.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 15:49:33 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/19 13:11:17 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/20 20:02:31 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ void	ft_precision_int(t_indic **ind, t_buff **buff, char **str)
 
 void	ft_precision_string(t_indic **ind, t_buff **buff, char **str)
 {
-	int 	i;
+	int		i;
 	int		len;
 
 	i = 0;
 	len = ft_strlen(*str);
-	(*buff)->total += 0; 
+	(*buff)->total += 0;
 	if ((*ind)->isprec && (*ind)->precision < len)
 	{
 		while ((*str)[i])

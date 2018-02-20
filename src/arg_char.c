@@ -6,13 +6,13 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 17:52:58 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/19 18:40:10 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/20 19:52:13 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    ft_iscapital_c(t_indic **ind)
+void	ft_iscapital_c(t_indic **ind)
 {
 	if ((*ind)->type == 'C')
 	{
@@ -32,9 +32,9 @@ void    ft_iscapital_c(t_indic **ind)
 
 void	ft_arg_char(va_list ap, t_indic **ind, t_buff **buff)
 {
-	char 	*str;
+	char	*str;
 	int		iszero;
-	int 	i;
+	int		i;
 
 	i = 0;
 	str = ft_strnew(4);

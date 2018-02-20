@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/02/20 12:45:20 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/02/20 20:01:28 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ SRC_NAME = \
 		   indicators_manager.c\
 		   flags_manager_part1.c\
 		   flags_manager_part2.c\
-		   precision_manager_part1.c\
+		   precision_manager.c\
 		   size_manager.c\
 		   unicode_converter.c\
 		   \
@@ -154,7 +154,7 @@ re: fclean all
 
 norme:
 	norminette $(SRC)
-	norminette $(addprefix $(INC_PATH), *.h)
+	norminette $(addprefix $(INC_PATH), /*.h)
 
 # **************************************************************************** #
 # Personal notes :                                                             #

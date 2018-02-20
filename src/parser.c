@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/16 18:33:59 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/20 19:41:22 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,35 +18,27 @@ void	ft_get_all_indics(t_indic **ind, va_list ap, char *str, int *i)
 	ft_get_width(ind, ap, str, i);
 	ft_get_precision(ind, ap, str, i);
 	ft_get_size(ind, str, i);
-	//printf("i:|%d|\n", *i);
 	ft_get_type(ind, str, i);
-/*	printf("Flags:|%s|\n", (*ind)->flags);
-	printf("Width:|%d|\n", (*ind)->width);
-	printf("Precision:|%d|\n", (*ind)->precision);
-	printf("Size:|%s|\n", (*ind)->size);
-	printf("Type:|%c|\t", (*ind)->type);
-	printf("Type:|%d|\n", (*ind)->type);*/
 }
 
 void	ft_convert(t_indic **ind, va_list ap, t_buff **buff)
 {
-	const t_conv	g_tab[] = {
-		{ "bpdDioOuUxX", ft_arg_int },
+	int				i;
+	int				found;
+	const t_conv	tab[] = { { "bpdDioOuUxX", ft_arg_int },
 		{ "cC%", ft_arg_char },
 		{ "sS", ft_arg_string },
 		{ 0, 0}
 	};
-	int		i;
-	int		found;
 
 	i = 0;
 	found = 0;
-	while (g_tab[i].letters && found == 0)
+	while (tab[i].letters && found == 0)
 	{
-		if ((*ind)->type && ft_strchr_pos(g_tab[i].letters, (*ind)->type) != -1)
+		if ((*ind)->type && ft_strchr_pos(tab[i].letters, (*ind)->type) != -1)
 		{
 			found++;
-			g_tab[i].f(ap, ind, buff);
+			tab[i].f(ap, ind, buff);
 		}
 		i++;
 	}

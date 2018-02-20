@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 17:52:58 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/19 18:44:47 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/20 19:51:19 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_arg_novalid_conv(t_indic **ind, t_buff **buff)
 {
-	char 	*str;
-	int 	i;
+	char	*str;
+	int		i;
 
 	i = 0;
 	if ((*ind)->type == '\0')

@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 12:30:54 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/19 15:02:19 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/20 19:50:36 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_get_string_p(t_indic **ind, va_list ap, char **str, int base)
 
 void	ft_get_chars_cs(t_indic **ind, va_list ap, char **str)
 {
-	char 	*tmp;
+	char	*tmp;
 
 	if ((*ind)->type == 'c')
 	{
@@ -88,7 +88,7 @@ void	ft_get_chars_cs(t_indic **ind, va_list ap, char **str)
 		else
 		{
 			if (!(tmp = va_arg(ap, char*)))
-				*str = (*ind)->isprec && !(*ind)->precision 
+				*str = (*ind)->isprec && !(*ind)->precision
 				? ft_strdup("") : ft_strdup("(null)");
 			else
 				*str = ft_strdup(tmp);
@@ -96,19 +96,15 @@ void	ft_get_chars_cs(t_indic **ind, va_list ap, char **str)
 	}
 }
 
-
 void	ft_get_string(t_indic **ind, va_list ap, char **str)
 {
-	const t_ft	length[] = {
-		{"3di", 0, 0, ft_get_string_di, 0},
+	int			i;
+	const t_ft	length[] = {{"3di", 0, 0, ft_get_string_di, 0},
 		{"3bouxX", 0, 0, ft_get_string_bouxx, 0},
 		{"3p", 0, 0, ft_get_string_p, 0},
-		//{"3fFgGaAeE", 0, , 0},
 		{"4cs", 0, 0, 0, ft_get_chars_cs},
-		//{"3n", 0, , 0},
 		{0, 0, 0, 0, 0}
 	};
-	int		i;
 
 	i = 0;
 	while (length[i].letter)

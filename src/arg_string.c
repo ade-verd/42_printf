@@ -6,17 +6,17 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 14:12:59 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/19 19:20:45 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/20 19:55:32 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    ft_iscapital_s(t_indic **ind)
+void	ft_iscapital_s(t_indic **ind)
 {
 	if ((*ind)->type == 'S')
-    {
-        (*ind)->type = 's';
+	{
+		(*ind)->type = 's';
 		if ((*ind)->size)
 		{
 			(*ind)->size[0] = 'l';
@@ -26,14 +26,14 @@ void    ft_iscapital_s(t_indic **ind)
 		{
 			(*ind)->size = ft_strnew(1);
 			(*ind)->size[0] = 'l';
-        }
-    }
+		}
+	}
 }
 
-int 	ft_wslen_bytes(t_indic **ind)
+int		ft_wslen_bytes(t_indic **ind)
 {
-	int 	i;
-	int 	bytes;
+	int		i;
+	int		bytes;
 	int		nb_bits;
 
 	i = 0;
@@ -58,11 +58,11 @@ int 	ft_wslen_bytes(t_indic **ind)
 	return (bytes);
 }
 
-void 	ft_ws_to_char(t_indic **ind, t_buff **buff, char **str)
+void	ft_ws_to_char(t_indic **ind, t_buff **buff, char **str)
 {
-	int 	i;
-	int 	index;
-	int 	bytes;
+	int		i;
+	int		index;
+	int		bytes;
 
 	i = 0;
 	index = 0;
@@ -95,7 +95,7 @@ void	ft_arg_string_ws(t_indic **ind, t_buff **buff, char **str)
 
 void	ft_arg_string(va_list ap, t_indic **ind, t_buff **buff)
 {
-	char 	*str;
+	char	*str;
 
 	ft_iscapital_s(ind);
 	ft_get_string(ind, ap, &str);
