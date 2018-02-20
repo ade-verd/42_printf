@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/02/20 20:01:28 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/02/20 20:21:16 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CC = gcc
 SRC_PATH = src/
 OBJ_PATH = obj/
 LIB_PATH = libft
-INC_PATH = ./includes \
+INC_PATH = includes \
 		   $(LIB_PATH)/includes
 
 # Includes & libraries
@@ -136,8 +136,6 @@ clean:
 	@rm -Rf $(OBJ_PATH)
 	@echo -e "$(TITLE)clean libft$(END_TITLE)"
 	@make -C $(LIB_PATH) clean
-	@echo -e "$(TITLE)clean src/tests$(END_TITLE)"
-	@make -C $(SRC_PATH) clean
 
 fclean:
 	@echo -e "$(TITLE)fclean $(NAME)$(END_TITLE)"
@@ -147,8 +145,6 @@ fclean:
 	@rm -f $(NAME)
 	@echo -e "$(TITLE)fclean libft$(END_TITLE)"
 	@make -C $(LIB_PATH) fclean
-	@echo -e "$(TITLE)fclean src/tests$(END_TITLE)"
-	@make -C $(SRC_PATH) fclean
 
 re: fclean all
 

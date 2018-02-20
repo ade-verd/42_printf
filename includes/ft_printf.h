@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/19 18:39:31 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/20 20:23:07 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <stdint.h>
 # include <stddef.h> /*ptrdiff_t*/
 # include "libft.h"
-
 # include <stdio.h> /* /!\ /!\ A SUPPRIMER /!\ /!\ */
 
 # define BUFF_MAX_SIZE	4096
