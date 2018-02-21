@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_ft_vprintf.c                                    :+:      :+:    :+:   */
+/*   a1_ft_vprintf.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 17:42:53 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 18:13:12 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/21 18:31:22 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_vdprintf(int fd, const char *str, va_list ap)
 int		ft_vasprintf(char **str, const char *fmt, va_list ap)
 {
 	int			ret;
-	int 		fd;
+	int			fd;
 	t_buff		*buff;
 
 	fd = PRINT_IN_STRING;

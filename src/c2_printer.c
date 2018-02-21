@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   22_printer.c                                       :+:      :+:    :+:   */
+/*   c2_printer.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:06:41 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 17:49:17 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/21 18:32:15 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char	*ft_print_buffer(t_buff **buff)
 {
 	char	*str;
 	int		size;
-
 
 	(*buff)->total = (*buff)->total + (*buff)->index;
 	size = (*buff)->total < 0 ? 10 : (*buff)->total;
@@ -36,11 +35,11 @@ char	*ft_print_buffer(t_buff **buff)
 
 void	ft_double_buffsize(t_buff **buff)
 {
-	char 	tmp[(*buff)->size_max];
+	char	tmp[(*buff)->size_max];
 
 	ft_strcpy(tmp, (*buff)->str);
 	ft_strdel(&(*buff)->str);
-	(*buff)->size_max *= 2; 
+	(*buff)->size_max *= 2;
 	if (!((*buff)->str = ft_strnew((*buff)->size_max)))
 	{
 		ft_error_manager(buff);

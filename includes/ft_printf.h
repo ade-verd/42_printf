@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 17:35:29 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/21 18:32:42 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void				ft_reset_struct(t_indic **ind, t_buff **buff);
 */
 void				ft_putcbuffer(t_buff **buff, char c);
 void				ft_putsbuffer(t_buff **buff, char *str);
-char 				*ft_print_buffer(t_buff **buff);
+char				*ft_print_buffer(t_buff **buff);
 
 /*
 ** Get chars to convert

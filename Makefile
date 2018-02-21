@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/02/21 17:28:01 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/02/21 18:28:45 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,25 +31,25 @@ LIBFT = $(LIB_PATH)/libft.a
 
 # Sources
 SRC_NAME = \
-		   00_ft_printf.c\
-		   01_ft_vprintf.c\
-		   10_parser.c\
-		   20_struct_manager.c\
-		   21_get_chars_to_convert.c\
-		   22_printer.c\
-		   23_error_manager.c\
-		   24_unicode_converter.c\
+		   a0_ft_printf.c\
+		   a1_ft_vprintf.c\
+		   b0_parser.c\
+		   c0_struct_manager.c\
+		   c1_get_chars_to_convert.c\
+		   c2_printer.c\
+		   c3_error_manager.c\
+		   c4_unicode_converter.c\
 		   \
-		   30_arg_int.c\
-		   31_arg_char.c\
-		   32_arg_novalid_conv.c\
-		   33_arg_string.c\
+		   d0_arg_int.c\
+		   d1_arg_char.c\
+		   d2_arg_novalid_conv.c\
+		   d3_arg_string.c\
 		   \
-		   40_size_manager.c\
-		   41_indicators_manager.c\
-		   42_flags_manager_part1.c\
-		   43_flags_manager_part2.c\
-		   44_precision_manager.c\
+		   e0_size_manager.c\
+		   e1_indicators_manager.c\
+		   e2_flags_manager_part1.c\
+		   e3_flags_manager_part2.c\
+		   e4_precision_manager.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
