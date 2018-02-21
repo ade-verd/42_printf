@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 15:21:40 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/21 17:40:19 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,11 @@ void	ft_parse_str(va_list ap, char *str, t_buff **buff)
 		{
 			i++;
 			(*buff)->printed = 0;
-			ft_init_indic(&ind);
+			if ((ft_init_indic(&ind)) == -1)
+			{
+				ft_error_manager(buff);
+				return ;
+			}
 			ft_get_all_indics(&ind, ap, str, &i);
 			ft_convert(&ind, ap, buff);
 			ft_reset_struct(&ind, buff);

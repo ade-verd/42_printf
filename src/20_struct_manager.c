@@ -6,18 +6,20 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 14:58:03 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 16:39:20 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/21 18:13:33 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_init_indic(t_indic **ind)
+int		ft_init_indic(t_indic **ind)
 {
-	(*ind) = (t_indic*)malloc(sizeof(t_indic));
+	if (!((*ind) = (t_indic*)malloc(sizeof(t_indic))))
+		return (-1);
 	(*ind)->width = 0;
 	(*ind)->isprec = 0;
 	(*ind)->precision = 0;
+	return (1);
 }
 
 void	ft_free_indic(t_indic **ind)
@@ -30,11 +32,13 @@ void	ft_free_indic(t_indic **ind)
 		ft_memdel((void**)ind);
 }
 
-void	ft_init_buffer(t_buff **buff, int fd)
+int		ft_init_buffer(t_buff **buff, int fd)
 {
-	(*buff) = (t_buff*)malloc(sizeof(t_buff));
+	if (!((*buff) = (t_buff*)malloc(sizeof(t_buff))))
+		return (-1);
 	(*buff)->size_max = 4096;
-	(*buff)->str = ft_strnew((*buff)->size_max);
+	if (!((*buff)->str = ft_strnew((*buff)->size_max)))
+		return (-1);
 	(*buff)->prefix = NULL;
 	(*buff)->suffix = NULL;
 	(*buff)->sign_printed = 0;
@@ -44,6 +48,7 @@ void	ft_init_buffer(t_buff **buff, int fd)
 	(*buff)->total = 0;
 	(*buff)->fd = fd;
 	(*buff)->err = 0;
+	return (1);
 }
 
 void	ft_free_buff(t_buff **buff)

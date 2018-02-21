@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 14:12:59 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 13:43:31 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/21 18:15:54 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void	ft_iscapital_s(t_indic **ind)
 		}
 		else
 		{
-			(*ind)->size = ft_strnew(1);
+			if (!((*ind)->size = ft_strnew(1)))
+				return ;
 			(*ind)->size[0] = 'l';
 		}
 	}
@@ -73,7 +74,10 @@ void	ft_ws_to_char(t_indic **ind, t_buff **buff, char **str)
 		return ;
 	}
 	if (!(*str = ft_strnew(bytes)))
+	{
+		ft_error_manager(buff);
 		return ;
+	}
 	ft_bzero(*str, bytes);
 	while ((*ind)->ws[i] && bytes >= 0)
 	{
@@ -109,6 +113,6 @@ void	ft_arg_string(va_list ap, t_indic **ind, t_buff **buff)
 		if ((*buff)->suffix)
 			ft_putsbuffer(buff, (*buff)->suffix);
 	}
-	if (str && (*buff)->err != -1)
+	if (str)
 		ft_strdel(&str);
 }

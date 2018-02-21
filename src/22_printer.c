@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:06:41 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 17:26:52 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/21 17:49:17 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,11 @@ void	ft_double_buffsize(t_buff **buff)
 	ft_strcpy(tmp, (*buff)->str);
 	ft_strdel(&(*buff)->str);
 	(*buff)->size_max *= 2; 
-	(*buff)->str = ft_strnew((*buff)->size_max);
+	if (!((*buff)->str = ft_strnew((*buff)->size_max)))
+	{
+		ft_error_manager(buff);
+		return ;
+	}
 	ft_strcpy((*buff)->str, tmp);
 }
 

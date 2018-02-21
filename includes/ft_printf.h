@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 17:03:31 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/21 17:35:29 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,9 @@ int					ft_vasprintf(char **str, const char *fmt, va_list ap);
 /*
 ** Struct init and free
 */
-void				ft_init_indic(t_indic **ind);
+int					ft_init_indic(t_indic **ind);
 void				ft_free_indic(t_indic **ind);
-void				ft_init_buffer(t_buff **buff, int fd);
+int					ft_init_buffer(t_buff **buff, int fd);
 void				ft_free_buff(t_buff **buff);
 void				ft_reset_struct(t_indic **ind, t_buff **buff);
 
