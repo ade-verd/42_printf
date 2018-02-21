@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 13:16:18 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/21 15:45:02 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 # include <stdio.h> /* A SUPPRIMER */
 
-# define BUFF_MAX_SIZE	4096
+# define PRINT_IN_STRING	-123456789
 
 /*
 ** Unicode masks
@@ -49,6 +49,7 @@
 */
 typedef struct		s_buff
 {
+	int				size_max;
 	char			*str;
 	char			*prefix;
 	char			*suffix;
@@ -82,6 +83,8 @@ typedef struct		s_indic
 */
 int					ft_printf(const char *str, ...);
 int					ft_dprintf(int fd, const char *str, ...);
+int					ft_sprintf(char **str, const char *fmt, ...);
+int					ft_vsprintf(char **str, const char *fmt, va_list ap);
 int					ft_vprintf(const char *str, va_list ap);
 int					ft_vdprintf(int fd, const char *str, va_list ap);
 
@@ -99,7 +102,7 @@ void				ft_reset_struct(t_indic **ind, t_buff **buff);
 */
 void				ft_putcbuffer(t_buff **buff, char c);
 void				ft_putsbuffer(t_buff **buff, char *str);
-void				ft_print_buffer(t_buff **buff);
+char 				*ft_print_buffer(t_buff **buff);
 
 /*
 ** Get chars to convert
@@ -114,7 +117,7 @@ void				ft_get_type(t_indic **ind, char *str, int *i);
 /*
 ** Parse
 */
-void				ft_parse_str(va_list ap, char *str, int *ret, int fd);
+void				ft_parse_str(va_list ap, char *str, t_buff **buff);
 
 /*
 ** Convert

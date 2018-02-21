@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 14:58:03 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 13:42:15 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/21 15:26:39 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void	ft_init_indic(t_indic **ind)
 {
-	*ind = NULL;
-	*ind = (t_indic*)malloc(sizeof(t_indic));
+	(*ind) = (t_indic*)malloc(sizeof(t_indic));
 	(*ind)->width = 0;
 	(*ind)->isprec = 0;
 	(*ind)->precision = 0;
@@ -33,9 +32,9 @@ void	ft_free_indic(t_indic **ind)
 
 void	ft_init_buffer(t_buff **buff, int fd)
 {
-	*buff = NULL;
-	*buff = (t_buff*)malloc(sizeof(t_buff));
-	(*buff)->str = ft_strnew(BUFF_MAX_SIZE);
+	(*buff) = (t_buff*)malloc(sizeof(t_buff));
+	(*buff)->size_max = 4096;
+	(*buff)->str = ft_strnew((*buff)->size_max);
 	(*buff)->prefix = NULL;
 	(*buff)->suffix = NULL;
 	(*buff)->sign_printed = 0;
