@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/02/21 13:46:10 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/02/21 17:28:01 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ LIBFT = $(LIB_PATH)/libft.a
 # Sources
 SRC_NAME = \
 		   00_ft_printf.c\
+		   01_ft_vprintf.c\
 		   10_parser.c\
 		   20_struct_manager.c\
 		   21_get_chars_to_convert.c\

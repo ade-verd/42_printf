@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:06:41 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 15:57:00 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/21 17:26:52 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@ char	*ft_print_buffer(t_buff **buff)
 	size = (*buff)->total < 0 ? 10 : (*buff)->total;
 	if ((*buff)->fd == PRINT_IN_STRING)
 	{
-		printf("size:|%d|\n", size);
-		str = ft_strnew(size);
-		return (ft_strncpy(str, (*buff)->str, size));
+		if (!(str = ft_strnew(size)))
+		{
+			(*buff)->err = -1;
+			return (NULL);
+		}
+		return (ft_strncpy(str, (*buff)->str, size + 1));
 	}
 	else
 		write((*buff)->fd, (*buff)->str, (*buff)->index);

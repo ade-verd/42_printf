@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 15:45:02 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/21 17:03:31 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@
 */
 typedef struct		s_buff
 {
-	int				size_max;
+	intmax_t		size_max;
 	char			*str;
 	char			*prefix;
 	char			*suffix;
 	int				sign_printed;
 	int				iszero;
 	int				printed;
-	int				index;
-	int				total;
+	intmax_t		index;
+	intmax_t		total;
 	int				fd;
 	int				err;
 }					t_buff;
@@ -83,10 +83,10 @@ typedef struct		s_indic
 */
 int					ft_printf(const char *str, ...);
 int					ft_dprintf(int fd, const char *str, ...);
-int					ft_sprintf(char **str, const char *fmt, ...);
-int					ft_vsprintf(char **str, const char *fmt, va_list ap);
+int					ft_asprintf(char **str, const char *fmt, ...);
 int					ft_vprintf(const char *str, va_list ap);
 int					ft_vdprintf(int fd, const char *str, va_list ap);
+int					ft_vasprintf(char **str, const char *fmt, va_list ap);
 
 /*
 ** Struct init and free
