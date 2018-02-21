@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/02/20 20:21:16 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/02/21 13:46:10 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,24 +31,24 @@ LIBFT = $(LIB_PATH)/libft.a
 
 # Sources
 SRC_NAME = \
-		   ft_printf.c\
-		   struct_manager.c\
-		   parser.c\
-		   printer.c\
-		   get_chars_to_convert.c\
-		   error_manager.c\
+		   00_ft_printf.c\
+		   10_parser.c\
+		   20_struct_manager.c\
+		   21_get_chars_to_convert.c\
+		   22_printer.c\
+		   23_error_manager.c\
+		   24_unicode_converter.c\
 		   \
-		   indicators_manager.c\
-		   flags_manager_part1.c\
-		   flags_manager_part2.c\
-		   precision_manager.c\
-		   size_manager.c\
-		   unicode_converter.c\
+		   30_arg_int.c\
+		   31_arg_char.c\
+		   32_arg_novalid_conv.c\
+		   33_arg_string.c\
 		   \
-		   arg_int.c\
-		   arg_char.c\
-		   arg_string.c\
-		   arg_novalid_conv.c\
+		   40_size_manager.c\
+		   41_indicators_manager.c\
+		   42_flags_manager_part1.c\
+		   43_flags_manager_part2.c\
+		   44_precision_manager.c\
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
