@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 15:49:33 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 13:04:52 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 14:51:43 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_del_str(t_indic **ind, char **str)
 {
 	if ((*ind)->type == 'p')
 		return ;
-	if ((*ind)->flags && ft_strchr((*ind)->flags, '#') && (*ind)->type == 'o')
+	if (ft_strchr((*ind)->flags, '#') && (*ind)->type == 'o')
 		return ;
 	ft_strclr(*str);
 	(*str)[0] = (*ind)->width > 0 ? ' ' : (*str)[0];

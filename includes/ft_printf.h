@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 13:05:09 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 14:51:18 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ typedef struct		s_buff
 */
 typedef struct		s_indic
 {
-	char			*flags;
+	char			flags[5 + 1];
 	int				width;
 	int				isprec;
 	int				precision;

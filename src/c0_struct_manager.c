@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 14:58:03 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 18:29:09 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 14:31:25 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int		ft_init_indic(t_indic **ind)
 {
 	if (!((*ind) = (t_indic*)malloc(sizeof(t_indic))))
 		return (-1);
+	//(*ind)->flags = NULL;
+	ft_bzero((*ind)->flags, 6);
 	(*ind)->width = 0;
 	(*ind)->isprec = 0;
 	(*ind)->precision = 0;
@@ -24,8 +26,8 @@ int		ft_init_indic(t_indic **ind)
 
 void	ft_free_indic(t_indic **ind)
 {
-	if ((*ind)->flags)
-		ft_strdel(&(*ind)->flags);
+	//if ((*ind)->flags)
+	//	ft_strdel(&(*ind)->flags);
 	if ((*ind)->size)
 		ft_strdel(&(*ind)->size);
 	if (*ind)

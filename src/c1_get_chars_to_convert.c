@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:42:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 18:29:14 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 14:44:56 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,15 @@ void	ft_get_flags(t_indic **ind, char *str, int *i)
 
 	j = 0;
 	k = 0;
-	while (str[*i + j] && ft_strchr_pos("#0+- ", str[*i + j]) != -1)
+	while (str[*i + j] && ft_strchr("#0+- ", str[*i + j]))
 		j++;
-	if (j > 0)
+	while (j--)
 	{
-		if (!((*ind)->flags = ft_strnew(j)))
-			return ;
+		if (!ft_strchr((*ind)->flags, str[*i]))
+			(*ind)->flags[k++] = str[(*i)];
+		(*i)++;
 	}
-	else
-		(*ind)->flags = NULL;
-	while (j-- && (*ind)->flags)
-		(*ind)->flags[k++] = str[(*i)++];
+	printf("flags:|%s|\n", (*ind)->flags);
 }
 
 /*
@@ -103,6 +101,7 @@ void	ft_get_size(t_indic **ind, char *str, int *i)
 		(*ind)->size[k++] = str[(*i)];
 	while (str[*i] && str[(*i) + 1] && ft_strchr("hljztL", str[*i]))
 		(*i)++;
+	//printf("size:|%s|\n", (*ind)->size);
 }
 
 void	ft_get_type(t_indic **ind, char *str, int *i)

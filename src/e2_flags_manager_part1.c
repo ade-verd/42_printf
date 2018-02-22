@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 17:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 13:05:03 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 14:52:05 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ void	ft_manage_plus_signed(t_indic **ind, t_buff **buff, char **str)
 	n = ft_strlen(*str);
 	i = 0;
 	isminus_or_is0 = 0;
-	if ((*ind)->flags && (ft_strchr((*ind)->flags, '-')
+	if ((ft_strchr((*ind)->flags, '-')
 			|| (ft_strchr((*ind)->flags, '0') && (*ind)->isprec == 0)))
 		isminus_or_is0 = 1;
-	if ((*ind)->flags && ft_strchr((*ind)->flags, '+')
+	if (ft_strchr((*ind)->flags, '+')
 			&& (*ind)->nb > 0 && (*buff)->sign_printed == 0)
 		n++;
 	while (i++ < (w - n) && isminus_or_is0 != 1)
 		ft_putcbuffer(buff, ' ');
-	if ((*ind)->flags && ft_strchr((*ind)->flags, '+')
+	if (ft_strchr((*ind)->flags, '+')
 		&& (*ind)->nb >= 0 && (*buff)->sign_printed == 0)
 	{
 		ft_putcbuffer(buff, '+');
@@ -70,7 +70,7 @@ void	ft_manage_plus_unsigned(t_indic **ind, t_buff **buff, char **str)
 		: ((*ind)->width - (*buff)->sign_printed - ((*ind)->precision - n));
 	i = 0;
 	isminus_or_is0 = 0;
-	if ((*ind)->flags && (ft_strchr((*ind)->flags, '-')
+	if ((ft_strchr((*ind)->flags, '-')
 		|| (ft_strchr((*ind)->flags, '0') && (*ind)->isprec == 0)))
 		isminus_or_is0 = 1;
 	while (i++ < (w - n) && isminus_or_is0 != 1)
@@ -97,7 +97,7 @@ void	ft_manage_plus_string(t_indic **ind, t_buff **buff, char **str)
 	w = (*ind)->width;
 	i = 0;
 	isminus_or_is0 = 0;
-	if ((*ind)->flags && (ft_strchr((*ind)->flags, '-')
+	if ((ft_strchr((*ind)->flags, '-')
 		|| (ft_strchr((*ind)->flags, '0'))))
 		isminus_or_is0 = 1;
 	while (i++ < (w - n) && isminus_or_is0 != 1)
@@ -110,7 +110,7 @@ void	ft_manage_minus(t_indic **ind, t_buff **buff, char **str)
 	int		n;
 	int		i;
 
-	if (!(*ind)->flags || !(*ind)->width || !ft_strchr((*ind)->flags, '-'))
+	if (!(*ind)->width || !ft_strchr((*ind)->flags, '-'))
 		return ;
 	w = (*ind)->width;
 	n = ft_strlen(*str) + (*buff)->printed;
@@ -145,7 +145,7 @@ void	ft_print_sign_before(t_indic **ind, t_buff **buff, char **str)
 	nb_ref = (*buff)->index;
 	if ((*ind)->type && ft_strchr("di", (*ind)->type))
 	{
-		if ((*ind)->flags && ft_strchr((*ind)->flags, '0')
+		if (ft_strchr((*ind)->flags, '0')
 				&& (*ind)->isprec == 0)
 		{
 			if ((*ind)->nb <= 0 && *str[0] == '-')
@@ -153,7 +153,7 @@ void	ft_print_sign_before(t_indic **ind, t_buff **buff, char **str)
 			if ((*ind)->nb >= 0 && *str[0] == '+')
 				ft_putcbuffer(buff, '+');
 		}
-		if ((*ind)->flags && ft_strchr((*ind)->flags, ' ') && *str[0] != '+'
+		if (ft_strchr((*ind)->flags, ' ') && *str[0] != '+'
 				&& !ft_strchr((*ind)->flags, '+') && *str[0] != '-')
 		{
 			ft_putcbuffer(buff, ' ');

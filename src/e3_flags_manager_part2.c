@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 11:01:17 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 18:30:18 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 14:51:36 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_manage_zero(t_indic **ind, t_buff **buff, char **str)
 	int		n;
 	int		i;
 
-	if (!(*ind)->flags || !(*ind)->width || !ft_strchr((*ind)->flags, '0')
+	if (!(*ind)->width || !ft_strchr((*ind)->flags, '0')
 			|| ft_strchr((*ind)->flags, '-'))
 		return ;
 	if ((*ind)->isprec == 1 && ft_strchr("bpdiouxX", (*ind)->type))
@@ -79,7 +79,7 @@ void	ft_manage_hashtag(t_indic **ind, t_buff **buff, char **str)
 	};
 
 	i = 0;
-	if ((*ind)->flags && ft_strchr((*ind)->flags, '#'))
+	if (ft_strchr((*ind)->flags, '#'))
 	{
 		while (tab_ft[i].letter)
 		{
