@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 17:09:01 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 15:05:50 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 15:53:53 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,23 +49,7 @@ void	ft_int_p(va_list ap, t_indic **ind, t_buff **buff)
 void	ft_arg_int(va_list ap, t_indic **ind, t_buff **buff)
 {
 	if (ft_strchr("DOU", (*ind)->type))
-	{
-		(*ind)->type = ft_tolower((*ind)->type);
-		if ((*ind)->size)
-		{
-			(*ind)->size[0] = 'l';
-			(*ind)->size[1] = '\0';
-		}
-		else
-		{
-			if (!((*ind)->size = ft_strnew(1)))
-			{
-				ft_error_manager(buff);
-				return ;
-			}
-			(*ind)->size[0] = 'l';
-		}
-	}
+		ft_capital_type(ind);
 	if ((*ind)->type == 'p')
 		ft_int_p(ap, ind, buff);
 	else

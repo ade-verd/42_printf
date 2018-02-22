@@ -6,30 +6,11 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 14:12:59 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 18:29:51 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 19:08:58 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	ft_iscapital_s(t_indic **ind)
-{
-	if ((*ind)->type == 'S')
-	{
-		(*ind)->type = 's';
-		if ((*ind)->size)
-		{
-			(*ind)->size[0] = 'l';
-			(*ind)->size[1] = '\0';
-		}
-		else
-		{
-			if (!((*ind)->size = ft_strnew(1)))
-				return ;
-			(*ind)->size[0] = 'l';
-		}
-	}
-}
 
 int		ft_wslen_bytes(t_indic **ind)
 {
@@ -81,9 +62,10 @@ void	ft_ws_to_char(t_indic **ind, t_buff **buff, char **str)
 	ft_bzero(*str, bytes);
 	while ((*ind)->ws[i] && bytes >= 0)
 	{
-		(*ind)->c = (*ind)->ws[i];
+		if ((*ind)->isprec == 1 && index >= (*ind)->precision)
+			return ;
+		(*ind)->c = (*ind)->ws[i++];
 		ft_unicode_to_str(ind, buff, str, &index);
-		i++;
 	}
 }
 
@@ -101,9 +83,9 @@ void	ft_arg_string(va_list ap, t_indic **ind, t_buff **buff)
 {
 	char	*str;
 
-	ft_iscapital_s(ind);
+	ft_capital_type(ind);
 	ft_get_string(ind, ap, &str);
-	if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
+	if (ft_strcmp((*ind)->size, "l") == 0)
 		ft_arg_string_ws(ind, buff, &str);
 	else
 	{

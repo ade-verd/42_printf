@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/02/21 18:28:45 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/02/22 15:24:14 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRC_NAME = \
 		   c2_printer.c\
 		   c3_error_manager.c\
 		   c4_unicode_converter.c\
+		   c5_capital_type.c\
 		   \
 		   d0_arg_int.c\
 		   d1_arg_char.c\

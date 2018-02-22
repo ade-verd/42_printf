@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 13:21:21 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 18:29:29 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 18:44:42 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_unicode_to_str(t_indic **ind, t_buff **buff, char **str, int *i)
 	int		i_ref;
 
 	i_ref = *i;
-	if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
+	if (ft_strcmp((*ind)->size, "l") == 0)
 	{
 		ft_convert_unicode(ind, str, i);
 		ft_checkprecis_and_erase(ind, str, i, i_ref);

@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 12:30:54 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 18:29:56 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 15:52:35 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	ft_get_string_di(t_indic **ind, va_list ap, char **str, int base)
 {
-	if ((*ind)->size && ft_strcmp((*ind)->size, "hh") == 0)
+	if (ft_strcmp((*ind)->size, "hh") == 0)
 		(*ind)->nb = (signed char)va_arg(ap, int);
-	else if ((*ind)->size && ft_strcmp((*ind)->size, "h") == 0)
+	else if (ft_strcmp((*ind)->size, "h") == 0)
 		(*ind)->nb = (short int)va_arg(ap, int);
-	else if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
+	else if (ft_strcmp((*ind)->size, "l") == 0)
 		(*ind)->nb = va_arg(ap, long int);
-	else if ((*ind)->size && ft_strcmp((*ind)->size, "ll") == 0)
+	else if (ft_strcmp((*ind)->size, "ll") == 0)
 		(*ind)->nb = va_arg(ap, long long int);
-	else if ((*ind)->size && ft_strcmp((*ind)->size, "j") == 0)
+	else if (ft_strcmp((*ind)->size, "j") == 0)
 		(*ind)->nb = va_arg(ap, intmax_t);
-	else if ((*ind)->size && ft_strcmp((*ind)->size, "t") == 0)
+	else if (ft_strcmp((*ind)->size, "t") == 0)
 		(*ind)->nb = va_arg(ap, ptrdiff_t);
-	else if ((*ind)->size && ft_strcmp((*ind)->size, "z") == 0)
+	else if (ft_strcmp((*ind)->size, "z") == 0)
 		(*ind)->nb = va_arg(ap, size_t);
 	else
 		(*ind)->nb = va_arg(ap, int);
@@ -41,19 +41,19 @@ void	ft_get_string_bouxx(t_indic **ind, va_list ap, char **str, int base)
 		base = 8;
 	else if ((*ind)->type == 'x' || (*ind)->type == 'X')
 		base = 16;
-	if ((*ind)->size && ft_strcmp((*ind)->size, "hh") == 0)
+	if (ft_strcmp((*ind)->size, "hh") == 0)
 		(*ind)->nb = (unsigned char)va_arg(ap, unsigned int);
-	else if ((*ind)->size && ft_strcmp((*ind)->size, "h") == 0)
+	else if (ft_strcmp((*ind)->size, "h") == 0)
 		(*ind)->nb = (unsigned short int)va_arg(ap, unsigned int);
-	else if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
+	else if (ft_strcmp((*ind)->size, "l") == 0)
 		(*ind)->nb = va_arg(ap, unsigned long int);
-	else if ((*ind)->size && ft_strcmp((*ind)->size, "ll") == 0)
+	else if (ft_strcmp((*ind)->size, "ll") == 0)
 		(*ind)->nb = va_arg(ap, unsigned long long int);
-	else if ((*ind)->size && ft_strcmp((*ind)->size, "j") == 0)
+	else if (ft_strcmp((*ind)->size, "j") == 0)
 		(*ind)->nb = va_arg(ap, uintmax_t);
-	else if ((*ind)->size && ft_strcmp((*ind)->size, "z") == 0)
+	else if (ft_strcmp((*ind)->size, "z") == 0)
 		(*ind)->nb = va_arg(ap, size_t);
-	else if ((*ind)->size && ft_strcmp((*ind)->size, "t") == 0)
+	else if (ft_strcmp((*ind)->size, "t") == 0)
 		(*ind)->nb = va_arg(ap, ptrdiff_t);
 	else
 		(*ind)->nb = va_arg(ap, unsigned int);
@@ -73,14 +73,14 @@ void	ft_get_chars_cs(t_indic **ind, va_list ap, char **str)
 
 	if ((*ind)->type == 'c')
 	{
-		if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
+		if (ft_strcmp((*ind)->size, "l") == 0)
 			(*ind)->c = va_arg(ap, wchar_t);
 		else
 			(*ind)->c = (char)va_arg(ap, int);
 	}
 	else if ((*ind)->type == 's')
 	{
-		if ((*ind)->size && ft_strcmp((*ind)->size, "l") == 0)
+		if (ft_strcmp((*ind)->size, "l") == 0)
 		{
 			if (!((*ind)->ws = va_arg(ap, wchar_t*)))
 				(*ind)->ws = L"(null)";

@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 14:53:06 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 19:10:19 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ typedef struct		s_indic
 	int				width;
 	int				isprec;
 	int				precision;
-	char			*size;
+	char			size[2 + 1];
 	char			type;
 	intmax_t		nb;
 	unsigned int	c;
@@ -113,6 +113,7 @@ void				ft_get_width(t_indic **ind, va_list ap, char *str, int *i);
 void				ft_get_precision(t_indic **in, va_list ap, char *s, int *i);
 void				ft_get_size(t_indic **ind, char *str, int *i);
 void				ft_get_type(t_indic **ind, char *str, int *i);
+void				ft_capital_type(t_indic **ind);
 
 /*
 ** Parse
