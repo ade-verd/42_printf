@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:42:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 14:44:56 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 15:08:46 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	ft_get_flags(t_indic **ind, char *str, int *i)
 			(*ind)->flags[k++] = str[(*i)];
 		(*i)++;
 	}
-	printf("flags:|%s|\n", (*ind)->flags);
 }
 
 /*

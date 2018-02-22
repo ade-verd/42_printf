@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 14:51:18 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 14:53:06 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct		s_buff
 {
 	intmax_t		size_max;
 	char			*str;
-	char			*prefix;
+	char			prefix[2 + 1];
 	char			*suffix;
 	int				sign_printed;
 	int				iszero;

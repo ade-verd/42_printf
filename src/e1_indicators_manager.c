@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/11 12:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 18:30:01 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 15:08:19 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ void	ft_flags_manager(t_indic **ind, t_buff **buff, char **str)
 		ft_manage_plus_string(ind, buff, str);
 	else
 		ft_manage_plus_unsigned(ind, buff, str);
-	if ((*buff)->prefix)
-		ft_putsbuffer(buff, (*buff)->prefix);
+	ft_putsbuffer(buff, (*buff)->prefix);
 	ft_manage_zero(ind, buff, str);
 }
 

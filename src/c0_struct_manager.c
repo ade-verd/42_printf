@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 14:58:03 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 14:31:25 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 15:08:35 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int		ft_init_indic(t_indic **ind)
 {
 	if (!((*ind) = (t_indic*)malloc(sizeof(t_indic))))
 		return (-1);
-	//(*ind)->flags = NULL;
 	ft_bzero((*ind)->flags, 6);
 	(*ind)->width = 0;
 	(*ind)->isprec = 0;
@@ -26,8 +25,6 @@ int		ft_init_indic(t_indic **ind)
 
 void	ft_free_indic(t_indic **ind)
 {
-	//if ((*ind)->flags)
-	//	ft_strdel(&(*ind)->flags);
 	if ((*ind)->size)
 		ft_strdel(&(*ind)->size);
 	if (*ind)
@@ -41,7 +38,7 @@ int		ft_init_buffer(t_buff **buff, int fd)
 	(*buff)->size_max = 4096;
 	if (!((*buff)->str = ft_strnew((*buff)->size_max)))
 		return (-1);
-	(*buff)->prefix = NULL;
+	bzero((*buff)->prefix, 3);
 	(*buff)->suffix = NULL;
 	(*buff)->sign_printed = 0;
 	(*buff)->iszero = 0;
@@ -57,8 +54,7 @@ void	ft_free_buff(t_buff **buff)
 {
 	if (((*buff)->str))
 		ft_strdel(&(*buff)->str);
-	if (((*buff)->prefix))
-		(*buff)->prefix = "\0\0";
+	ft_strclr((*buff)->prefix);
 	if (((*buff)->suffix))
 		ft_strdel(&(*buff)->suffix);
 	if (*buff)
@@ -68,8 +64,8 @@ void	ft_free_buff(t_buff **buff)
 void	ft_reset_struct(t_indic **ind, t_buff **buff)
 {
 	ft_free_indic(ind);
-	if (((*buff)->prefix))
-		(*buff)->prefix = "\0\0";
+	ft_strclr((*buff)->prefix);
+	(*buff)->suffix = NULL;
 	if (((*buff)->suffix))
 		ft_strdel(&(*buff)->suffix);
 	(*buff)->sign_printed = 0;

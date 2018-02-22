@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 17:09:01 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 13:17:14 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 15:05:50 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ void	ft_int_p(va_list ap, t_indic **ind, t_buff **buff)
 {
 	char	*str;
 
-	(*buff)->prefix = "0x";
+	(*buff)->prefix[0] = '0';
+	(*buff)->prefix[1] = 'x';
 	(*buff)->sign_printed += 2;
 	ft_get_string(ind, ap, &str);
 	str = ft_strlower(str);
