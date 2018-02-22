@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 18:32:42 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 13:05:09 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,15 +122,15 @@ void				ft_parse_str(va_list ap, char *str, t_buff **buff);
 /*
 ** Convert
 */
-void				ft_indicators_manager(t_indic **i, t_buff **buff, char **s);
 void				ft_arg_int(va_list ap, t_indic **ind, t_buff **buff);
 void				ft_arg_char(va_list ap, t_indic **ind, t_buff **buff);
 void				ft_arg_string(va_list ap, t_indic **ind, t_buff **buff);
-void				ft_convert_unicode(t_indic **ind, char **byte, int *i);
+void				ft_arg_novalid_conv(t_indic **i, t_buff **b);
 
 /*
 ** Flags
 */
+void				ft_indicators_manager(t_indic **i, t_buff **buff, char **s);
 void				ft_print_sign_before(t_indic **i, t_buff **buff, char **s);
 void				ft_manage_hashtag(t_indic **ind, t_buff **buff, char **str);
 void				ft_manage_zero(t_indic **ind, t_buff **buff, char **str);
@@ -156,12 +156,12 @@ void				ft_get_chars_csp(t_indic **ind, va_list ap);
 */
 void				ft_unicode_to_str(t_indic **ind,
 									t_buff **b, char **s, int *i);
+void				ft_convert_unicode(t_indic **ind, char **byte, int *i);
 
 /*
 ** Errors
 */
 void				ft_error_manager(t_buff **buff);
-void				ft_arg_novalid_conv(t_indic **i, t_buff **b);
 
 /*
 ** Associated function types and pointers

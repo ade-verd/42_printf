@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 17:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 18:30:06 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/22 13:05:03 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,7 +162,7 @@ void	ft_print_sign_before(t_indic **ind, t_buff **buff, char **str)
 	}
 	if (nb_ref != (*buff)->index && ft_strchr_pos("+-", *str[0]) != -1)
 	{
-		(*str)++;
+		ft_stroffset(*str, 1);
 		(*buff)->sign_printed++;
 	}
 }
