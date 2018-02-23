@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 14:58:03 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 16:58:52 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/23 12:21:46 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void	ft_reset_struct(t_indic **ind, t_buff **buff)
 {
 	ft_free_indic(ind);
 	ft_strclr((*buff)->prefix);
-	(*buff)->suffix = NULL;
 	if (((*buff)->suffix))
 		ft_strdel(&(*buff)->suffix);
 	(*buff)->sign_printed = 0;
