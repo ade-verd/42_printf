@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/23 17:26:48 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/23 18:40:35 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ typedef struct		s_buff
 	int				iszero;
 	int				printed;
 	intmax_t		index;
-	intmax_t		total;
 	int				fd;
 	int				err;
 }					t_buff;
@@ -85,9 +84,11 @@ typedef struct		s_indic
 */
 int					ft_printf(const char *str, ...);
 int					ft_dprintf(int fd, const char *str, ...);
+int					ft_fprintf(FILE *file, const char *str, ...);
 int					ft_asprintf(char **str, const char *fmt, ...);
 int					ft_vprintf(const char *str, va_list ap);
 int					ft_vdprintf(int fd, const char *str, va_list ap);
+int					ft_vfprintf(FILE *file, const char *str, va_list ap);
 int					ft_vasprintf(char **str, const char *fmt, va_list ap);
 
 /*
@@ -104,7 +105,7 @@ void				ft_reset_struct(t_indic **ind, t_buff **buff);
 */
 void				ft_putcbuffer(t_buff **buff, char c);
 void				ft_putsbuffer(t_buff **buff, char *str);
-char				*ft_print_buffer(t_buff **buff);
+char				*ft_putinstr_buffer(t_buff **buff);
 
 /*
 ** Get chars to convert

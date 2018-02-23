@@ -6,31 +6,24 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:06:41 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/21 18:32:15 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/23 18:40:28 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_print_buffer(t_buff **buff)
+char	*ft_putinstr_buffer(t_buff **buff)
 {
 	char	*str;
 	int		size;
 
-	(*buff)->total = (*buff)->total + (*buff)->index;
-	size = (*buff)->total < 0 ? 10 : (*buff)->total;
-	if ((*buff)->fd == PRINT_IN_STRING)
+	size = (*buff)->index < 0 ? 1 : (*buff)->index;
+	if (!(str = ft_strnew(size)))
 	{
-		if (!(str = ft_strnew(size)))
-		{
-			(*buff)->err = -1;
-			return (NULL);
-		}
-		return (ft_strncpy(str, (*buff)->str, size + 1));
+		(*buff)->err = -1;
+		return (NULL);
 	}
-	else
-		write((*buff)->fd, (*buff)->str, (*buff)->index);
-	return (NULL);
+	return (ft_strncpy(str, (*buff)->str, size + 1));
 }
 
 void	ft_double_buffsize(t_buff **buff)
