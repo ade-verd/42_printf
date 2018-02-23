@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 19:10:19 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/23 17:26:48 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ typedef struct		s_buff
 */
 typedef struct		s_indic
 {
+	int				start;
+	int				end;
 	char			flags[5 + 1];
 	int				width;
 	int				isprec;
@@ -108,11 +110,11 @@ char				*ft_print_buffer(t_buff **buff);
 ** Get chars to convert
 */
 void				ft_get_all_indics(t_indic **in, va_list a, char *s, int *i);
-void				ft_get_flags(t_indic **ind, char *str, int *i);
-void				ft_get_width(t_indic **ind, va_list ap, char *str, int *i);
-void				ft_get_precision(t_indic **in, va_list ap, char *s, int *i);
-void				ft_get_size(t_indic **ind, char *str, int *i);
-void				ft_get_type(t_indic **ind, char *str, int *i);
+void				ft_get_flags(t_indic **ind, char *str);
+void				ft_get_width(t_indic **ind, va_list ap, char *str, int i);
+void				ft_get_precision(t_indic **in, va_list ap, char *s, int i);
+void				ft_get_size(t_indic **ind, char *str);
+void				ft_get_type(t_indic **ind, char *str);
 void				ft_capital_type(t_indic **ind);
 
 /*
