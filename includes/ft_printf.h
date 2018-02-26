@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/23 18:40:35 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 15:03:34 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@
 # include <stddef.h>
 # include "libft.h"
 
-# include <stdio.h> /* A SUPPRIMER */
+/*
+** Need to be uncommented to use ft_fprintf or ft_vfprintf
+** fwrite() is a forbidden function
+** # include <stdio.h>
+*/
 
 # define PRINT_IN_STRING	-123456789
 
@@ -84,12 +88,16 @@ typedef struct		s_indic
 */
 int					ft_printf(const char *str, ...);
 int					ft_dprintf(int fd, const char *str, ...);
-int					ft_fprintf(FILE *file, const char *str, ...);
 int					ft_asprintf(char **str, const char *fmt, ...);
 int					ft_vprintf(const char *str, va_list ap);
 int					ft_vdprintf(int fd, const char *str, va_list ap);
-int					ft_vfprintf(FILE *file, const char *str, va_list ap);
 int					ft_vasprintf(char **str, const char *fmt, va_list ap);
+
+/*
+**Bonus functions with fwrite()
+**int					ft_fprintf(FILE *file, const char *str, ...);
+**int					ft_vfprintf(FILE *file, const char *str, va_list ap);
+*/
 
 /*
 ** Struct init and free

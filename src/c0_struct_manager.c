@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 14:58:03 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/26 12:32:21 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 14:52:56 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int		ft_init_indic(t_indic **ind)
 /*
 ** ft_free_indic
 ** Frees the indicators' structure
-*/
 */
 
 void	ft_free_indic(t_indic **ind)

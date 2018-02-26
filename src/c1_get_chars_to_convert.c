@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:42:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/26 12:57:48 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 14:54:05 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_get_flags(t_indic **ind, char *str)
 
 /*
 ** ft_get_width
-** Gets the width specifier as integer. 
+** Gets the width specifier as integer.
 ** If the width is negative, the flag '-' is activated & witdh becames positive.
 */
 
@@ -81,7 +81,7 @@ void	ft_get_width(t_indic **ind, va_list ap, char *str, int i)
 
 /*
 ** ft_get_precision
-** Gets the precision specifier as integer. 
+** Gets the precision specifier as integer.
 ** If the prec. is negative, the prec. flag is desactivated.
 */
 

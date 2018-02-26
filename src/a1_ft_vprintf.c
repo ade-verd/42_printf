@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 17:42:53 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/26 12:17:47 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 14:59:56 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		ft_vprintf(const char *str, va_list ap)
 }
 
 /*
-** ft_dprintf() and ft_vdprintf() write output to the given file descriptor 
+** ft_dprintf() and ft_vdprintf() write output to the given file descriptor
 */
 
 int		ft_vdprintf(int fd, const char *str, va_list ap)
@@ -55,22 +55,26 @@ int		ft_vdprintf(int fd, const char *str, va_list ap)
 
 /*
 ** ft_fprintf() and ft_vfprintf() write output to the given output stream
+** Need to be uncommented to use ft_fprintf or ft_vfprintf
+** fwrite() is a forbidden function
 */
 
-int		ft_vfprintf(FILE *file, const char *str, va_list ap)
-{
-	int			ret;
-	t_buff		*buff;
-
-	if ((ft_init_buffer(&buff, 1) == -1))
-		return (-1);
-	ft_parse_str(ap, (char*)str, &buff);
-	if (buff->err != -1)
-		fwrite(buff->str, 1, buff->index, file);
-	ret = buff->err != -1 ? buff->index : -1;
-	ft_free_buff(&buff);
-	return (ret);
-}
+/*
+**int		ft_vfprintf(FILE *file, const char *str, va_list ap)
+**{
+**	int			ret;
+**	t_buff		*buff;
+**
+**	if ((ft_init_buffer(&buff, 1) == -1))
+**		return (-1);
+**	ft_parse_str(ap, (char*)str, &buff);
+**	if (buff->err != -1)
+**		fwrite(buff->str, 1, buff->index, file);
+**	ret = buff->err != -1 ? buff->index : -1;
+**	ft_free_buff(&buff);
+**	return (ret);
+**}
+*/
 
 /*
 ** ft_asprintf() and ft_vasprintf() dynamically allocate a new string.

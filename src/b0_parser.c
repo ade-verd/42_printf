@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/26 12:25:56 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 14:53:33 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ft_convert(t_indic **ind, va_list ap, t_buff **buff)
 /*
 ** ft_parse_str
 ** Loops on format (*str) given by user and searches '%' character.
-** If a '%' is found, conversion is done. Otherwise the character is printed. 
+** If a '%' is found, conversion is done. Otherwise the character is printed.
 */
 
 void	ft_parse_str(va_list ap, char *str, t_buff **buff)

@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 15:49:33 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/26 14:50:45 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 14:55:43 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_del_str(t_indic **ind, char **str)
 
 /*
 ** ft_precision_int
-** Precision int : Completes the number with '0' before 
+** Precision int : Completes the number with '0' before
 */
 
 void	ft_precision_int(t_indic **ind, t_buff **buff, char **str)
