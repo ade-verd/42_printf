@@ -6,11 +6,17 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 12:30:54 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 15:52:35 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 14:31:56 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** ft_get_string_di
+** Gets the next integer variadic argument
+** and puts it in a char* with ft_itoa_base
+*/
 
 void	ft_get_string_di(t_indic **ind, va_list ap, char **str, int base)
 {
@@ -32,6 +38,12 @@ void	ft_get_string_di(t_indic **ind, va_list ap, char **str, int base)
 		(*ind)->nb = va_arg(ap, int);
 	*str = ft_itoa_base((*ind)->nb, base);
 }
+
+/*
+** ft_get_string_bouxX
+** Gets the next unsigned integer variadic argument
+** and puts it in a char* with ft_uitoa_base
+*/
 
 void	ft_get_string_bouxx(t_indic **ind, va_list ap, char **str, int base)
 {
@@ -60,12 +72,22 @@ void	ft_get_string_bouxx(t_indic **ind, va_list ap, char **str, int base)
 	*str = ft_uitoa_base((*ind)->nb, base);
 }
 
+/*
+** ft_get_string_p
+** Gets the next variadic argument as void* and puts it in a char*.
+*/
+
 void	ft_get_string_p(t_indic **ind, va_list ap, char **str, int base)
 {
 	base = 16;
 	(*ind)->nb = (unsigned long int)va_arg(ap, void*);
 	*str = ft_uitoa_base((*ind)->nb, base);
 }
+
+/*
+** ft_get_chars_cs
+** Gets the next char, char* or wchar_t* variadic argument.
+*/
 
 void	ft_get_chars_cs(t_indic **ind, va_list ap, char **str)
 {
@@ -95,6 +117,11 @@ void	ft_get_chars_cs(t_indic **ind, va_list ap, char **str)
 		}
 	}
 }
+
+/*
+** ft_get_string
+** Redirects to the right function considering the type.
+*/
 
 void	ft_get_string(t_indic **ind, va_list ap, char **str)
 {

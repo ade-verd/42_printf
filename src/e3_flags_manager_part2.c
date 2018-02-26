@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 11:01:17 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 19:09:49 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 14:41:12 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 ** ft_manage_zero
 ** The converted value is padded on the left with zeros.
-** If the 0 and - flags both appear, the 0 flag is ignored.
+** If the '0' and '-' flags both appear, the '0' flag is ignored.
 ** If a precision is given with a numeric conversion (d, i, o, u, x, and X),
 ** the 0 flag is ignored. For other conversions, the behavior is undefined.
 */
@@ -68,6 +68,11 @@ void	ft_hashtag_oxx(t_indic **ind, t_buff **buff, char **str)
 		(*buff)->sign_printed++;
 	}
 }
+
+/*
+** ft_manage_hashtag
+** Redirects to the right function considering the type.
+*/
 
 void	ft_manage_hashtag(t_indic **ind, t_buff **buff, char **str)
 {

@@ -6,20 +6,16 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 17:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 14:52:05 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 14:40:17 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-** ft_manage_plus_signed (and nothing)
-** The converted value is to be right ajusted.
-** In case of no flag and width > 0 : str is right ajusted by default according
-** to width and str's length
-** In case of '+' : '+' is displayed (always)
-** In case of '-'&'+' (whatever order) : '+' is displayed str is left ajusted
-** In case of '0'&'+'  : '+' is displayed, then zero, then str
+** ft_manage_plus_signed
+** The converted value is right ajusted according to width and str's length.
+** Used with signed conversion.
 */
 
 void	ft_manage_plus_signed(t_indic **ind, t_buff **buff, char **str)
@@ -52,10 +48,9 @@ void	ft_manage_plus_signed(t_indic **ind, t_buff **buff, char **str)
 }
 
 /*
-** ft_manage_plus_unsigned (and nothing)
-** The converted value is to be right ajusted.
-** In case of no flag and width > 0 : str is right ajusted by default according
-** to width and str's length
+** ft_manage_plus_unsigned
+** The converted value is right ajusted according to width and str's length
+** Used with unsigned conversion.
 */
 
 void	ft_manage_plus_unsigned(t_indic **ind, t_buff **buff, char **str)
@@ -79,9 +74,8 @@ void	ft_manage_plus_unsigned(t_indic **ind, t_buff **buff, char **str)
 
 /*
 ** ft_manage_plus_string
-** The converted value is to be right ajusted.
-** In case of no flag and width > 0 : str is right ajusted by default according
-** to width and str's length
+** The converted value is right ajusted according to width and str's length
+** Used with string and char conversion.
 */
 
 void	ft_manage_plus_string(t_indic **ind, t_buff **buff, char **str)
@@ -103,6 +97,11 @@ void	ft_manage_plus_string(t_indic **ind, t_buff **buff, char **str)
 	while (i++ < (w - n) && isminus_or_is0 != 1)
 		ft_putcbuffer(buff, ' ');
 }
+
+/*
+** ft_manager_minus
+** The converted value is left ajusted according to width and str's length
+*/
 
 void	ft_manage_minus(t_indic **ind, t_buff **buff, char **str)
 {
@@ -134,7 +133,7 @@ void	ft_manage_minus(t_indic **ind, t_buff **buff, char **str)
 
 /*
 ** ft_print_sign_before
-** Print sign '+' '-' before 0 or str
+** Print sign '+' '-' before '0' or string
 ** Flag ' ' (whitespace) is managed here
 */
 

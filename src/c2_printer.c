@@ -6,11 +6,17 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:06:41 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/23 18:40:28 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 13:05:41 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** ft_putinstr_buffer
+** Used with the ft_fprintf() and ft_vfprintf() functions.
+** Puts the buffer in a new string dynamically allocate with malloc(3).
+*/
 
 char	*ft_putinstr_buffer(t_buff **buff)
 {
@@ -25,6 +31,11 @@ char	*ft_putinstr_buffer(t_buff **buff)
 	}
 	return (ft_strncpy(str, (*buff)->str, size + 1));
 }
+
+/*
+** ft_double_buffsize
+** Multiplies by 2 the size of the buffer.
+*/
 
 void	ft_double_buffsize(t_buff **buff)
 {
@@ -41,6 +52,11 @@ void	ft_double_buffsize(t_buff **buff)
 	ft_strcpy((*buff)->str, tmp);
 }
 
+/*
+** ft_putcbuffer
+** Puts a char in the buffer
+*/
+
 void	ft_putcbuffer(t_buff **buff, char c)
 {
 	(*buff)->str[(*buff)->index] = c;
@@ -50,6 +66,11 @@ void	ft_putcbuffer(t_buff **buff, char c)
 	if ((*buff)->index == (*buff)->size_max)
 		ft_double_buffsize(buff);
 }
+
+/*
+** ft_putsbuffer
+** Puts a string in the buffer char by char.
+*/
 
 void	ft_putsbuffer(t_buff **buff, char *str)
 {

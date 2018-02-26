@@ -6,11 +6,16 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/13 14:12:59 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 19:20:03 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 14:13:29 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** ft_wslen_bytes
+** Counts on how many bytes the character is encoded.
+*/
 
 int		ft_wslen_bytes(t_indic **ind)
 {
@@ -39,6 +44,11 @@ int		ft_wslen_bytes(t_indic **ind)
 	}
 	return (bytes);
 }
+
+/*
+** ft_ws_to_char
+** Converts wchar_t* to char* dynamically allocated with malloc(bytes + 1).
+*/
 
 void	ft_ws_to_char(t_indic **ind, t_buff **buff, char **str)
 {
@@ -69,6 +79,11 @@ void	ft_ws_to_char(t_indic **ind, t_buff **buff, char **str)
 	}
 }
 
+/*
+** ft_arg_string_ws
+** wchar_t* type: converts, applies indicators and puts in buffer.
+*/
+
 void	ft_arg_string_ws(t_indic **ind, t_buff **buff, char **str)
 {
 	ft_ws_to_char(ind, buff, str);
@@ -78,6 +93,12 @@ void	ft_arg_string_ws(t_indic **ind, t_buff **buff, char **str)
 	if ((*buff)->suffix)
 		ft_putsbuffer(buff, (*buff)->suffix);
 }
+
+/*
+** ft_arg_string
+** char* type: applies indicators and puts in buffer.
+** wchar_t* type: calls ft_arg_string_ws.
+*/
 
 void	ft_arg_string(va_list ap, t_indic **ind, t_buff **buff)
 {

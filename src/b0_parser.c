@@ -6,11 +6,16 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/23 17:23:49 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 12:25:56 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** ft_get_all_indics
+** Gets all indicators and puts in a structure
+*/
 
 void	ft_get_all_indics(t_indic **ind, va_list ap, char *str, int *i)
 {
@@ -23,6 +28,11 @@ void	ft_get_all_indics(t_indic **ind, va_list ap, char *str, int *i)
 	ft_get_size(ind, str);
 	*i = (*ind)->end;
 }
+
+/*
+** ft_convert
+** Calls the good function considering the type of conversion (specifier).
+*/
 
 void	ft_convert(t_indic **ind, va_list ap, t_buff **buff)
 {
@@ -48,6 +58,12 @@ void	ft_convert(t_indic **ind, va_list ap, t_buff **buff)
 	if (found == 0)
 		ft_arg_novalid_conv(ind, buff);
 }
+
+/*
+** ft_parse_str
+** Loops on format (*str) given by user and searches '%' character.
+** If a '%' is found, conversion is done. Otherwise the character is printed. 
+*/
 
 void	ft_parse_str(va_list ap, char *str, t_buff **buff)
 {

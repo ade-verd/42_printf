@@ -6,11 +6,16 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/08 17:52:58 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 15:06:43 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 13:38:29 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** ft_arg_novalid_conv
+** No valid type: applies indicators and puts in buffer.
+*/
 
 void	ft_arg_novalid_conv(t_indic **ind, t_buff **buff)
 {

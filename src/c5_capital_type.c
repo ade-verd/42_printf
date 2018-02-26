@@ -6,11 +6,17 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 15:19:44 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 19:06:01 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 13:22:37 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** ft_capital_type
+** Tests if the type is a capital character and converts in lowercase.
+** Then applies the 'l' resizer specifier.
+*/
 
 void	ft_capital_type(t_indic **ind)
 {

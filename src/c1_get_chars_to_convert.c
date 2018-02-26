@@ -6,11 +6,16 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 10:42:04 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/23 17:28:32 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 12:57:48 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** ft_get_flags
+** Gets flags '#', '0', '+', '-', ' '. Multiple flags is allowed.
+*/
 
 void	ft_get_flags(t_indic **ind, char *str)
 {
@@ -40,8 +45,9 @@ void	ft_get_flags(t_indic **ind, char *str)
 }
 
 /*
-** voir comment gerer avec *1$ (n$ reordering output)
-** voir comment gerer le ? point d'interrogation
+** ft_get_width
+** Gets the width specifier as integer. 
+** If the width is negative, the flag '-' is activated & witdh becames positive.
 */
 
 void	ft_get_width(t_indic **ind, va_list ap, char *str, int i)
@@ -74,8 +80,9 @@ void	ft_get_width(t_indic **ind, va_list ap, char *str, int i)
 }
 
 /*
-** voir comment gerer avec *1$ (n$ reordering output)
-** voir comment gerer le ? point d'interrogation
+** ft_get_precision
+** Gets the precision specifier as integer. 
+** If the prec. is negative, the prec. flag is desactivated.
 */
 
 void	ft_get_precision(t_indic **ind, va_list ap, char *str, int i)
@@ -106,6 +113,11 @@ void	ft_get_precision(t_indic **ind, va_list ap, char *str, int i)
 	}
 }
 
+/*
+** ft_get_size
+** Gets the size specifier 'h', "hh", 'l', "ll", 'z', 't' or 'L'.
+*/
+
 void	ft_get_size(t_indic **ind, char *str)
 {
 	int		i;
@@ -131,6 +143,11 @@ void	ft_get_size(t_indic **ind, char *str)
 		i++;
 	}
 }
+
+/*
+** ft_get_size
+** Gets the type specifier.
+*/
 
 void	ft_get_type(t_indic **ind, char *str)
 {

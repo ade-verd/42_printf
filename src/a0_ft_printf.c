@@ -6,11 +6,16 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 17:42:53 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/23 17:48:15 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 12:17:51 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** ft_printf() and ft_vprintf() functions write output to stdout
+** cf. man printf(3)
+*/
 
 int		ft_printf(const char *str, ...)
 {
@@ -23,6 +28,10 @@ int		ft_printf(const char *str, ...)
 	return (ret);
 }
 
+/*
+** ft_dprintf() and ft_vdprintf() write output to the given file descriptor 
+*/
+
 int		ft_dprintf(int fd, const char *str, ...)
 {
 	va_list		ap;
@@ -34,6 +43,10 @@ int		ft_dprintf(int fd, const char *str, ...)
 	return (ret);
 }
 
+/*
+** ft_fprintf() and ft_vfprintf() write output to the given output stream
+*/
+
 int		ft_fprintf(FILE *file, const char *str, ...)
 {
 	va_list		ap;
@@ -44,6 +57,10 @@ int		ft_fprintf(FILE *file, const char *str, ...)
 	va_end(ap);
 	return (ret);
 }
+
+/*
+** ft_asprintf() and ft_vasprintf() dynamically allocate a new string.
+*/
 
 int		ft_asprintf(char **str, const char *fmt, ...)
 {

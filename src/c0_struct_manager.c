@@ -6,11 +6,16 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 14:58:03 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/23 18:42:13 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 12:32:21 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** ft_init_indic
+** Initializes the indicators' structure
+*/
 
 int		ft_init_indic(t_indic **ind)
 {
@@ -25,11 +30,22 @@ int		ft_init_indic(t_indic **ind)
 	return (1);
 }
 
+/*
+** ft_free_indic
+** Frees the indicators' structure
+*/
+*/
+
 void	ft_free_indic(t_indic **ind)
 {
 	if (*ind)
 		ft_memdel((void**)ind);
 }
+
+/*
+** ft_init_buffer
+** Initializes the buffer's structure
+*/
 
 int		ft_init_buffer(t_buff **buff, int fd)
 {
@@ -50,6 +66,11 @@ int		ft_init_buffer(t_buff **buff, int fd)
 	return (1);
 }
 
+/*
+** ft_free_buff
+** Frees the buffer's structure
+*/
+
 void	ft_free_buff(t_buff **buff)
 {
 	if (((*buff)->str))
@@ -60,6 +81,12 @@ void	ft_free_buff(t_buff **buff)
 	if (*buff)
 		ft_memdel((void**)buff);
 }
+
+/*
+** ft_reset_struct
+** At the end of the conversion, frees and resets some element's structures but
+** not everything. For example, the counter of the printed elements must be kept
+*/
 
 void	ft_reset_struct(t_indic **ind, t_buff **buff)
 {

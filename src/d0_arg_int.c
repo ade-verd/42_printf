@@ -6,11 +6,16 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 17:09:01 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 15:53:53 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 13:35:52 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** ft_int_bdiouxX 
+** "bdiouxX" types: applies indicators and puts in buffer
+*/
 
 void	ft_int_bdiouxx(va_list ap, t_indic **ind, t_buff **buff)
 {
@@ -26,6 +31,11 @@ void	ft_int_bdiouxx(va_list ap, t_indic **ind, t_buff **buff)
 	if (str)
 		ft_strdel(&str);
 }
+
+/*
+** ft_int_p
+** 'p'type. Applies indicators and puts in buffer
+*/
 
 void	ft_int_p(va_list ap, t_indic **ind, t_buff **buff)
 {
@@ -45,6 +55,11 @@ void	ft_int_p(va_list ap, t_indic **ind, t_buff **buff)
 	if (str != NULL)
 		ft_strdel(&str);
 }
+
+/*
+** ft_arg_int
+** Main function for int arguments.
+*/
 
 void	ft_arg_int(va_list ap, t_indic **ind, t_buff **buff)
 {

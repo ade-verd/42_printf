@@ -6,11 +6,16 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 13:21:21 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/22 18:44:42 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/02/26 13:46:23 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+/*
+** ft_convert_unicode
+** Convert a wchar_t to a char array of 1 to 4 bytes using binaries operations.
+*/
 
 void	ft_convert_unicode(t_indic **ind, char **byte, int *i)
 {
@@ -39,6 +44,11 @@ void	ft_convert_unicode(t_indic **ind, char **byte, int *i)
 	}
 }
 
+/*
+** ft_checkprecis_and_erase
+** If precision cuts the wchar_t, no byte is printed.
+*/
+
 void	ft_checkprecis_and_erase(t_indic **ind, char **str, int *i, int i_ref)
 {
 	if ((*ind)->type == 's' && (*ind)->isprec == 1 && *i > (*ind)->precision)
@@ -51,6 +61,12 @@ void	ft_checkprecis_and_erase(t_indic **ind, char **str, int *i, int i_ref)
 	}
 }
 
+/*
+** ft_weard_behavior_on_mac
+** On mac implementation, trying to print a char between 0xD800 & 0xDFFF
+** generates an error (return -1 and nothing is printed).
+*/
+
 void	ft_weard_behavior_on_mac(t_indic **ind, t_buff **buff, char **str)
 {
 	if ((*ind)->c >= 0xD800 && (*ind)->c <= 0xDFFF)
@@ -59,6 +75,11 @@ void	ft_weard_behavior_on_mac(t_indic **ind, t_buff **buff, char **str)
 		*str[0] = '\0';
 	}
 }
+
+/*
+** ft_unicode_to_str
+** Converts wchar_t to char* and appends char **str
+*/
 
 void	ft_unicode_to_str(t_indic **ind, t_buff **buff, char **str, int *i)
 {
