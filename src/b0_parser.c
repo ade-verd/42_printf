@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:07:08 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/26 14:53:33 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/03/02 12:17:06 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	ft_convert(t_indic **ind, va_list ap, t_buff **buff)
 	}
 	if (found == 0)
 		ft_arg_novalid_conv(ind, buff);
+	ft_valid_buffer(buff);
 }
 
 /*
@@ -91,4 +92,5 @@ void	ft_parse_str(va_list ap, char *str, t_buff **buff)
 			ft_putcbuffer(buff, str[i]);
 		i += str[i] ? 1 : 0;
 	}
+	ft_valid_buffer(buff);
 }

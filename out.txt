@@ -1,0 +1,24 @@
+Norme: ./src/a0_ft_printf.c
+Norme: ./src/a1_ft_vprintf.c
+Norme: ./src/c0_struct_manager.c
+Norme: ./src/c3_error_manager.c
+Norme: ./src/b0_parser.c
+Norme: ./src/c2_printer.c
+Norme: ./src/c4_unicode_converter.c
+Norme: ./src/d0_arg_int.c
+Norme: ./src/c1_get_chars_to_convert.c
+Norme: ./src/c5_capital_type.c
+Norme: ./src/d2_arg_novalid_conv.c
+Norme: ./src/d1_arg_char.c
+Norme: ./src/d3_arg_string.c
+Norme: ./src/e1_indicators_manager.c
+Norme: ./src/e4_precision_manager.c
+Norme: ./src/e3_flags_manager_part2.c
+Norme: ./libft/includes/get_next_line.h
+Norme: ./includes/ft_printf.h
+Error (line 24): comment not well formatted
+Error (line 27): preprocessor block must be followed by one empty line
+Error (line 28): C++ comment
+Norme: ./libft/includes/libft.h
+Norme: ./src/e0_size_manager.c
+Norme: ./src/e2_flags_manager_part1.c

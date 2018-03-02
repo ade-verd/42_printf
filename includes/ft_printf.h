@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/03/02 11:26:15 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/03/02 14:00:58 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct		s_buff
 	intmax_t		index;
 	int				fd;
 	int				err;
+	intmax_t		valid_pos;
 }					t_buff;
 
 /*
@@ -114,6 +115,7 @@ void				ft_reset_struct(t_indic **ind, t_buff **buff);
 void				ft_putcbuffer(t_buff **buff, char c);
 void				ft_putsbuffer(t_buff **buff, char *str);
 char				*ft_putinstr_buffer(t_buff **buff);
+void				ft_valid_buffer(t_buff **buff);
 
 /*
 ** Get chars to convert

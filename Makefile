@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/02/22 15:24:14 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/03/02 12:47:20 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ OBJ_PATH = obj/
 LIB_PATH = libft
 INC_PATH = includes \
 		   $(LIB_PATH)/includes
+H_FILES = $(addprefix $(INC_PATH), /*.h) 
 
 # Includes & libraries
 CPPFLAGS = $(addprefix -I, $(INC_PATH))
@@ -110,7 +111,7 @@ BIN_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Binary$(LOG_NOCOLOR) deletion " \
 # **************************************************************************** #
 # RULES                                                                        #
 # **************************************************************************** #
-.PHONY: all, clean, fclean, re, norme
+.PHONY: all, clean, fclean, re, norme, normadev
 
 all: $(NAME)
 
@@ -153,6 +154,11 @@ re: fclean all
 norme:
 	norminette $(SRC)
 	norminette $(addprefix $(INC_PATH), /*.h)
+
+normadev: 
+	norminette **/*.[ch] | grep -B 1 "Error\|Warning" || echo "norme OK"
+#	@echo ___
+#	@sh ~/Projects/support/Normadev/normadev.sh $(SRC) $(H_FILES)
 
 # **************************************************************************** #
 # Personal notes :                                                             #

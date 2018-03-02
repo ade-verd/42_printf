@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/16 14:58:03 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/26 14:52:56 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/03/02 12:13:40 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int		ft_init_buffer(t_buff **buff, int fd)
 	(*buff)->index = 0;
 	(*buff)->fd = fd;
 	(*buff)->err = 0;
+	(*buff)->valid_pos = 0;
 	return (1);
 }
 

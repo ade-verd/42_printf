@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 13:06:41 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/26 13:05:41 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/03/02 14:13:13 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,24 @@
 char	*ft_putinstr_buffer(t_buff **buff)
 {
 	char	*str;
-	int		size;
 
-	size = (*buff)->index < 0 ? 1 : (*buff)->index;
-	if (!(str = ft_strnew(size)))
+	if (!(str = ft_strnew((*buff)->valid_pos)))
 	{
 		(*buff)->err = -1;
 		return (NULL);
 	}
-	return (ft_strncpy(str, (*buff)->str, size + 1));
+	return (ft_strncpy(str, (*buff)->str, (*buff)->valid_pos));
+}
+
+/*
+** ft_valid_buffer
+** Validates the characters to print, even if printf returns -1.
+*/
+
+void	ft_valid_buffer(t_buff **buff)
+{
+	if ((*buff)->err != -1)
+		(*buff)->valid_pos = (*buff)->index;
 }
 
 /*
