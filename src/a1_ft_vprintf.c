@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 17:42:53 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/03/02 14:11:07 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/03/02 14:17:32 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,21 +57,21 @@ int		ft_vdprintf(int fd, const char *str, va_list ap)
 ** fwrite() is a forbidden function
 */
 
-
-int		ft_vfprintf(FILE *file, const char *str, va_list ap)
-{
-	int			ret;
-	t_buff		*buff;
-
-	if ((ft_init_buffer(&buff, 1) == -1))
-		return (-1);
-	ft_parse_str(ap, (char*)str, &buff);
-	fwrite(buff->str, 1, buff->valid_pos, file);
-	ret = buff->err != -1 ? buff->index : -1;
-	ft_free_buff(&buff);
-	return (ret);
+/*
+**int		ft_vfprintf(FILE *file, const char *str, va_list ap)
+**{
+**	int			ret;
+**	t_buff		*buff;
+**
+**	if ((ft_init_buffer(&buff, 1) == -1))
+**		return (-1);
+**	ft_parse_str(ap, (char*)str, &buff);
+**	fwrite(buff->str, 1, buff->valid_pos, file);
+**	ret = buff->err != -1 ? buff->index : -1;
+**	ft_free_buff(&buff);
+**	return (ret);
 }
-
+*/
 
 /*
 ** ft_asprintf() and ft_vasprintf() dynamically allocate a new string.
