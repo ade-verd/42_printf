@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/26 15:03:34 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/03/02 11:26:15 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 
 /*
 ** Need to be uncommented to use ft_fprintf or ft_vfprintf
-** fwrite() is a forbidden function
-** # include <stdio.h>
-*/
+** fwrite() is a forbidden function*/
+# include <stdio.h>
+//*/
 
 # define PRINT_IN_STRING	-123456789
 

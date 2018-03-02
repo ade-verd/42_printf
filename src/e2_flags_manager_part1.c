@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/16 17:58:47 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/26 14:40:17 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/03/02 11:37:41 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_manage_plus_signed(t_indic **ind, t_buff **buff, char **str)
 	int		isminus_or_is0;
 
 	n = ft_strchr("+-", *str[0]) ? ft_strlen(*str) - 1 : ft_strlen(*str);
-	w = ((*ind)->precision - n <= 0) ? ((*ind)->width - (*buff)->sign_printed)
+	w = ((*ind)->precision < n) ? ((*ind)->width - (*buff)->sign_printed)
 			: ((*ind)->width - (*buff)->sign_printed - ((*ind)->precision - n));
 	n = ft_strlen(*str);
 	i = 0;
@@ -35,7 +35,7 @@ void	ft_manage_plus_signed(t_indic **ind, t_buff **buff, char **str)
 			|| (ft_strchr((*ind)->flags, '0') && (*ind)->isprec == 0)))
 		isminus_or_is0 = 1;
 	if (ft_strchr((*ind)->flags, '+')
-			&& (*ind)->nb > 0 && (*buff)->sign_printed == 0)
+			&& (*ind)->nb >= 0 && (*buff)->sign_printed == 0)
 		n++;
 	while (i++ < (w - n) && isminus_or_is0 != 1)
 		ft_putcbuffer(buff, ' ');
