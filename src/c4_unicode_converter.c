@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 13:21:21 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/02/26 13:46:23 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/03/02 11:49:01 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	ft_checkprecis_and_erase(t_indic **ind, char **str, int *i, int i_ref)
 
 void	ft_weard_behavior_on_mac(t_indic **ind, t_buff **buff, char **str)
 {
-	if ((*ind)->c >= 0xD800 && (*ind)->c <= 0xDFFF)
+	if ((*ind)->c > 0x10FFFF || ((*ind)->c >= 0xD800 && (*ind)->c <= 0xDFFF))
 	{
 		ft_error_manager(buff);
 		*str[0] = '\0';
@@ -88,9 +88,9 @@ void	ft_unicode_to_str(t_indic **ind, t_buff **buff, char **str, int *i)
 	i_ref = *i;
 	if (ft_strcmp((*ind)->size, "l") == 0)
 	{
+		ft_weard_behavior_on_mac(ind, buff, str);
 		ft_convert_unicode(ind, str, i);
 		ft_checkprecis_and_erase(ind, str, i, i_ref);
-		ft_weard_behavior_on_mac(ind, buff, str);
 	}
 	else
 		(*str)[(*i)++] = (*ind)->c;
