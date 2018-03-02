@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/20 17:42:53 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/03/02 14:17:32 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/03/02 14:21:43 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int		ft_vdprintf(int fd, const char *str, va_list ap)
 **	ret = buff->err != -1 ? buff->index : -1;
 **	ft_free_buff(&buff);
 **	return (ret);
-}
+**}
 */
 
 /*
