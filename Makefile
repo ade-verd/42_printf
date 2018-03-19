@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/03/19 15:51:05 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/03/19 16:15:11 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -119,15 +119,15 @@ BIN_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Binary$(LOG_NOCOLOR) deletion " \
 
 all: $(NAME)
 
-$(NAME): libft_make $(OBJ_PATH) $(OBJ)
+$(NAME): libft.a $(OBJ_PATH) $(OBJ)
 	@echo -e $(EMPTY_LINE)"$(LOG_UP)$(LOG_NOCOLOR) $(COUNTER) file(s) linked         "
 	@libtool -static -o $@ $(OBJ) $(LIBFT) && echo -e $(ASSEMBLING)
 #	@ar -rc $(NAME) $(OBJ) && echo -e $(ASSEMBLING)
 	@ranlib $(NAME) && echo -e $(INDEXING)
 #	@ar -t $(NAME) # list library's functions
 
-libft_make:
-	@make -C $(LIB_PATH)
+libft.a:
+	@make -C $(LIB_PATH) $@
 
 $(OBJ_PATH):
 	@echo -e "$(TITLE)build $(NAME)$(END_TITLE)"
@@ -159,9 +159,11 @@ re: fclean all
 
 clean_quiet:
 	@rm -Rf $(OBJ_PATH)
+	@make -C $(LIB_PATH) clean_quiet
 
 fclean_quiet: clean_quiet
 	@rm -f $(NAME)
+	@make -C $(LIB_PATH) fclean_quiet
 
 norme:
 	norminette $(SRC)
