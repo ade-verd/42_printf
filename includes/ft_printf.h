@@ -6,7 +6,7 @@
 /*   By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/15 17:22:06 by ade-verd          #+#    #+#             */
-/*   Updated: 2018/03/02 14:16:55 by ade-verd         ###   ########.fr       */
+/*   Updated: 2018/03/19 12:30:01 by ade-verd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,34 @@
 # define RMASK_BYTE03	0x07
 # define MASK_BYTE10	0x80
 # define RMASK_BYTE10	0x3F
+
+/*
+** Colors (F)Fonts (B)Backgrounds
+*/
+# define F_CLEAR		"\033[2K"
+# define F_UP			"\033[A"
+# define F_BOLD			"\033[1m"
+# define F_UNDERLINE	"\033[4m"
+# define F_BLINKING		"\033[5m"
+# define F_NO 			"\033[0m"
+# define F_BLACK		"\033[1;30m"
+# define B_BLACK		"\033[0;40m"
+# define F_RED			"\033[1;31m"
+# define B_RED			"\033[0;41m"
+# define F_GREEN		"\033[1;32m"
+# define B_GREEN		"\033[0;42m"
+# define F_YELLOW		"\033[1;33m"
+# define B_YELLOW		"\033[0;43m"
+# define F_BLUE			"\033[1;34m"
+# define B_BLUE			"\033[0;44m"
+# define F_PURPLE		"\033[1;35m"
+# define B_PURPLE		"\033[0;45m"
+# define F_CYAN			"\033[1;36m"
+# define B_CYAN			"\033[0;46m"
+# define F_WHITE		"\033[1;37m"
+# define B_WHITE		"\033[0;47m"
+
+/*
 
 /*
 ** Buffer
