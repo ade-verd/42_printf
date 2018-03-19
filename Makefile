@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/03/19 16:17:35 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/03/19 16:39:12 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -121,9 +121,10 @@ all: $(NAME)
 
 $(NAME): libft.a $(OBJ_PATH) $(OBJ)
 	@echo -e $(EMPTY_LINE)"$(LOG_UP)$(LOG_NOCOLOR) $(COUNTER) file(s) linked         "
-	@libtool -static -o $@ $(OBJ) $(LIBFT) && echo -e $(ASSEMBLING)
-#	@ar -rc $(NAME) $(OBJ) && echo -e $(ASSEMBLING)
-	@ranlib $(NAME) && echo -e $(INDEXING)
+	@if [ $(COUNTER) -ne 0 ]; then \
+	 libtool -static -o $@ $(OBJ) $(LIBFT) && echo -e $(ASSEMBLING); \
+	 ranlib $(NAME) && echo -e $(INDEXING); \
+	fi;
 #	@ar -t $(NAME) # list library's functions
 
 libft.a:
