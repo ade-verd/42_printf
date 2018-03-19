@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/03/02 12:47:20 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/03/19 15:51:05 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,6 +77,9 @@ else
 	CFLAGS := $(FLAGS_DEFAULT) $(ADDFLAGS)
 endif
 
+# Variables
+COUNTER=0
+
 # **************************************************************************** #
 # SPECIALS CHARS                                                               #
 # **************************************************************************** #
@@ -98,7 +101,8 @@ LOG_WHITE = \033[1;37m
 TITLE = $(LOG_CLEAR)$(LOG_BLUE)
 END_TITLE = $(LOG_NOCOLOR)
 LINKING = "--$(LOG_CLEAR)$(LOG_GREEN)✓$(LOG_NOCOLOR)\tlinking " \
-				".................. $(LOG_VIOLET)$<$(LOG_NOCOLOR)"
+				".................... $(LOG_VIOLET)" #$<$(LOG_NOCOLOR)"
+EMPTY_LINE = "--$(LOG_CLEAR)$(LOG_VIOLET)\t                           "
 ASSEMBLING = "--$(LOG_CLEAR)$(LOG_GREEN)✓$(LOG_NOCOLOR)\tassembling " \
 			 	"............... $(LOG_YELLOW)$(NAME)$(LOG_NOCOLOR)"
 INDEXING = "--$(LOG_CLEAR)$(LOG_GREEN)✓$(LOG_NOCOLOR)\tindexing " \
@@ -116,6 +120,7 @@ BIN_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Binary$(LOG_NOCOLOR) deletion " \
 all: $(NAME)
 
 $(NAME): libft_make $(OBJ_PATH) $(OBJ)
+	@echo -e $(EMPTY_LINE)"$(LOG_UP)$(LOG_NOCOLOR) $(COUNTER) file(s) linked         "
 	@libtool -static -o $@ $(OBJ) $(LIBFT) && echo -e $(ASSEMBLING)
 #	@ar -rc $(NAME) $(OBJ) && echo -e $(ASSEMBLING)
 	@ranlib $(NAME) && echo -e $(INDEXING)
@@ -131,7 +136,8 @@ $(OBJ_PATH):
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@$(CC) $(CFLAGS) $(ADDFLAGS) $(CPPFLAGS) -c $< -o $@
-	@echo -e $(LINKING)
+	@echo -e $(EMPTY_LINE)"$(LOG_UP) $<              "
+	$(eval COUNTER=$(shell echo $$(($(COUNTER)+1))))
 
 clean:
 	@echo -e "$(TITLE)clean $(NAME)$(END_TITLE)"
@@ -150,6 +156,12 @@ fclean:
 	@make -C $(LIB_PATH) fclean
 
 re: fclean all
+
+clean_quiet:
+	@rm -Rf $(OBJ_PATH)
+
+fclean_quiet: clean_quiet
+	@rm -f $(NAME)
 
 norme:
 	norminette $(SRC)
