@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
+#    By: aurelien <aurelien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/03/19 16:39:12 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/03/27 12:55:34 by aurelien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -122,13 +122,21 @@ all: $(NAME)
 $(NAME): libft.a $(OBJ_PATH) $(OBJ)
 	@echo -e $(EMPTY_LINE)"$(LOG_UP)$(LOG_NOCOLOR) $(COUNTER) file(s) linked         "
 	@if [ $(COUNTER) -ne 0 ]; then \
-	 libtool -static -o $@ $(OBJ) $(LIBFT) && echo -e $(ASSEMBLING); \
-	 ranlib $(NAME) && echo -e $(INDEXING); \
+		make libtool_link; \
+		ranlib $(NAME) && echo -e $(INDEXING); \
 	fi;
 #	@ar -t $(NAME) # list library's functions
 
 libft.a:
 	@make -C $(LIB_PATH) $@
+
+libtool_link: $(LIBFT) $(OBJ)
+	@if [ $(OS) = Darwin ]; then \
+		libtool -static -o $(NAME) $(OBJ) $(LIBFT) && echo -e $(ASSEMBLING); \
+	fi;
+	@if [ $(OS) = Linux ]; then \
+		ar rc $(NAME) $(LIBFT) && ar rc $(NAME) $(OBJ) && echo -e $(ASSEMBLING); \
+	fi;
 
 $(OBJ_PATH):
 	@echo -e "$(TITLE)build $(NAME)$(END_TITLE)"
