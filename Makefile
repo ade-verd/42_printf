@@ -6,7 +6,7 @@
 #    By: aurelien <aurelien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/03/30 17:34:23 by aurelien         ###   ########.fr        #
+#    Updated: 2018/03/30 17:39:29 by aurelien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -125,7 +125,7 @@ all: $(NAME)
 
 $(NAME): libft.a $(OBJ_PATH) $(OBJ)
 	@if [ $(COUNTER) -ne 0 ]; then \
-		@echo -e $(EMPTY_LINE)"$(LOG_UP)$(LOG_NOCOLOR) $(COUNTER) file(s) linked         "; \
+		echo -e $(EMPTY_LINE)"$(LOG_UP)$(LOG_NOCOLOR) $(COUNTER) file(s) linked         "; \
 		make libtool_link; \
 		ranlib $(NAME) && echo -e $(INDEXING); \
 	fi;
