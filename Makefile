@@ -6,7 +6,7 @@
 #    By: aurelien <aurelien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/03/27 12:55:34 by aurelien         ###   ########.fr        #
+#    Updated: 2018/03/30 16:36:49 by aurelien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,10 +61,10 @@ OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 # Flags with OS Compatibiliy
 OS = $(shell uname)
 ifeq ($(OS), Darwin)
-	FLAGS_DEFAULT = -Werror -Wall -Wextra
+	FLAGS_DEFAULT += -Werror -Wall -Wextra
 endif
 ifeq ($(OS), Linux)
-	FLAGS_DEFAULT = -Wno-unused-result
+	FLAGS_DEFAULT += -Wno-unused-result
 endif
 ifdef FLAGS
 	ifeq ($(FLAGS), no)
@@ -135,8 +135,9 @@ libtool_link: $(LIBFT) $(OBJ)
 		libtool -static -o $(NAME) $(OBJ) $(LIBFT) && echo -e $(ASSEMBLING); \
 	fi;
 	@if [ $(OS) = Linux ]; then \
-		ar rc $(NAME) $(LIBFT) && ar rc $(NAME) $(OBJ) && echo -e $(ASSEMBLING); \
+		cp $(LIBFT) $(NAME) && ar rc $(NAME) $(OBJ) && echo -e $(ASSEMBLING); \
 	fi;
+#		ar rc $(NAME) $(LIBFT) && ar rc $(NAME) $(OBJ) && echo -e $(ASSEMBLING); \
 
 $(OBJ_PATH):
 	@echo -e "$(TITLE)build $(NAME)$(END_TITLE)"
