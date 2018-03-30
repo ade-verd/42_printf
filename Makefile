@@ -6,7 +6,7 @@
 #    By: aurelien <aurelien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/03/30 16:36:49 by aurelien         ###   ########.fr        #
+#    Updated: 2018/03/30 17:34:23 by aurelien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,6 +77,10 @@ else
 	CFLAGS := $(FLAGS_DEFAULT) $(ADDFLAGS)
 endif
 
+# MAKEFLAGS
+MAKEFLAGS += --no-print-directory
+MAKE = make $(MAKEFLAGS) -C
+
 # Variables
 COUNTER=0
 
@@ -120,15 +124,15 @@ BIN_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Binary$(LOG_NOCOLOR) deletion " \
 all: $(NAME)
 
 $(NAME): libft.a $(OBJ_PATH) $(OBJ)
-	@echo -e $(EMPTY_LINE)"$(LOG_UP)$(LOG_NOCOLOR) $(COUNTER) file(s) linked         "
 	@if [ $(COUNTER) -ne 0 ]; then \
+		@echo -e $(EMPTY_LINE)"$(LOG_UP)$(LOG_NOCOLOR) $(COUNTER) file(s) linked         "; \
 		make libtool_link; \
 		ranlib $(NAME) && echo -e $(INDEXING); \
 	fi;
 #	@ar -t $(NAME) # list library's functions
 
 libft.a:
-	@make -C $(LIB_PATH) $@
+	@$(MAKE) $(LIB_PATH) $@
 
 libtool_link: $(LIBFT) $(OBJ)
 	@if [ $(OS) = Darwin ]; then \
@@ -155,7 +159,7 @@ clean:
 	@echo -e $(OBJECTS_DEL)
 	@rm -Rf $(OBJ_PATH)
 	@echo -e "$(TITLE)clean libft$(END_TITLE)"
-	@make -C $(LIB_PATH) clean
+	@$(MAKE) $(LIB_PATH) clean
 
 fclean:
 	@echo -e "$(TITLE)fclean $(NAME)$(END_TITLE)"
@@ -164,17 +168,17 @@ fclean:
 	@echo -e $(BIN_DEL)
 	@rm -f $(NAME)
 	@echo -e "$(TITLE)fclean libft$(END_TITLE)"
-	@make -C $(LIB_PATH) fclean
+	@$(MAKE) $(LIB_PATH) fclean
 
 re: fclean all
 
 clean_quiet:
 	@rm -Rf $(OBJ_PATH)
-	@make -C $(LIB_PATH) clean_quiet
+	@$(MAKE) $(LIB_PATH) clean_quiet
 
 fclean_quiet: clean_quiet
 	@rm -f $(NAME)
-	@make -C $(LIB_PATH) fclean_quiet
+	@$(MAKE) $(LIB_PATH) fclean_quiet
 
 norme:
 	norminette $(SRC)
