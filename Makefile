@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/03/19 16:39:12 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/03/19 17:19:46 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ INC_PATH = includes \
 H_FILES = $(addprefix $(INC_PATH), /*.h) 
 
 # Includes & libraries
-CPPFLAGS = $(addprefix -I, $(INC_PATH))
+CPPFLAGS = $(addprefix -I,$(INC_PATH))
 LDFLAGS = -Llibft
 LDLIBS = -lft
 LIBFT = $(LIB_PATH)/libft.a
@@ -137,7 +137,7 @@ $(OBJ_PATH):
 	@mkdir -p $(OBJ_PATH)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@$(CC) $(CFLAGS) $(ADDFLAGS) $(CPPFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(ADDFLAGS) $(CPPFLAGS)  -c $< -o $@
 	@echo -e $(EMPTY_LINE)"$(LOG_UP) $<              "
 	$(eval COUNTER=$(shell echo $$(($(COUNTER)+1))))
 
