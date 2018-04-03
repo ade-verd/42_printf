@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aurelien <aurelien@student.42.fr>          +#+  +:+       +#+         #
+#    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/03/30 17:39:29 by aurelien         ###   ########.fr        #
+#    Updated: 2018/04/03 15:42:54 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,8 +78,7 @@ else
 endif
 
 # MAKEFLAGS
-MAKEFLAGS += --no-print-directory
-MAKE = make $(MAKEFLAGS) -C
+MAKE = make --no-print-directory -C #$(MAKEFLAGS)
 
 # Variables
 COUNTER=0
