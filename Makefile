@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
+#    By: aurelien <aurelien@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/03/19 17:19:46 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/03/30 17:39:29 by aurelien         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ INC_PATH = includes \
 H_FILES = $(addprefix $(INC_PATH), /*.h) 
 
 # Includes & libraries
-CPPFLAGS = $(addprefix -I,$(INC_PATH))
+CPPFLAGS = $(addprefix -I, $(INC_PATH))
 LDFLAGS = -Llibft
 LDLIBS = -lft
 LIBFT = $(LIB_PATH)/libft.a
@@ -61,10 +61,10 @@ OBJ = $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 # Flags with OS Compatibiliy
 OS = $(shell uname)
 ifeq ($(OS), Darwin)
-	FLAGS_DEFAULT = -Werror -Wall -Wextra
+	FLAGS_DEFAULT += -Werror -Wall -Wextra
 endif
 ifeq ($(OS), Linux)
-	FLAGS_DEFAULT = -Wno-unused-result
+	FLAGS_DEFAULT += -Wno-unused-result
 endif
 ifdef FLAGS
 	ifeq ($(FLAGS), no)
@@ -76,6 +76,10 @@ ifdef FLAGS
 else
 	CFLAGS := $(FLAGS_DEFAULT) $(ADDFLAGS)
 endif
+
+# MAKEFLAGS
+MAKEFLAGS += --no-print-directory
+MAKE = make $(MAKEFLAGS) -C
 
 # Variables
 COUNTER=0
@@ -120,15 +124,24 @@ BIN_DEL = "--$(LOG_CLEAR)$(LOG_YELLOW)Binary$(LOG_NOCOLOR) deletion " \
 all: $(NAME)
 
 $(NAME): libft.a $(OBJ_PATH) $(OBJ)
-	@echo -e $(EMPTY_LINE)"$(LOG_UP)$(LOG_NOCOLOR) $(COUNTER) file(s) linked         "
 	@if [ $(COUNTER) -ne 0 ]; then \
-	 libtool -static -o $@ $(OBJ) $(LIBFT) && echo -e $(ASSEMBLING); \
-	 ranlib $(NAME) && echo -e $(INDEXING); \
+		echo -e $(EMPTY_LINE)"$(LOG_UP)$(LOG_NOCOLOR) $(COUNTER) file(s) linked         "; \
+		make libtool_link; \
+		ranlib $(NAME) && echo -e $(INDEXING); \
 	fi;
 #	@ar -t $(NAME) # list library's functions
 
 libft.a:
-	@make -C $(LIB_PATH) $@
+	@$(MAKE) $(LIB_PATH) $@
+
+libtool_link: $(LIBFT) $(OBJ)
+	@if [ $(OS) = Darwin ]; then \
+		libtool -static -o $(NAME) $(OBJ) $(LIBFT) && echo -e $(ASSEMBLING); \
+	fi;
+	@if [ $(OS) = Linux ]; then \
+		cp $(LIBFT) $(NAME) && ar rc $(NAME) $(OBJ) && echo -e $(ASSEMBLING); \
+	fi;
+#		ar rc $(NAME) $(LIBFT) && ar rc $(NAME) $(OBJ) && echo -e $(ASSEMBLING); \
 
 $(OBJ_PATH):
 	@echo -e "$(TITLE)build $(NAME)$(END_TITLE)"
@@ -137,7 +150,7 @@ $(OBJ_PATH):
 	@mkdir -p $(OBJ_PATH)
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
-	@$(CC) $(CFLAGS) $(ADDFLAGS) $(CPPFLAGS)  -c $< -o $@
+	@$(CC) $(CFLAGS) $(ADDFLAGS) $(CPPFLAGS) -c $< -o $@
 	@echo -e $(EMPTY_LINE)"$(LOG_UP) $<              "
 	$(eval COUNTER=$(shell echo $$(($(COUNTER)+1))))
 
@@ -146,7 +159,7 @@ clean:
 	@echo -e $(OBJECTS_DEL)
 	@rm -Rf $(OBJ_PATH)
 	@echo -e "$(TITLE)clean libft$(END_TITLE)"
-	@make -C $(LIB_PATH) clean
+	@$(MAKE) $(LIB_PATH) clean
 
 fclean:
 	@echo -e "$(TITLE)fclean $(NAME)$(END_TITLE)"
@@ -155,17 +168,17 @@ fclean:
 	@echo -e $(BIN_DEL)
 	@rm -f $(NAME)
 	@echo -e "$(TITLE)fclean libft$(END_TITLE)"
-	@make -C $(LIB_PATH) fclean
+	@$(MAKE) $(LIB_PATH) fclean
 
 re: fclean all
 
 clean_quiet:
 	@rm -Rf $(OBJ_PATH)
-	@make -C $(LIB_PATH) clean_quiet
+	@$(MAKE) $(LIB_PATH) clean_quiet
 
 fclean_quiet: clean_quiet
 	@rm -f $(NAME)
-	@make -C $(LIB_PATH) fclean_quiet
+	@$(MAKE) $(LIB_PATH) fclean_quiet
 
 norme:
 	norminette $(SRC)
