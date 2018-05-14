@@ -1,7 +1,7 @@
-# PRINTF Project
+# Printf Project
 
 ## Project Overview
-PRINTF is a 42 Project that aims to mimic libc printf function
+ft_printf is a 42 Project that aims to mimic libc printf function
 
 Basics, requested from subject:
 * parsing for flags, field_width, precision, length_modifier
