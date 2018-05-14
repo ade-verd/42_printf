@@ -3,7 +3,7 @@
 ## Project Overview
 ft_printf is a 42 Project that aims to mimic libc printf function
 
-Basics, requested from subject:
+>Basics, requested from subject:
 * parsing for flags, field_width, precision, length_modifier
 * parsing for conversion specifier
 * displaying UTF-8 characters (%C and %S)
@@ -11,7 +11,7 @@ Basics, requested from subject:
 * displaying signed numbers (%d, %D, %i)
 * displaying pointer address (%p)
 
-Bonus:
+>Bonus:
 * wildcard_length_modifier (%*) : replaces precision and field_width with parameter in va_list ap
 * handles colors
 * handles multi fd (use ft_dprintf(int fd, char const format, ...) instead of ft_printf)
