@@ -6,7 +6,7 @@
 #    By: ade-verd <ade-verd@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/05 13:46:57 by ade-verd          #+#    #+#              #
-#    Updated: 2018/04/03 15:42:54 by ade-verd         ###   ########.fr        #
+#    Updated: 2018/07/29 20:08:29 by ade-verd         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -187,6 +187,13 @@ normadev:
 	norminette **/*.[ch] | grep -B 1 "Error\|Warning" || echo "norme OK"
 #	@echo ___
 #	@sh ~/Projects/support/Normadev/normadev.sh $(SRC) $(H_FILES)
+
+# Submodules
+init_submodule:
+	git submodule update --init --recursive
+
+update_submodule:
+	git submodule update --recursive --remote
 
 # **************************************************************************** #
 # Personal notes :                                                             #
